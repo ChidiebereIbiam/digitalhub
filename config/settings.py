@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #Local Apps
-    'digitalhub.core'
+    'digitalhub.blog',
+    'digitalhub.core',
 ]
 
 MIDDLEWARE = [
