@@ -62,3 +62,12 @@ def privacy_policy(request):
 
 def pricing(request):
     return render(request, 'core/pricing.html')
+
+def services(request):
+    context = {}
+    return render(request, 'core/services.html', context)
+
+
+def service_details(request, slug):
+    context = {}
+    return render(request, 'core/service-details.html', context)
