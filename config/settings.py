@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     #Local Apps
     'digitalhub.blog',
@@ -54,6 +55,8 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     'ckeditor',
+    'allauth',
+    'allauth.account',
 ]
 
 MIDDLEWARE = [
@@ -64,7 +67,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
 ]
+
+SITE_ID = 1
 
 ROOT_URLCONF = 'config.urls'
 
@@ -153,3 +159,35 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+
+# django-allauth
+# ------------------------------------------------------------------------------
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+ACCOUNT_ALLOW_REGISTRATION = False
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_NOTIFICATIONS = True
+ACCOUNT_EMAIL_SUBJECT_PREFIX = "localhost"
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+
+ACCOUNT_FORMS = {"signup": "digitalhub.authentication.forms.UserSignupForm"}
+EMAIL_CONFIRM_REDIRECT_BASE_URL = "http://localhost:8000/email/confirm/"
+PASSWORD_RESET_CONFIRM_REDIRECT_BASE_URL = "http://localhost:8000/password-reset/confirm/"
+ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+
+
+# Email Settings
+# ------------------------------------------------------------------------------
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = "no_reply@localhost.com"
+DEFAULT_EMAIL = "info@locahost.com"
+
+
+LOGIN_URL = "account_login"
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = 'account_login'
