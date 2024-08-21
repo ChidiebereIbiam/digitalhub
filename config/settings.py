@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'digitalhub.blog',
     'digitalhub.core',
     'digitalhub.authentication',
+    'digitalhub.userbase',
 
     #Third Party Apps
     "crispy_forms",
