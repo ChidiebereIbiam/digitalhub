@@ -47,8 +47,11 @@ INSTALLED_APPS = [
     #Local Apps
     'digitalhub.blog',
     'digitalhub.core',
+    'digitalhub.authentication',
 
     #Third Party Apps
+    "crispy_forms",
+    "crispy_bootstrap5",
     'ckeditor',
 ]
 
@@ -93,7 +96,7 @@ DATABASES = {
     }
 }
 
-
+AUTH_USER_MODEL = 'authentication.User'
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -144,3 +147,8 @@ STATICFILES_FINDERS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
