@@ -12,21 +12,34 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import django
+import environ
+import os
 
 
 from django.utils.encoding import force_str
 django.utils.encoding.force_text = force_str
 
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 APPS_DIR = BASE_DIR / "digitalhub"
 
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+
+# False if not in os.environ because of casting above
+DEBUG = env('DEBUG')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^=qlm3s77ucdh6m72xp%0&87z^1yh_t5bq+8j!)#rt-#v(m3@l'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -57,6 +70,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.apple',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -168,17 +184,39 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-ACCOUNT_ALLOW_REGISTRATION = False
+ACCOUNT_ALLOW_REGISTRATION = True
+ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_EMAIL_NOTIFICATIONS = True
 ACCOUNT_EMAIL_SUBJECT_PREFIX = "localhost"
 ACCOUNT_AUTHENTICATION_METHOD = "email"
-
 ACCOUNT_FORMS = {"signup": "digitalhub.authentication.forms.UserSignupForm"}
 EMAIL_CONFIRM_REDIRECT_BASE_URL = "http://localhost:8000/email/confirm/"
 PASSWORD_RESET_CONFIRM_REDIRECT_BASE_URL = "http://localhost:8000/password-reset/confirm/"
 ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+# SOCIALACCOUNT_ADAPTER = "digitalhub.authentication.adapters.SocialAccountAdapter"
+# SOCIALACCOUNT_FORMS = {"signup": "digitalhub.authentication.forms.UserSocialSignupForm"}
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'EMAIL_AUTHENTICATION': True,
+        'APP': {
+            'client_id': env('GOOGLE_CLIENT_ID'),
+            'secret': env('GOOGLE_CLIENT_SECRET'),
+            'key': env('GOOGLE_CLIENT_KEY')
+        },
+        "SCOPE": [
+            "profile",
+            "email",
+        ],
+        "AUTH_PARAMS": {
+            "access_type": "online",
+        },
+        'OAUTH_PKCE_ENABLED': True,
+    }
+}
+
 
 
 # Email Settings

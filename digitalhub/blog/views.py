@@ -23,7 +23,7 @@ def blog(request):
     return render(request, 'blog/blog.html', context)
 
 
-def blog_detail(request, slug):
+def blog_details(request, slug):
     post = get_object_or_404(Post, slug=slug)
 
     recent_articles = Post.objects.filter(draft=False).order_by('-id')[0:3]

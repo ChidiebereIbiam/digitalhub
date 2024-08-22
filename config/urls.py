@@ -8,4 +8,5 @@ urlpatterns = [
     path("profile/", include("digitalhub.userbase.urls")),
     path("authentication/", include("allauth.urls")),
     path("authentication/", include("digitalhub.authentication.urls")),
+    path('authentication/', include('allauth.socialaccount.urls')),
 ]
