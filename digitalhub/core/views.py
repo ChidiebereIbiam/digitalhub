@@ -4,70 +4,94 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
+from .models import Review, Plan, Service, Team
+from digitalhub.blog.models import Post
 
 # Create your views here.
 
+
 def home(request):
-    return render(request, 'core/homepage.html')
+    posts = Post.objects.all()[0:3]
+    plans = Plan.objects.all()
+    services = Service.objects.all()
+    reviews = Review.objects.all()
+
+    context = {"posts": posts, "plans": plans, "services": services, "reviews": reviews}
+    return render(request, "core/homepage.html", context)
 
 
 def about(request):
-    return render(request, 'core/about.html')
+    services = Service.objects.all()
+    teams = Team.objects.all()
+    context = {"services": services, "teams": teams}
+    return render(request, "core/about.html", context)
 
 
 def contact_us(request):
+    services = Service.objects.all()
+
     if request.method == "POST":
-        name = request.POST['name']
-        email_from = request.POST['email']
-        subject = request.POST['subject']
-        message = request.POST['message']
+        name = request.POST["name"]
+        email_from = request.POST["email"]
+        subject = request.POST["subject"]
+        message = request.POST["message"]
 
         context = {
             "name": name,
             "email": email_from,
             "subject": subject,
-            "message": message
+            "message": message,
         }
 
-        html_content = render_to_string('email/contact_us_email.html', context)
+        html_content = render_to_string("email/contact_us_email.html", context)
         text_content = strip_tags(html_content)
-        
+
         try:
             email = EmailMultiAlternatives(
-            subject=f"New Contact Us Message from {name}",
-            body=text_content, 
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[settings.DEFAULT_EMAIL],
+                subject=f"New Contact Us Message from {name}",
+                body=text_content,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=[settings.DEFAULT_EMAIL],
             )
 
             email.attach_alternative(html_content, "text/html")
 
             # Send the email
             email.send()
-            
-            messages.success(request, 'Thanks for Contacting Us, we will get back to you shortly')
+
+            messages.success(
+                request, "Thanks for Contacting Us, we will get back to you shortly"
+            )
         except:
-            messages.error(request, 'An error occured, try again')
+            messages.error(request, "An error occured, try again")
 
         redirect("contact_us")
-    return render(request, 'core/contact_us.html')
+    return render(request, "core/contact_us.html", {"services": services})
 
 
 def faq(request):
-    return render(request, 'core/faq.html')
+    services = Service.objects.all()
+    return render(request, "core/faq.html", {"services": services})
+
 
 def privacy_policy(request):
-    return render(request, 'core/privacy_policy.html')
+    services = Service.objects.all()
+    return render(request, "core/privacy_policy.html", {"services": services})
 
 
 def pricing(request):
-    return render(request, 'core/pricing.html')
+    services = Service.objects.all()
+    return render(request, "core/pricing.html", {"services": services})
+
 
 def services(request):
-    context = {}
-    return render(request, 'core/services.html', context)
+    services = Service.objects.all()
+    context = {"services": services}
+    return render(request, "core/services.html", context)
 
 
 def service_details(request, slug):
-    context = {}
-    return render(request, 'core/service-details.html', context)
+    services = Service.objects.all()
+    service = get_object_or_404(Service, slug=slug)
+    context = {"services": services, "service": service}
+    return render(request, "core/service-details.html", context)
