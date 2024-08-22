@@ -214,6 +214,17 @@ SOCIALACCOUNT_PROVIDERS = {
             "access_type": "online",
         },
         'OAUTH_PKCE_ENABLED': True,
+    },
+    "apple": {
+        "APPS": [{
+            "client_id": env('APPLE_CLIENT_ID'),
+            "secret": env('APPLE_CLIENT_SECRET'),
+            "key": env('APPLE_CLIENT_KEY'),
+
+            "settings": {
+                "certificate_key": env('APPLE_CERTIFICATE_KEY'),
+            }
+        }]
     }
 }
 
