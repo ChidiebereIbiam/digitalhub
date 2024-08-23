@@ -156,7 +156,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_ROOT = str(BASE_DIR / "staticfiles")
+# STATIC_ROOT = str(BASE_DIR / "staticfiles")
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [str(APPS_DIR / "static")]
@@ -242,3 +242,10 @@ DEFAULT_EMAIL = "info@locahost.com"
 LOGIN_URL = "account_login"
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = 'account_login'
+
+# Strip Settings
+# ------------------------------------------------------------------------------
+STRIPE_PUBLISHABLE_KEY = env('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
+STRIPE_ENDPOINT_SECRET = env('STRIPE_ENDPOINT_SECRET')
+DOMAIN_URL = env('DOMAIN_URL')

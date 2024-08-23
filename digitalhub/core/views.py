@@ -80,10 +80,6 @@ def privacy_policy(request):
     return render(request, "core/privacy_policy.html", {"services": services})
 
 
-def pricing(request):
-    services = Service.objects.all()
-    return render(request, "core/pricing.html", {"services": services})
-
 
 def services(request):
     services = Service.objects.all()
