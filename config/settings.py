@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'digitalhub.core',
     'digitalhub.authentication',
     'digitalhub.userbase',
+    'digitalhub.payment',
 
     #Third Party Apps
     "crispy_forms",

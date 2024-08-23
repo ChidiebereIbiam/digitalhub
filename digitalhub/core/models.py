@@ -1,24 +1,10 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.template.defaultfilters import slugify
-
+from digitalhub.payment.models import StandAlonePlan
 
 # Create your models here.
-class Plan(models.Model):
-    title = models.CharField(max_length=250)
-    description = models.TextField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
 
-    def __str__(self):
-        return f"{self.title} | {self.price}"
-
-
-class Benefit(models.Model):
-    title = models.CharField(max_length=250)
-    description = models.TextField()
-
-    def __str__(self):
-        return self.title
 
 
 class Service(models.Model):
@@ -27,13 +13,10 @@ class Service(models.Model):
     slug = models.SlugField(null=True, blank=True, unique=True, max_length=255)
     icon = models.ImageField(upload_to="service_icons/", null=True, blank=True)
     header_image = models.ImageField(upload_to="service_images/")
-    benefit = models.ForeignKey(
-        Benefit, on_delete=models.CASCADE, related_name="services"
-    )
     description = RichTextField()
     bottom_image = models.ImageField(upload_to="service_images/")
-    plans = models.ForeignKey(Plan, on_delete=models.CASCADE, related_name="services")
-
+    stand_alone_plans = models.ManyToManyField(StandAlonePlan, related_name="services")
+    
     def __str__(self):
         return self.title
 

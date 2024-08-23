@@ -4,15 +4,16 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
-from .models import Review, Plan, Service, Team
+from .models import Review, Service, Team
 from digitalhub.blog.models import Post
+from digitalhub.payment.models import BundlePlan, StandAlonePlan
 
 # Create your views here.
 
 
 def home(request):
     posts = Post.objects.all()[0:3]
-    plans = Plan.objects.all()
+    plans = BundlePlan.objects.all()
     services = Service.objects.all()
     reviews = Review.objects.all()
 
