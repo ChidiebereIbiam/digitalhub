@@ -187,12 +187,41 @@
 }
 .home {
   text-decoration: none;
-  line-height: 24px;
-  font-weight: 700;
+  line-height: 1.5; /* Adjusted line height */
+  font-weight: 500; /* Moderate boldness */
   color: inherit;
   display: inline-block;
-  min-width: 45px;
+  cursor: pointer;
+  padding: 0.15rem 0.35rem; /* Reduced padding for less space between links */
+  transition: color 0.3s ease, background-color 0.3s ease;
+  white-space: nowrap; /* Prevents text from splitting */
 }
+
+.home:hover,
+.home:focus {
+  color: #007bff; /* Lighter shade of blue */
+  background-color: #e7f0fd; /* Light background on hover */
+  border-radius: 0.25rem;
+}
+
+.active_button {
+  font-weight: 700; /* Bolder text for active state */
+  color: #0056b3;
+  background-color: transparent;
+  border-radius: 0.25rem;
+}
+
+/* Adding the line below the active link */
+.active_button::after {
+  content: "";
+  display: block;
+  width: 16px; /* Width of the line */
+  height: 1px; /* Height of the line */
+  border-top: 1px solid var(--new-group-primary-50base); /* Line styling */
+  box-sizing: border-box;
+  margin: 4px auto 0; /* Center the line and add some spacing */
+}
+
 .line-div {
   width: 16px;
   height: 1px;
@@ -479,20 +508,32 @@
   box-sizing: border-box;
 }
 .digital-marketing-solution-parent,
+/* Logo container parent */
 .logo-container-parent {
-  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-}
-.logo-container-parent {
-  width: 1219px;
-  margin: 0 !important;
-  top: -63px;
-  left: -555px;
   align-items: flex-end;
   gap: var(--gap-55xl);
+  width: 100%;
+  padding: 10px 15px; /* Similar to Bootstrap’s padding */
 }
+
+/* Responsive alignment and margins */
+@media (min-width: 768px) {
+  .logo-container-parent {
+    justify-content: flex-start; /* Align left on larger screens */
+    margin-left: 0; /* Reset margins */
+  }
+}
+
+@media (max-width: 767px) {
+  .logo-container-parent {
+    justify-content: center; /* Center on smaller screens */
+    margin: 0 auto; /* Center horizontally */
+  }
+}
+
 .digital-marketing-solution-parent {
   top: 0;
   left: 0;
@@ -1399,12 +1440,15 @@
 .button42 {
   cursor: pointer;
   border: 1px solid var(--white);
-  padding: var(--padding-sm) var(--padding-35xl) var(--padding-sm)
-    var(--padding-36xl);
+  padding: var(--padding-sm) var(--padding-35xl) var(--padding-sm) var(--padding-36xl);
   background-color: var(--gradient);
   border-radius: var(--br-xl) 0 var(--br-xl) var(--br-xl);
-  flex-direction: row;
+  display: inline-flex; /* Use inline-flex to keep the button inline and flexible */
+  flex-direction: row; /* Ensures content inside button stays in a row */
   gap: var(--gap-5xs);
+  white-space: nowrap; /* Prevents text from wrapping to the next line */
+  overflow: hidden; /* Ensures no overflow issues */
+  align-items: center; /* Aligns items vertically centered */
 }
 .button42,
 .card-containers,
@@ -1637,14 +1681,17 @@
   white-space: nowrap;
 }
 .button48 {
-  align-self: stretch;
+  display: inline-flex; /* Use inline-flex to keep the button inline and flexible */
+  align-items: center; /* Aligns items vertically centered */
+  justify-content: center; /* Centers content horizontally */
+  align-self: stretch; /* Stretches the button to the parent container */
   border-radius: var(--br-xl) 0 var(--br-xl) var(--br-xl);
   border: 1px solid var(--new-group-primary-50base);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: var(--padding-sm) var(--padding-xl);
+  padding: var(--padding-sm) var(--padding-xl); /* Adjust padding as necessary */
+  white-space: nowrap; /* Prevents text from wrapping */
+  overflow: hidden; /* Ensures no overflow issues */
+  text-overflow: ellipsis; /* Adds ellipsis if text overflows the container */
+  min-width: fit-content; /* Ensures the button is at least wide enough for the content */
 }
 .actions {
   cursor: pointer;
