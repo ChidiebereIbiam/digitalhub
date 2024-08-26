@@ -1,22 +1,657 @@
-{% load static %} <!-- new -->
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}
+Pricing -
+{% endblock title %}
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Django + Stripe Checkout</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="{% static 'js/payment.js' %}"></script>   <!-- new -->
-    <script defer src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
-  </head>
-  <body>
-  <section class="section">
-    <div class="container">
-        <h1 class="title">Django + Stripe Checkout</h1>
-      <button class="button is-primary" id="submitBtn">Purchase!</button>
+{% block herosection %}
+
+<section class="herosection">
+
+  <div class="container centered-header-hero hero-spacing-bottom">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home / Pricing</li>
+      </ol>
+    </nav>
+    <h1 class="py-lg-3 fw-bolder" id="big">Flexible Plans to Fit Every Budget</h1>
+    <p class="privacy-policy">We understand that every business is unqiue. That's why we offer tailor-made digital
+      marketing solutions designed to address your specific challenges and goals. Reach out to us for a personalized
+      plan that fits your business perfectly </p>
+  </div>
+</section>
+{% endblock herosection %}
+
+{% block main %}
+<!-- Social Proof Section -->
+{% include "core/components/social_proof_section.html" %}
+
+<section class="container-wrapper mt-5 ">
+  <div class="container6">
+    <div class="pricing-header">
+      <div class="pricing-titles">
+
+        <h1 class="bundle-offers">Bundle offers</h1>
+      </div>
+      <div class="content8">
+        <div class="pricing-tier-card">
+          <div class="header1">
+            <div class="heading-and-price">
+              <div class="heading-and-badge">
+                <div class="heading6">Basic plan</div>
+                <div class="badge2">
+                  <a class="text43">Popular</a>
+                </div>
+              </div>
+              <div class="price">
+                <b class="price1">$750</b>
+                <span class="fs-6 text-muted">per month</span>
+              </div>
+            </div>
+            <button class="actions">
+              <div class="button48">
+                <b class="text44">Get Started</b>
+              </div>
+            </button>
+          </div>
+          <div class="content9">
+            <div class="expertise-group">
+              <b class="text45">FEATURES</b>
+            </div>
+            <div class="check-items">
+              <div class="check-item-text">
+                <img class="check-icon" loading="lazy" alt="" src="{% static "images/assets/check-icon.svg" %}" />
+
+                <div class="text-wrap">
+                  <div class="text46">
+                    Social Media Posting: Engage your audience with 2
+                    posts per week plus 2 videos per week.
+                  </div>
+                </div>
+              </div>
+              <div class="check-item-text">
+                <img class="check-icon" loading="lazy" alt="" src="{% static "images/assets/check-icon.svg" %}" />
+
+                <div class="text-wrap">
+                  <div class="text46">
+                    SEO: Enhance your visibility with basic SEO
+                    strategies.
+                  </div>
+                </div>
+              </div>
+
+              <div class="check-item-text">
+                <img class="check-icon" loading="lazy" alt="" src="{% static "images/assets/check-icon-2.svg" %}" />
+
+                <div class="text-wrap">
+                  <div class="text46">
+                    SEO: Enhance your visibility with basic SEO
+                    strategies.
+                  </div>
+                </div>
+              </div>
+              <div class="check-item-text">
+                <img class="check-icon" loading="lazy" alt="" src="{% static "images/assets/check-icon-2.svg" %}" />
+
+                <div class="text-wrap">
+                  <div class="text46">
+                    SEO: Enhance your visibility with basic SEO
+                    strategies.
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+        <div class="pricing-tier-card1">
+          <div class="header1">
+            <div class="heading-and-price">
+              <div class="heading-and-badge1">
+                <div class="heading7">Advanced Bundle</div>
+                <div class="badge3">
+                  <div class="text55">Popular</div>
+                </div>
+              </div>
+              <div class="price2">
+                <b class="price3">$1,875</b>
+                <span class="fs-6">per month</span>
+              </div>
+            </div>
+            <div class="expertise-group">
+              <button class="button49">
+                <b class="text56">Get started</b>
+              </button>
+            </div>
+          </div>
+          <div class="content9">
+            <div class="expertise-group">
+              <b class="text45">FEATURES</b>
+            </div>
+            <div class="check-items">
+              <div class="check-item-text9">
+                <img class="check-icon" alt="" src="{% static "images/assets/check-icon-8.svg" %}" />
+
+                <div class="text-wrap">
+                  <div class="text46">
+                    Social Media: Capture attention with 3 posts and 3
+                    videos per week.
+                  </div>
+                </div>
+              </div>
+              <div class="check-item-text9">
+                <img class="check-icon" alt="" src="{% static "images/assets/check-icon-8.svg" %}" />
+
+                <div class="text-wrap">
+                  <div class="text46">
+                    SEO: Improve your rankings with intermediate SEO
+                    techniques.
+                  </div>
+                </div>
+              </div>
+              <div class="check-item-text9">
+                <img class="check-icon" alt="" src="{% static "images/assets/check-icon-8.svg" %}" />
+
+                <div class="text-wrap">
+                  <div class="text46">
+                    PPC: Boost your reach with standard level
+                    pay-per-click advertising.
+                  </div>
+                </div>
+              </div>
+              <div class="check-item-text9">
+                <img class="check-icon" alt="" src="{% static "images/assets/check-icon-8.svg" %}" />
+
+                <div class="text-wrap">
+                  <div class="text46">
+                    Reporting: Informed with monthly performance reports.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="pricing-tier-card2">
+          <div class="header1">
+            <div class="heading-and-price">
+              <div class="heading-and-badge1">
+                <div class="heading7">Premium Bundle</div>
+                <div class="badge3">
+                  <div class="text55">Popular</div>
+                </div>
+              </div>
+              <div class="price2">
+                <b class="price3">$3,750</b>
+                <span class="fs-6 light">per month</span>
+
+              </div>
+            </div>
+            <button class="actions">
+              <div class="button48">
+                <b class="text44">Get Started</b>
+              </div>
+            </button>
+          </div>
+          <div class="content9">
+            <div class="expertise-group">
+              <b class="text45">FEATURES</b>
+            </div>
+            <div class="check-items">
+              <div class="check-item-text">
+                <img class="check-icon" alt="" src="{% static "images/assets/check-icon.svg" %}" />
+
+                <div class="text-wrap">
+                  <div class="text46">
+                    Social Media: Unlimited posts and videos to maximize
+                    your impact.
+                  </div>
+                </div>
+              </div>
+              <div class="check-item-text">
+                <img class="check-icon" alt="" src="{% static "images/assets/check-icon.svg" %}" />
+
+                <div class="text-wrap">
+                  <div class="text46">
+                    SEO: Dominate search results with expert-level SEO.
+                  </div>
+                </div>
+              </div>
+              <div class="check-item-text">
+                <img class="check-icon" alt="" src="{% static "images/assets/check-icon.svg" %}" />
+
+                <div class="text-wrap">
+                  <div class="text46">
+                    PPC: Achieve premium visibility with advanced PPC
+                    management.
+                  </div>
+                </div>
+              </div>
+              <div class="check-item-text">
+                <img class="check-icon" alt="" src="{% static "images/assets/check-icon.svg" %}" />
+
+                <div class="text-wrap">
+                  <div class="text46">
+                    Reporting: Receive detailed monthly insights.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
-  </body>
-</html>
+  </div>
+</section>
+
+<div class="container mb-4 standalone">
+  <h3> Stand-alone offers</h3>
+</div>
+
+<div class="container mt-5 standalone-prices">
+  <h5 class="text-center text-custom-color">Search Engine Optimization</h5>
+  <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem harum eius earum obcaecati
+    recusandae.</p>
+
+  <div class="row">
+    <div class="col-sm-6 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">SEO Stand-alone</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptate ipsum saepe officiis
+              laborum odit molestiae in?</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$562.50 <small>/ month</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">SEO One-Time Setup</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptate ipsum saepe officiis
+              laborum odit molestiae in?</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$562.50 <small>/ month</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 standalone-prices">
+  <h5 class="text-center text-custom-color">Social Media Management</h5>
+  <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem harum eius earum obcaecati
+    recusandae.</p>
+
+  <div class="row">
+    <div class="col-sm-6 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Social Media Management (Basic)</h5>
+            <p>1 post and 1 video text</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$250 <small>/ month</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Social Media Management (Standard)</h5>
+            <p>2 posts and 2 videos per week</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$400 <small>/ month</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Social Media Management (Premium)</h5>
+            <p>3 post and 1 video text</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$550 <small>/ month</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Reputation Management</h5>
+            <p>Monitor and manage your online reviews and reputations</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$400 <small>/ month</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 standalone-prices">
+  <h5 class="text-center text-custom-color">Content Creation and Management</h5>
+  <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem harum eius earum obcaecati
+    recusandae.</p>
+
+  <div class="row">
+    <div class="col-sm-3 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Business Explainer Videos (Quick)</h5>
+            <p>0-30 secs video</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$150 <small>/ per video</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Business Explainer Videos (Highlights)</h5>
+            <p>31-45 Secs video</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$255 <small>/ per video</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Business Explainer Videos (Detailed)</h5>
+            <p>41 secs - 1 min video</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$300 <small>/ per video</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Business Explainer Videos (Extended)</h5>
+            <p>1min + video</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$412.50 <small>/ per video</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Content Creation</h5>
+            <p>Develop comprehensive content strategies tailored to your business</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$150 <small>/ per page</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Content Marketing Strategy</h5>
+            <p>Develop comprehensive content strategies tailored to your business</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$600 <small>/ per strategy</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Graphics Design Services</h5>
+            <p>Create visually appealing graphics for your marketing materials</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$50 <small>/ per hour</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 standalone-prices">
+  <h5 class="text-center text-custom-color">Advertising Services (PPC)</h5>
+  <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem harum eius earum obcaecati
+    recusandae.</p>
+
+  <div class="row">
+    <div class="col-sm-6 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">PPC One-time setup</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptate ipsum saepe officiis
+              laborum odit molestiae in?</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$375 <small>/ per setup</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">PPC Monthly Management + ads cost</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptate ipsum saepe officiis
+              laborum odit molestiae in?</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$400 <small>/ month</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 standalone-prices">
+  <h5 class="text-center text-custom-color">Web Design, Development and Maintenance</h5>
+  <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem harum eius earum obcaecati
+    recusandae.</p>
+
+  <div class="row">
+    <div class="col-sm-6 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Custom Website Design</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$1500 <small>/ starting price</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">E-commerce Setup</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$2250 <small>/ starting price</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Web Applications</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$5000 <small>/ starting price</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Web Maintenance</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$100 <small>/ month</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 standalone-prices">
+  <h5 class="text-center text-custom-color">Support Services</h5>
+  <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem harum eius earum obcaecati
+    recusandae.</p>
+
+  <div class="row">
+    <div class="col-sm-4 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Chatbot Development</h5>
+            <p>Enhance customer service with custom AI chatbots</p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$1000 <small>/ starting price</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Cold Calls (Marketing Calls)</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$15 <small>/ per hour</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-sm-4 mt-3 ">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">Virtual Assistance Service</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+          </div>
+          <div class="">
+            <h5 class="amount mb-0">$15 <small>/ per hour</small></h5>
+            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 mb-5 standalone">
+  <h5> Note:</h5>
+  <ul>
+    <li>12-month Commitment for all Bundles</li>
+    <li>Third Party Budgets are not included in the price list</li>
+  </ul>
+</div>
+
+<!-- Contact Form -->
+{% include "core/components/contact_us_section.html" %}
+
+
+<!-- Newsletter Sign-Up -->
+{% include "core/components/newsletter_section.html" %}
+{% endblock main %}

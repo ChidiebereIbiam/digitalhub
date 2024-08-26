@@ -397,6 +397,20 @@ img {
     height: 30vh; /* Full viewport height for vertical centering */
 }
 
+@media (max-width: 767px) {
+  .centered-header-hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 10px 15px;
+    padding-bottom: 5px; /* Reduce bottom padding */
+    align-items: flex-start;
+    text-align: left;
+    justify-content: flex-start;
+    font-size: 14px;
+  }
+}
+
+
 .text-custom-color {
   color: rgb(26, 165, 187);
 }
@@ -461,7 +475,112 @@ img {
       flex-wrap: nowrap; /* No wrapping needed */
   }
 }
+.standalone {
+  background-color: rgb(26, 165, 187);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
 
+.standalone h3 {
+  font-weight: bold; 
+  margin: 0; 
+  color: white;
+}
+
+.standalone h5 {
+  margin: 0; 
+  color: white;
+}
+
+.standalone ul {
+  list-style-position: inside; /* Makes the list markers align with the text */
+  text-align: center; /* Centers the text and list markers */
+  padding-left: 0; /* Removes default padding */
+}
+
+.standalone ul li {
+  margin: 0; 
+  color: white; /* Set text color to white */
+}
+
+.standalone-prices a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem; 
+    cursor: pointer;
+    border: 1px solid var(--new-group-primary-50base);
+    padding: var(--padding-sm) var(--padding-11xl);
+    background-color: var(--gradient);
+    flex: 1;
+    border-radius: var(--br-xl) 0 var(--br-xl) var(--br-xl);
+    z-index: 2;
+}
+
+.standalone-prices a:hover {
+  background-color: var(--color-darkturquoise-200);
+  border: 1px solid var(--color-darkturquoise-100);
+  box-sizing: border-box;
+}
+
+.hero-spacing-bottom {
+  margin-bottom: 100px;
+}
+
+@media (max-width: 767px) {
+  .hero-spacing-bottom {
+    margin-bottom: 0 !important; 
+  }
+}
+
+.standalone-prices .card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to the card */
+}
+
+.standalone-prices .card-body {
+  height: 100%; /* Ensure the card body takes full height */
+}
+
+.standalone-prices .amount small {
+  font-size: 0.75rem; /* Make '/ month' smaller */
+}
+
+.custom-flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount {
+  margin: 0; /* Ensure no extra margins */
+}
+
+.pricing-button {
+
+  text-decoration: none;
+  font-size: var(--button-font-size);
+  line-height: 18px;
+  font-weight: 500;
+  font-family: var(--button-font);
+  background: linear-gradient(112.41deg, #1aa5bb, #1aa5bb 54.9%, #79e299);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: right;
+  white-space: nowrap;
+  margin-left: auto; 
+}
+
+@media (max-width: 767px) {
+  .standalone-prices .card h5 {
+    font-size: 1rem; /* Adjust the size as needed */
+    margin-bottom: 0.5rem; /* Optional: Adjust margin */
+  }
+
+  .standalone-prices .card p {
+    font-size: 0.875rem; /* Adjust the size as needed */
+    margin-bottom: 0.5rem; /* Optional: Adjust margin */
+  }
+}
 
 /* Responsive adjustments for small screens */
 @media (max-width: 768px) {
