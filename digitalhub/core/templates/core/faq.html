@@ -1,0 +1,32 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}
+FAQ -
+{% endblock title %}
+
+{% block herosection %}
+
+<section class="herosection">
+
+    <div class="container centered-header-hero">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Home / FAQ</li>
+            </ol>
+        </nav>   
+        <h1 class="py-lg-3 fw-bolder" id="big">How can we help you?</h1>     
+    </div>
+</section>
+{% endblock herosection %}
+
+{% block main %}
+
+<!-- FAQ Section -->
+{% include "core/components/faq_section.html" %}
+
+<!-- Contact Form -->
+{% include "core/components/contact_us_section.html" %}
+
+<!-- Newsletter Sign-Up -->
+{% include "core/components/newsletter_section.html" %}
+{% endblock main %}
