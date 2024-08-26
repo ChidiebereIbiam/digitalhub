@@ -1,0 +1,120 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}
+Contact us -
+{% endblock title %}
+
+{% block herosection %}
+
+<section class="herosection">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Home / Contact us</li>
+                        </ol>
+                    </nav>
+                    <h1 class="py-lg-3 fw-bolder" id="big">Contact Us for a free Consultation</h1>
+                    <div class="supporting-text">
+                        Ready to transform your online presence and drive your business
+                        growth? Get in touch with us today and discover how our digital
+                        marketing solutions can help you achieve your goals.
+                    </div>
+                </div>
+                <div class="py-lg-4">
+                    <button class="button39">
+                        <b class="text40">Send us a message now</b>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                
+
+                <img src="{% static 'images/assets/blackbusinesswomansmiling-11@2x.png' %}" class="img-fluid" alt="...">
+
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock herosection %}
+
+{% block main %}
+<!-- Social Proof Section -->
+{% include "core/components/social_proof_section.html" %}
+
+<section>
+    <div class="custom-container mt-5">
+        <!-- Heading -->
+        <div class="custom-text-center mb-4">
+            <h6 class="custom-contact-heading">Contact us</h6>
+            <h2 class="custom-main-heading">Reach and get in touch with us!</h2>
+        </div>
+        <!-- Contact Information Cards -->
+        <div class="row justify-content-center">
+            <!-- Card 1 -->
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="custom-card">
+                    <div class="custom-card-body">
+                        <div class="custom-icon-circle mb-3">
+                            <i class="fas fa-map-marker-alt custom-icon"></i>
+                        </div>
+                        <h5 class="custom-card-title">Location</h5>
+                        <a href="#" class="custom-card-link">Visit us at</a>
+                        <p class="custom-card-text mt-2">Lorem ipsumbghjk hchjskif hhhusd dfgfhjklo;</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="custom-card">
+                    <div class="custom-card-body">
+                        <div class="custom-icon-circle mb-3">
+                            <i class="fas fa-phone-alt custom-icon"></i>
+                        </div>
+                        <h5 class="custom-card-title">24/7 Service</h5>
+                        <a href="tel:+247098737364" class="custom-card-link">Call us on</a>
+                        <p class="custom-card-text mt-2">+247 098737364 <br> +566 778899999</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="custom-card">
+                    <div class="custom-card-body">
+                        <div class="custom-icon-circle mb-3">
+                            <i class="fas fa-envelope custom-icon"></i>
+                        </div>
+                        <h5 class="custom-card-title">Drop a Line</h5>
+                        <a href="mailto:osifuyeebunoluwa@gmail.com" class="custom-card-link">Mail Address</a>
+                        <p class="custom-card-text mt-2">osifuyeebunoluwa@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="custom-card">
+                    <div class="custom-card-body">
+                        <div class="custom-icon-circle mb-3">
+                            <i class="fas fa-clock custom-icon"></i>
+                        </div>
+                        <h5 class="custom-card-title">Office Hours</h5>
+                        <a href="#" class="custom-card-link">Opening Time</a>
+                        <p class="custom-card-text mt-2">Mon-Fri: 9am–6pm <br> Sunday (Closed)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</section>
+<!-- Contact Form -->
+{% include "core/components/contact_us_section.html" %}
+
+<!-- Newsletter Sign-Up -->
+{% include "core/components/newsletter_section.html" %}
+{% endblock main %}

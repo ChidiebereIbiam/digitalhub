@@ -47,7 +47,7 @@ body {
 }
 
 .herosection {
-    padding-top: 7%;
+    padding-top: 4%;
 }
 
 img {
@@ -291,6 +291,7 @@ img {
 }
 
 
+
 .social-proof {
     background-color: var(--color-azure-100)
 }
@@ -312,6 +313,88 @@ img {
     text-align: left;
 }
 
+/* Custom container class */
+.custom-container {
+    padding: 0 15px; /* Adjust container padding */
+}
+
+/* Custom text alignment */
+.custom-text-center {
+    text-align: center;
+}
+
+/* Heading styles */
+.custom-contact-heading {
+    color: rgb(26, 165, 187); /* Matches the turquoise color */
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.custom-main-heading {
+    font-weight: 700;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Custom card styles */
+.custom-card {
+    border-radius: 16px; /* Rounded corners */
+    background-color: #ffffff; /* White card background */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.custom-card:hover {
+    transform: translateY(-5px); /* Lift up on hover */
+}
+
+.custom-card-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* Icon styles */
+.custom-icon-circle {
+    width: 50px;
+    height: 50px;
+    background-color: #eaf7f7; /* Light turquoise background */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.custom-icon {
+    color: rgb(26, 165, 187); /* Icon color */
+    font-size: 24px; /* Icon size */
+}
+
+/* Custom card content styles */
+.custom-card-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.custom-card-link {
+    font-weight: 700; /* Bold for links */
+    font-size: 16px;
+    text-decoration: none;
+    color: rgb(26, 165, 187); /* Matches the turquoise color */
+}
+
+.custom-card-text {
+    font-size: 14px;
+    color: #6c757d; /* Bootstrap default text-muted */
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+    .custom-card-body {
+        padding: 1.5rem 1rem; /* Adjust padding on smaller screens */
+    }
+}
 
 
 
