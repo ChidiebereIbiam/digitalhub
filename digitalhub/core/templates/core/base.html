@@ -26,7 +26,7 @@
     <div class="header-hero-container">
         <!-- Header -->
         <header class="header">
-            <nav class="navbar navbar-expand-lg navbar-light">
+            <nav class="navbar navbar-expand-lg navbar-light sticky-top">
                 <div class="container px-2">
                     <div class="py-0">
                         <img src="{% static "images/assets/logo@2x.png" %}" class=" py-0" alt="">
@@ -50,14 +50,17 @@
                                 <a class="nav-link" href="{% url "home" %}">Home</a>
                             </li>
                             <li class="nav-item px-3 px-lg-3 py-1 py-lg-3 dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                <a class="nav-link dropdown-toggle" href="{% url "services" %}" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     Services
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Team</a></li>
-                                    <li><a class="dropdown-item" href="#">FAQ</a></li>
-                                    <li><a class="dropdown-item" href="#">Pricing</a></li>
+                                    <li><a class="dropdown-item" href="#">Search Engine Optimisation</a></li>
+                                    <li><a class="dropdown-item" href="#">Social Media management</a></li>
+                                    <li><a class="dropdown-item" href="#">Content Creation and management</a></li>
+                                    <li><a class="dropdown-item" href="#">Advertising services</a></li>
+                                    <li><a class="dropdown-item" href="#">Web design and management</a></li>
+                                    <li><a class="dropdown-item" href="#">Support Services</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item px-3 px-lg-3 py-1 py-lg-3">
@@ -103,18 +106,30 @@
     <!-- Footer -->
 
     <footer class="text-white blue">
-        <div class="container-fluid pt-5  pb-5 company-detail">
-            <div class="row ">
-                <div class="col-md-2">
+        <div class="container-fluid pt-5 pb-5 company-detail">
+            <div class="row">
+                <!-- Company and Social on the same row in mobile -->
+                <div class="col-md-2 col-6 company">
                     <h4 class="font-weight-bold mb-3">Company</h4>
-                    <p>Pricing</p>
-                    <p>About us</p>
-                    <p>Services</p>
-                    <p>Blog</p>
-                    <p>Contact Us</p>
+                    <p><a href="{% url 'pricing' %}" class="footer-link">Pricing</a></p>
+                    <p><a href="{% url 'about_us' %}" class="footer-link">About us</a></p>
+                    <p><a href="{% url 'services' %}" class="footer-link">Services</a></p>
+                    <p><a href="{% url 'blog' %}" class="footer-link">Blog</a></p>
+                    <p><a href="{% url 'contact_us' %}" class="footer-link">Contact Us</a></p>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3 col-6 social">
+                    <h4 class="font-weight-bold mb-3">Social</h4>
+                    <p>Twitter</p>
+                    <p>LinkedIn</p>
+                    <p>Facebook</p>
+                    <p>Github</p>
+                    <p>AngelList</p>
+                    <p>Dribble</p>
+                </div>
+
+                <!-- Services take a new row on mobile -->
+                <div class="col-md-3 col-12 services">
                     <h4 class="font-weight-bold mb-3">Services</h4>
                     <p>Search Engine Optimisation</p>
                     <p>Social Media management</p>
@@ -124,44 +139,34 @@
                     <p>Support Services</p>
                 </div>
 
-                <div class="col-md-3">
+                <!-- Legal and Resources on the same row in mobile -->
+                <div class="col-md-3 col-6 resources">
                     <h4 class="font-weight-bold mb-3">Resources</h4>
-                    <p><a href="faq"></a>FAQs</p>
-                    <p>Testimonial</p>
-                    <p>Pricing</p>
+                    <p><a href="{% url 'faq' %}" class="footer-link">FAQs</a></p>
+                    <p><a href="" class="footer-link">Testimonial</a></p>
+                    <p><a href="{% url 'pricing' %}" class="footer-link">Pricing</a></p>
                 </div>
 
-                <div class="col-md-3">
-                    <h4 class="font-weight-bold mb-3">Social</h4>
-                    <p>Twitter</p>
-                    <p>LinkedIN</p>
-                    <p>Facebook</p>
-                    <p>Github</p>
-                    <p>AngelList</p>
-                    <p>Dribble</p>
-                </div>
-
-                <div class="col-md-1">
+                <div class="col-md-1 col-6 legal">
                     <h4 class="font-weight-bold mb-3">Legal</h4>
                     <p>Terms</p>
-                    <p>Privacy</p>
+                    <p><a href="{% url 'privacy_policy' %}" class="footer-link">Privacy</a></p>
                     <p>Cookies</p>
                     <p>Licensed</p>
                 </div>
             </div>
             <hr>
             <div class="d-flex justify-content-between">
-                <div class="py-0 ">
+                <div class="py-0">
                     <img src="logo.png" class="bg-white py-0" alt="">
                 </div>
                 <div class="">
-                    <p>&copy; All Right reserved</p>
+                    <p>&copy; All Rights Reserved</p>
                 </div>
             </div>
-
         </div>
-
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>

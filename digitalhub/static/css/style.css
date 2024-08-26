@@ -401,6 +401,66 @@ img {
   color: rgb(26, 165, 187);
 }
 
+.privacy-policy {
+  width: 60%; /* Content width (100% - 30% left margin - 30% right margin = 40%) */
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+
+/* Styling for mobile screens (less than 750px) */
+@media screen and (max-width: 750px) {
+  .privacy-policy {
+    width: 100%; /* Full width */
+    margin-left: 0; /* No margin on smaller screens */
+    margin-right: 0;
+  }
+}
+
+
+.footer-link {
+  color: white; /* Sets the text color to white */
+  text-decoration: none; /* Removes the underline */
+}
+
+.footer-link:hover {
+  text-decoration: underline; /* Optionally, add underline on hover */
+}
+
+/* Default styles for mobile devices */
+@media (max-width: 768px) {
+  .company-detail .company, .company-detail .social {
+      flex: 1 1 50%; /* Take half the width each */
+      display: flex;
+      flex-direction: column;
+  }
+
+  .company-detail .services {
+      flex: 1 1 100%; /* Full width */
+      display: flex;
+      flex-direction: column;
+      order: 3; /* Appears after company and social */
+  }
+
+  .company-detail .resources, .company-detail .legal {
+      flex: 1 1 50%; /* Take half the width each */
+      display: flex;
+      flex-direction: column;
+  }
+
+  .company-detail .row {
+      display: flex;
+      flex-wrap: wrap; /* Allow wrapping to next line */
+  }
+}
+
+/* Default styles for larger screens */
+@media (min-width: 769px) {
+  .company-detail .row {
+      display: flex;
+      flex-wrap: nowrap; /* No wrapping needed */
+  }
+}
 
 
 /* Responsive adjustments for small screens */
