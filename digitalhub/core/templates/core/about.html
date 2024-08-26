@@ -1,0 +1,242 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}
+About us -
+{% endblock title %}
+
+{% block herosection %}
+
+<section class="herosection">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Home / About us</li>
+                        </ol>
+                    </nav>
+                    <h1 class="py-lg-3 fw-bolder" id="big">About us</h1>
+                    <div class="supporting-text">
+                        Are you ready to take your business to the next level? At 247digital
+                        Hub we specialize in providing comprehensive digital marketing
+                        solutions tailored to meet your unique needs. Our expert team is
+                        dedicated to driving your success through innovative strategies,
+                        compelling content, and cutting-edge technology.
+                    </div>
+                </div>
+                <div class="py-lg-4">
+                    <button class="button39">
+                        <b class="text40">Contact us Now</b>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <img src="{% static 'images/assets/blackbusinesswomansmiling-1@2x.png' %}" class="img-fluid" alt="...">
+
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock herosection %}
+
+{% block main %}
+<!-- Social Proof Section -->
+{% include "core/components/social_proof_section.html" %}
+
+<section>
+    <div class="container mt-5">
+        <div class="row position-relative">
+            <!-- Main Image -->
+            <div class="col-12">
+                <img class="img-fluid rounded w-60" src="{% static 'images/assets/shape-one@2x.png' %}" alt="Main Image"
+                    style="width: 60%;">
+            </div>
+
+            <!-- Overlay Image -->
+            <div class="col-12 position-absolute top-50 end-0 translate-middle-y" style="width: 40%;">
+                <img class="img-fluid rounded" src="{% static 'images/assets/rectangle-25@2x.png' %}"
+                    alt="Overlay Image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container px-4  mt-5">
+        <div class="content">
+            <h1 class="about-the-company">About the Company</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, vitae. Ratione inventore aspernatur
+                    laudantium animi? Cumque hic, quaerat sit explicabo magni nulla eos deserunt nostrum architecto
+                    excepturi, nisi pariatur natus?</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam repudiandae eius placeat, soluta,
+                    pariatur, corrupti aspernatur quod saepe voluptates praesentium obcaecati numquam possimus
+                    voluptatum dolorem. Vel mollitia itaque veniam enim?</p>
+
+            </div>
+            <div class="col-sm-6">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, vitae. Ratione inventore aspernatur
+                    laudantium animi? Cumque hic, quaerat sit explicabo magni nulla eos deserunt nostrum architecto
+                    excepturi, nisi pariatur natus?</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam repudiandae eius placeat, soluta,
+                    pariatur, corrupti aspernatur quod saepe voluptates praesentium obcaecati numquam possimus
+                    voluptatum dolorem. Vel mollitia itaque veniam enim?</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+
+                <img src="{% static 'images/assets/rectangle-22@2x.png' %}" alt="" class="img-fluid">
+
+            </div>
+            <div class="col-sm-6">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, vitae. Ratione inventore aspernatur
+                    laudantium animi? Cumque hic, quaerat sit explicabo magni nulla eos deserunt nostrum architecto
+                    excepturi, nisi pariatur natus?</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam repudiandae eius placeat, soluta,
+                    pariatur, corrupti aspernatur quod saepe voluptates praesentium obcaecati numquam possimus
+                    voluptatum dolorem. Vel mollitia itaque veniam enim?</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+</section>
+
+<!-- Why Choose Us -->
+{% include "core/components/why_choose_us_section.html" %}
+
+<section class="team-content-wrapper">
+    <div class="team-content">
+        <div class="team-intro">
+            <div class="team-header">
+                <b class="the-team">The Team</b>
+                <h1 class="transform-your-online">Meet The Team members</h1>
+            </div>
+        </div>
+        <div class="team-members">
+            <div class="rectangle-group">
+                <div class="frame-child3"></div>
+                <img class="team-member-image" loading="lazy" alt="" src="{% static "images/assets/rectangle-28@2x.png" %}" />
+
+                <div class="team-member-card">
+                    <div class="team-member-info">
+                        <div class="team-member-name">
+                            <b class="john-queens">John Queens</b>
+                            <div class="social-media-manager">Social Media Manager</div>
+                        </div>
+                        <div class="team-member-one-socials">
+                            <div class="team-member-one-social-icons">
+                                <img class="iconixtosolidfacebook" loading="lazy" alt=""
+                                    src="{% static "images/assets/iconixtosolidfacebook.svg" %}" />
+                            </div>
+                            <div class="team-member-one-social-icons">
+                                <img class="iconixtosolidfacebook" loading="lazy" alt=""
+                                    src="{% static "images/assets/iconixtosolidinstagram.svg"%}" />
+                            </div>
+                            <div class="team-member-one-social-icons">
+                                <img class="iconixtosolidfacebook" loading="lazy" alt=""
+                                    src="{% static "images/assets/iconixtosolidlinkedin.svg"%}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rectangle-group">
+                <div class="frame-child3"></div>
+                <img class="team-member-image" loading="lazy" alt="" src="{% static "images/assets/rectangle-28@2x.png" %}" />
+
+                <div class="team-member-card">
+                    <div class="team-member-info">
+                        <div class="team-member-name">
+                            <b class="john-queens">John Queens</b>
+                            <div class="social-media-manager">Social Media Manager</div>
+                        </div>
+                        <div class="team-member-one-socials">
+                           <div class="team-member-one-social-icons">
+                                <img class="iconixtosolidfacebook" loading="lazy" alt=""
+                                    src="{% static "images/assets/iconixtosolidfacebook.svg" %}" />
+                            </div>
+                            <div class="team-member-one-social-icons">
+                                <img class="iconixtosolidfacebook" loading="lazy" alt=""
+                                    src="{% static "images/assets/iconixtosolidinstagram.svg"%}" />
+                            </div>
+                            <div class="team-member-one-social-icons">
+                                <img class="iconixtosolidfacebook" loading="lazy" alt=""
+                                    src="{% static "images/assets/iconixtosolidlinkedin.svg"%}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rectangle-group">
+                <div class="frame-child3"></div>
+                <img class="team-member-image" loading="lazy" alt="" src="{% static "images/assets/rectangle-28@2x.png" %}" />
+
+                <div class="team-member-card">
+                    <div class="team-member-info">
+                        <div class="team-member-name">
+                            <b class="john-queens">John Queens</b>
+                            <div class="social-media-manager">Social Media Manager</div>
+                        </div>
+                        <div class="team-member-one-socials">
+                            <div class="team-member-one-social-icons">
+                                <img class="iconixtosolidfacebook" loading="lazy" alt=""
+                                    src="{% static "images/assets/iconixtosolidfacebook.svg" %}" />
+                            </div>
+                            <div class="team-member-one-social-icons">
+                                <img class="iconixtosolidfacebook" loading="lazy" alt=""
+                                    src="{% static "images/assets/iconixtosolidinstagram.svg"%}" />
+                            </div>
+                            <div class="team-member-one-social-icons">
+                                <img class="iconixtosolidfacebook" loading="lazy" alt=""
+                                    src="{% static "images/assets/iconixtosolidlinkedin.svg"%}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rectangle-group">
+                <div class="frame-child3"></div>
+                <img class="team-member-image" loading="lazy" alt="" src="{% static "images/assets/rectangle-28@2x.png" %}" />
+
+                <div class="team-member-card">
+                    <div class="team-member-info">
+                        <div class="team-member-name">
+                            <b class="john-queens">John Queens</b>
+                            <div class="social-media-manager">Social Media Manager</div>
+                        </div>
+                        <div class="team-member-one-socials">
+                            <div class="team-member-one-social-icons">
+                                <img class="iconixtosolidfacebook" loading="lazy" alt=""
+                                    src="{% static "images/assets/iconixtosolidfacebook.svg" %}" />
+                            </div>
+                            <div class="team-member-one-social-icons">
+                                <img class="iconixtosolidfacebook" loading="lazy" alt=""
+                                    src="{% static "images/assets/iconixtosolidinstagram.svg"%}" />
+                            </div>
+                            <div class="team-member-one-social-icons">
+                                <img class="iconixtosolidfacebook" loading="lazy" alt=""
+                                    src="{% static "images/assets/iconixtosolidlinkedin.svg"%}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form -->
+{% include "core/components/contact_us_section.html" %}
+
+<!-- Newsletter Sign-Up -->
+{% include "core/components/newsletter_section.html" %}
+{% endblock main %}
