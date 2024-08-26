@@ -1,0 +1,56 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}
+Services -
+{% endblock title %}
+
+{% block herosection %}
+<section class="herosection">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Home / Services</li>
+                        </ol>
+                    </nav>
+                    <h1 class="py-lg-3 fw-bolder" id="big">Transform your <br> online Presence</h1>
+                   
+                </div>
+                <div class="py-lg-4">
+                    <button class="button39">
+                        <b class="text40">Get a free Consultation</b>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                
+
+                <img src="{% static 'images/assets/service-hero.png' %}" class="img-fluid" alt="...">
+
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock herosection %}
+
+
+{% block main %}
+<!-- Social Proof Section -->
+{% include "core/components/social_proof_section.html" %}
+
+<!-- Services -->
+{% include "core/components/services_section.html" %}
+
+<!-- Why Choose Us -->
+{% include "core/components/why_choose_us_section.html" %}
+
+<!-- Contact Form -->
+{% include "core/components/contact_us_section.html" %}
+
+<!-- Newsletter Sign-Up -->
+{% include "core/components/newsletter_section.html" %}
+{% endblock %}
