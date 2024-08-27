@@ -45,7 +45,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://digitalhub-indol.vercel.app/", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -205,9 +205,9 @@ SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'EMAIL_AUTHENTICATION': True,
         'APP': {
-            'client_id': env('GOOGLE_CLIENT_ID'),
-            'secret': env('GOOGLE_CLIENT_SECRET'),
-            'key': env('GOOGLE_CLIENT_KEY')
+            'client_id': os.environ.get('GOOGLE_CLIENT_ID'),
+            'secret': os.environ.get('GOOGLE_CLIENT_SECRET'),
+            'key': os.environ.get('GOOGLE_CLIENT_KEY')
         },
         "SCOPE": [
             "profile",
@@ -220,12 +220,12 @@ SOCIALACCOUNT_PROVIDERS = {
     },
     "apple": {
         "APPS": [{
-            "client_id": env('APPLE_CLIENT_ID'),
-            "secret": env('APPLE_CLIENT_SECRET'),
-            "key": env('APPLE_CLIENT_KEY'),
+            "client_id": os.environ.get('APPLE_CLIENT_ID'),
+            "secret": os.environ.get('APPLE_CLIENT_SECRET'),
+            "key": os.environ.get('APPLE_CLIENT_KEY'),
 
             "settings": {
-                "certificate_key": env('APPLE_CERTIFICATE_KEY'),
+                "certificate_key": os.environ.get('APPLE_CERTIFICATE_KEY'),
             }
         }]
     }
@@ -246,7 +246,7 @@ LOGOUT_REDIRECT_URL = 'account_login'
 
 # Strip Settings
 # ------------------------------------------------------------------------------
-STRIPE_PUBLISHABLE_KEY = env('STRIPE_PUBLISHABLE_KEY')
-STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
-STRIPE_ENDPOINT_SECRET = env('STRIPE_ENDPOINT_SECRET')
-DOMAIN_URL = env('DOMAIN_URL')
+STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_ENDPOINT_SECRET = os.environ.get('STRIPE_ENDPOINT_SECRET')
+DOMAIN_URL = os.environ.get('DOMAIN_URL')
