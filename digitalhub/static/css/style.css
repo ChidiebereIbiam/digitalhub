@@ -1230,3 +1230,71 @@ hr {
     margin-bottom: 10px; /* Add margin below image */
   }
 }
+
+
+/* Container for author details */
+.author-container {
+  display: flex;
+  align-items: flex-start; /* Align items at the start (top) */
+}
+
+/* Author image container styling */
+.author-image-container {
+  width: 30px; /* Set width */
+  height: 30px; /* Set height */
+  overflow: hidden; /* Hide overflow to prevent distortion */
+  border-radius: 50%; /* Round the image container */
+  margin-right: 8px; /* Reduced space between image and text */
+  display: flex; /* Center image */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Author image styling */
+.author-image {
+  width: 100%; /* Make image fill container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+/* Author details styling */
+.author-details {
+  display: flex;
+  flex-direction: column; /* Stack the name and date vertically */
+}
+
+/* Author name styling */
+.author-name {
+  font-size: 0.6rem; /* Very small font size */
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+/* Published date styling */
+.author-date {
+  font-size: 0.5rem; /* Even smaller font size */
+  margin-bottom: 0; /* Remove bottom margin */
+  color: #6c757d; /* Light color for muted text */
+}
+
+
+.post-details {
+  width: 60%; /* Content width (100% - 30% left margin - 30% right margin = 40%) */
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.post-details .post-conclusion {
+  background-color: rgb(211, 208, 208);
+  padding: 15px;
+  border-radius: 10px;
+  
+}
+
+/* Styling for mobile screens (less than 750px) */
+@media screen and (max-width: 750px) {
+  .post-details {
+    width: 100%; /* Full width */
+    margin-left: 0; /* No margin on smaller screens */
+    margin-right: 0;
+  }
+}

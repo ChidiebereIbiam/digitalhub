@@ -1,0 +1,167 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}
+Blog Details -
+{% endblock title %}
+
+{% block herosection %}
+<section class="herosection">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Home / Blogs </li>
+                        </ol>
+                    </nav>
+                    <h1 class="py-lg-3 fw-bolder" id="big">Result Driven <br> Marketing</h1>
+
+                    <div class="supporting-text">
+                        We stay ahead of the curve with the latest digital marketing trends and technology.
+                    </div>
+
+                </div>
+                <div class="container mt-4 mb-4">
+                    <div class="author-container d-flex align-items-start">
+                        <!-- Author Image Container -->
+                        <div class="author-image-container">
+                            <img src="{% static 'images/assets/ellipse-99-1@2x.png' %}" class="author-image"
+                                alt="Author Image">
+                        </div>
+
+                        <!-- Author Details -->
+                        <div class="author-details">
+                            <div class="d-flex align-items-baseline">
+                                <h6 class="author-name">Author Name</h6>
+                            </div>
+                            <p class="author-date text-muted">Published on Aug 27, 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-md-6">
+
+
+                <img src="{% static 'images/assets/rectangle-14@2x.png' %}" class="img-fluid" alt="...">
+
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock herosection %}
+
+
+{% block main %}
+
+<section class="post-details">
+    <div class="container px-4  mt-5">
+        <h5 class="mb-3">Introduction</h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique omnis obcaecati nemo tempore est, nam
+            molestias beatae corporis ab cupiditate, ratione possimus id odit. Consectetur, odit. Ullam quam omnis
+            aperiam.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas excepturi tempore modi optio quam, sunt
+            molestias animi nemo dolorem temporibus qui, veniam expedita a pariatur magnam assumenda mollitia nam
+            inventore.</p>
+
+        <img src="{% static 'images/assets/rectangle-22@2x.png' %}" class="img-fluid mb-3">
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique omnis obcaecati nemo tempore est, nam
+            molestias beatae corporis ab cupiditate, ratione possimus id odit. Consectetur, odit. Ullam quam omnis
+            aperiam.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas excepturi tempore modi optio quam, sunt
+            molestias animi nemo dolorem temporibus qui, veniam expedita a pariatur magnam assumenda mollitia nam
+            inventore.</p>
+
+        <h5 class="mb-3">Other Resources</h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique omnis obcaecati nemo tempore est, nam
+            molestias beatae corporis ab cupiditate, ratione possimus id odit. Consectetur, odit. Ullam quam omnis
+            aperiam.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas excepturi tempore modi optio quam, sunt
+            molestias animi nemo dolorem temporibus qui, veniam expedita a pariatur magnam assumenda mollitia nam
+            inventore.</p>
+
+        <div class="post-conclusion mb-3 mt-4">
+            <h5 class="mb-3">Conclusion</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est voluptatum laudantium deleniti, aperiam,
+                dolor nostrum animi fugiat libero amet maiores voluptate aspernatur itaque fuga expedita exercitationem
+                magnam cumque, quos earum?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est voluptatum laudantium deleniti, aperiam,
+                dolor nostrum animi fugiat libero amet maiores voluptate aspernatur itaque fuga expedita exercitationem
+                magnam cumque, quos earum?</p>
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+
+<!-- Recent Post-->
+<section class="mt-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="text-custom-color mb-0">Our Blog</h5>
+          <button class="button53" onclick="window.location.href='/blog'">
+            <b class="text85">View all Posts</b>
+          </button>
+        </div>
+        <h3>Latest Blog Post</h3>
+      </div>
+    
+    <div class="all-blog-post container">
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{% static 'images/assets/rectangle-15@2x.png' %}"
+                        class="post-card-image img-fluid card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Result Driven</h5>
+                        <p class="card-text">We use data-driven insights to optimize campaigns and maximize ROI.</p>
+                        <a href="#" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat Card for a total of 6 cards -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{% static 'images/assets/rectangle-16@2x.png' %}"
+                        class="post-card-image img-fluid card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Innovative Strategies</h5>
+                        <p class="card-text">We use data-driven insights to optimize campaigns and maximize ROI.</p>
+                        <a href="#" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{% static 'images/assets/blackbusinesswomansmiling-11@2x.png' %}"
+                        class="post-card-image img-fluid card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Customer Focused</h5>
+                        <p class="card-text">We use data-driven insights to optimize campaigns and maximize ROI.</p>
+                        <a href="#" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+         
+        </div>
+    </div>
+</section>
+
+
+<!-- Newsletter Sign-Up -->
+{% include "core/components/newsletter_section.html" %}
+{% endblock %}
