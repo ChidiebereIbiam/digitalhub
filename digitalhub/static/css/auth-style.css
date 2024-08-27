@@ -75,25 +75,12 @@ form .form-check-label {
     
 }
 
+
 .auth-card {
     background: #fff; /* Card background color */
     border: none; /* Removes default Bootstrap card border */
     padding: 40px; /* Adds padding around the card content */
     border-radius: 8px; /* Rounded corners */
-    position: relative; /* Enables positioning for pseudo-elements */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
-    max-width: 400px; /* Sets the maximum width of the card */
+    position: relative; /* Keeps position relative for box shadow */
+    box-shadow: 0 4px 20px rgba(26, 165, 187, 0.5), 0 6px 20px rgba(121, 226, 153, 0.3); /* Box shadow with gradient-like effect */
 }
-
-.auth-card::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(112.41deg, #1aa5bb, #1aa5bb 54.9%, #79e299); /* Gradient border */
-    z-index: -1;
-    border-radius: 10px; /* Slightly more rounded than card itself */
-}
-
