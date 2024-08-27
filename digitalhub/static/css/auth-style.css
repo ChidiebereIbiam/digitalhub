@@ -1,0 +1,64 @@
+
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+form input {
+    border-radius: 5px;
+    padding: 10px;
+}
+
+form .form-check-label {
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: linear-gradient(112.41deg, #1aa5bb, #1aa5bb 54.9%, #79e299);
+    border: none;
+    padding: 10px;
+}
+
+.btn-light {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.image-container {
+    position: relative;
+    text-align: center;
+}
+
+.overlay-text {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    width: 90%;
+    color: #fff;
+    font-size: 16px;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.gradient-text {
+    font-weight: bold;
+    background: linear-gradient(112.41deg, #1aa5bb, #1aa5bb 54.9%, #79e299);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    text-decoration: none;
+}
+
+
+@media (max-width: 767.98px) {
+    .image-container {
+        display: none;
+    }
+}
+
+.auth-img{
+    border-radius: 5%;
+}
