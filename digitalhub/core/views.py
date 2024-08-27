@@ -88,7 +88,7 @@ def services(request):
 
 
 def service_details(request, slug):
-    services = Service.objects.all()
-    service = get_object_or_404(Service, slug=slug)
-    context = {"services": services, "service": service}
-    return render(request, "core/service-details.html", context)
+    # services = Service.objects.all()
+    # service = get_object_or_404(Service, slug=slug)
+    # context = {"services": services, "service": service}
+    return render(request, "core/service-details.html")

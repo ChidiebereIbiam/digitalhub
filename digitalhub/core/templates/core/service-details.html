@@ -1,0 +1,133 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}
+Services Details -
+{% endblock title %}
+
+{% block herosection %}
+<section class="herosection">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Home / Services / Search Engine
+                                Optimization</li>
+                        </ol>
+                    </nav>
+                    <h1 class="py-lg-3 fw-bolder" id="big">Search Engine <br> Optimization</h1>
+
+                </div>
+                <div class="py-lg-4">
+                    <button class="button39">
+                        <b class="text40">Contact us Now</b>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+
+                <img src="{% static 'images/assets/rafiki.png' %}" class="img-fluid" alt="...">
+
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock herosection %}
+
+
+{% block main %}
+<!-- Social Proof Section -->
+{% include "core/components/social_proof_section.html" %}
+
+<div class="container mt-5 standalone-prices">
+    <h5 class="text-center text-custom-color">Search Engine Optimization</h5>
+    <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem harum eius earum
+        obcaecati
+        recusandae.</p>
+
+    <div class="row">
+        <div class="col-sm-6 mt-3 ">
+            <div class="card shadow-sm border-0 rounded">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title">SEO Stand-alone</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptate ipsum saepe
+                            officiis
+                            laborum odit molestiae in?</p>
+                    </div>
+                    <div class="">
+                        <h5 class="amount mb-0">$562.50 <small>/ month</small></h5>
+                        <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 mt-3 ">
+            <div class="card shadow-sm border-0 rounded">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title">SEO One-Time Setup</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptate ipsum saepe
+                            officiis
+                            laborum odit molestiae in?</p>
+                    </div>
+                    <div class="">
+                        <h5 class="amount mb-0">$562.50 <small>/ month</small></h5>
+                        <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-5 mb-5 standalone">
+    <h5> Note:</h5>
+    <ul>
+        <li>12-month Commitment for all Bundles</li>
+        <li>Third Party Budgets are not included in the price list</li>
+    </ul>
+</div>
+
+<h1 class="what-youll-get text-center">What You’ll get?</h1>
+
+<section class="benefits container mt-4">
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="{% static 'images/assets/01.png' %}" class="benefit-image mb-4" alt="" >
+            <h5>Improved Search Engine Rankings</h5>
+            <p>Our team of seasoned professionals is committed to your success</p>
+        </div>
+        <div class="col-sm-4">
+            <img src="{% static 'images/assets/02.png' %}" class="benefit-image mb-4" alt="" >
+            <h5>Increased Organic Traffic</h5>
+            <p>We stay ahead of the curve with the latest digital marketing trends and technologies</p>
+        </div>
+        <div class="col-sm-4">
+            <img src="{% static 'images/assets/03.png' %}" class="benefit-image mb-4" alt="" >
+            <h5>Enhanced Online Visibility and Brand Awareness</h5>
+            <p>We stay ahead of the curve with the latest digital marketing trends and technologies</p>
+        </div>
+    </div>
+
+    <div class="mt-5 mb-5">
+        <h5>Search Engine Optimization</h5>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam maiores, autem hic beatae voluptates, reprehenderit ex voluptatum doloremque sequi, iure facere commodi exercitationem non deleniti ipsum. Eum magnam non sequi?</p>
+    </div>
+    <img src="{% static 'images/assets/service-image.png' %}" class="img-fluid mb-5" alt="" srcset="">
+
+    
+
+</section>
+<!-- Contact Form -->
+{% include "core/components/contact_us_section.html" %}
+
+<!-- Newsletter Sign-Up -->
+{% include "core/components/newsletter_section.html" %}
+{% endblock %}
