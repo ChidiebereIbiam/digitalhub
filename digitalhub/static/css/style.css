@@ -1050,3 +1050,183 @@ hr {
     height: 50px; 
     object-fit: cover; 
   }
+
+.all-blog-post .card {
+  border: none; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  overflow: hidden; 
+  border-radius: 8px;
+  height: 100%;
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;   
+}
+
+/* General styling for the card image */
+.card-img-top {
+  width: 100%; /* Ensures the image takes full width */
+  border-radius: 0; /* Removes rounded corners */
+  object-fit: cover; /* Ensures the image covers the entire width without stretching */
+  margin: 0; /* Removes any default margin */
+  padding: 0; /* Removes any default padding */
+}
+
+/* Ensures responsive image size */
+.post-card-image {
+  display: block; /* Make the image a block-level element */
+  width: 100%; /* Make the image fill the full width of the card */
+  height: 350px; /* Default height for the image */
+  object-fit: cover; /* Cover the entire container without stretching the image */
+}
+
+.read-more-link {
+  color: rgb(26, 165, 187);
+  text-decoration: none;
+}
+
+.read-more-link:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 576px) {
+  .all-blog-post .card {
+    height: 400px; /* Adjust height for small devices */
+  }
+}
+
+@media (min-width: 768px) {
+  .all-blog-post .card {
+    height: 450px; /* Adjust height for medium devices */
+  }
+}
+
+@media (min-width: 992px) {
+  .all-blog-post .card {
+    height: 500px; /* Adjust height for large devices */
+  }
+}
+
+@media (min-width: 576px) {
+  .post-card-image {
+    height: 200px; /* Adjust height for small devices */
+  }
+}
+
+@media (min-width: 768px) {
+  .post-card-image {
+    height: 250px; /* Adjust height for medium devices */
+  }
+}
+
+@media (min-width: 992px) {
+  .post-card-image {
+    height: 350px; /* Adjust height for large devices */
+  }
+}
+
+/* Container for the image and text overlay */
+.recent {
+  position: relative; /* Positioning context for overlay */
+  width: 100%; /* Full width of the container */
+  max-width: 100%; /* Ensure it does not exceed its container */
+  height: auto; /* Allow dynamic height */
+  overflow: hidden; /* Clip overflowing children */
+}
+
+/* Image styling */
+.recent-img {
+  width: auto; /* Full width */
+  height: auto; /* Fixed height for consistency */
+  object-fit: cover; /* Cover the container without stretching */
+  display: block; /* Ensure no space below the image */
+}
+
+/* Overlay styling */
+.overlay {
+  position: absolute; /* Absolute positioning for overlay */
+  bottom: 0; /* Align to bottom */
+  left: 0; /* Align to left */
+  right: 0; /* Align to right */
+  background-color: rgba(17, 17, 17, 0.7); /* Semi-transparent background */
+  color: white; /* Text color */
+  padding: 10px; /* Padding inside overlay */
+  text-align: left; /* Align text to left */
+}
+
+/* Adjust heading, paragraph, and link styling */
+.overlay h2 {
+  margin: 0 0 5px 0; /* Remove default margin */
+  font-size: 18px; /* Custom font size */
+}
+
+.overlay p {
+  margin: 0; /* Remove default margin */
+  font-size: 14px; /* Custom font size */
+}
+
+.overlay a {
+  display: inline-block; /* Block level for padding */
+  color: white; /* Link color */
+  text-decoration: none; /* Remove underline */
+  font-size: 14px; /* Custom font size */
+}
+
+/* Blog card styling */
+.blog-card {
+  display: flex; /* Flex container */
+  flex-direction: row; /* Align items in a row */
+  align-items: center; /* Vertically center items */
+  padding: 10px; /* Padding for spacing */
+  margin-bottom: 15px; /* Space between cards */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for effect */
+}
+
+/* Image container for blog cards */
+.blog-card-img-container {
+  flex-shrink: 0; /* Prevent shrinking */
+  width: 100px; /* Set width for image container */
+  height: 100px; /* Set height for image container */
+  overflow: hidden; /* Clip content to fit container */
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Blog card images */
+.blog-card-img {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Cover the container */
+}
+
+/* Blog card content */
+.blog-card-content {
+  flex-grow: 1; /* Allow content to grow */
+  padding-left: 15px; /* Add padding between image and text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  /* Adjust recent image height for mobile */
+  .recent-img {
+    height: 200px; /* Smaller height on mobile */
+  }
+  
+  /* Responsive blog card layout */
+  .blog-card {
+    flex-direction: column; /* Stack items vertically */
+    text-align: left; /* Center text for better alignment */
+    padding: 15px; /* Add padding for better mobile spacing */
+  }
+  
+  /* Center align blog card content on mobile */
+  .blog-card-content {
+    padding-left: 0; /* Remove padding on mobile */
+    margin-top: 10px; /* Add margin between image and text */
+  }
+  
+  /* Center align blog card image container on mobile */
+  .blog-card-img-container {
+    margin: auto; /* Center the image container */
+    margin-bottom: 10px; /* Add margin below image */
+  }
+}

@@ -6,20 +6,25 @@ from .models import Post
 
 # Create your views here.
 def blog(request):
-    posts = Post.objects.all()
-    paginator = Paginator(posts, 6)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    context = {}
+    
+    try:
+        posts = Post.objects.all()
+        paginator = Paginator(posts, 6)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
 
-    most_recent = posts[0]
-    other_recent = posts[1:3]
+        most_recent = posts[0]
+        other_recent = posts[1:3]
 
-    context = {
-        'posts': posts,
-        'page_obj': page_obj,
-        'most_recent': most_recent,
-        'other_recent': other_recent
-    }
+        context = {
+            'posts': posts,
+            'page_obj': page_obj,
+            'most_recent': most_recent,
+            'other_recent': other_recent
+        }
+    except IndexError:
+        pass
     return render(request, 'blog/blog.html', context)
 
 
