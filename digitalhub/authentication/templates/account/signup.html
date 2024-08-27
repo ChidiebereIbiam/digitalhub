@@ -1,19 +1,102 @@
 {% extends "core/base.html" %}
 {% load socialaccount %}
+{% load allauth %}
+{% load static %}
 
 {% block title %}Signup - {% endblock title %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static "css/auth-style.css" %}" />
+{% endblock stylesheet %}
+
 {% block header-hero-container %}{% endblock header-hero-container %}
 
 {% block main %}
-<div class="container">
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
-  <p>Or</p>
-  <a href="{% provider_login_url 'google' process="connect" %}">Sign up with Google</a>
+<div class="container my-2">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-7 d-none d-md-block">
+      <!-- Image and Text -->
+      <div class="image-container">
+        <img src="{% static "images/auth-image.jpg" %}" class="img-fluid auth-img" alt="Promotional Image">
+        <div class="overlay-text">
+          <p>“Untitled has saved us thousands of hours of work. We’re able to spin up projects faster and take on more
+            clients.”</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <!-- Login Form -->
+      <h2 class="mb-4">Let's Get Started</h2>
+      <p class="mb-4">Sign up to continue</p>
+      <form method="post" action="{% url 'account_signup' %}">
+        {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+          <ul class="mb-0">
+            {% for field, errors in form.errors.items %}
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        {% csrf_token %}
+
+
+
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <div class="mb-3 input-group">
+          <input type="text" name="first_name" class="form-control" placeholder="First name" aria-label="First name">
+          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+        </div>
+
+        <div class="mb-3 input-group">
+          <input type="text" name="last_name" class="form-control" placeholder="Last name" aria-label="Last name">
+          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+        </div>
+        
+        <div class="mb-3 input-group">
+          <input type="email" name="email" class="form-control" placeholder="Email address" aria-label="Email address">
+          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+        </div>
+        <div class="mb-3 input-group">
+          <input type="password" class="form-control" placeholder="Enter Password" aria-label="Password"
+            name="password1">
+          <span class="input-group-text"><i class="fas fa-lock"></i></span>
+        </div>
+
+        <div class="mb-3 input-group">
+          <input type="password" class="form-control" placeholder="Comfirm Password" aria-label="Password"
+            name="password2">
+          <span class="input-group-text"><i class="fas fa-lock"></i></span>
+        </div>
+
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+            <label class="form-check-label" for="rememberMe">
+              I agree to <span class="gradient-character">Terms and Conditions</span>
+            </label>
+          </div>
+          
+        </div>
+        <button type="submit" class="btn btn-primary w-100 ">Sign In</button>
+      </form>
+      <div class="mt-4">
+        <a type="button" class="btn btn-light w-100 mb-2" href="{% provider_login_url 'google' process="connect" %}">
+          <i class="fab fa-google"></i> Sign up with Google
+        </a>
+        <a type="button" class="btn btn-light w-100" href="{% provider_login_url 'apple' process="connect" %}">
+          <i class="fab fa-apple"></i> Sign up with Apple
+        </a>
+      </div>
+      <div class="mt-3 text-center">
+        <p>Have an account already? <a href="{{ login_url }}" class="text-primary gradient-text">Login</a></p>
+      </div>
+    </div>
+   
+  </div>
 </div>
 
 {% endblock %}

@@ -1,0 +1,29 @@
+{% extends "core/base.html" %}
+{% load socialaccount %}
+{% load allauth %}
+{% load static %}
+
+{% block title %}Email Confirmation - {% endblock title %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static "css/auth-style.css" %}" />
+{% endblock stylesheet %}
+
+{% block header-hero-container %}{% endblock header-hero-container %}
+
+{% block main %}
+<div class="container d-flex justify-content-center align-items-start" style="min-height: 100vh; margin-top: 10px;">
+    <div class="auth-card card text-center">
+      <h2>Email Verification</h2>
+      <p>
+        We have sent an email to you for verification. Follow the link provided to finalize the signup process. 
+        If you do not see the verification email in your main inbox, check your spam folder. 
+        Please contact us if you do not receive the verification email within a few minutes.
+      </p>
+    </div>
+  </div>  
+  
+  
+
+{% endblock %}
+
+{% block footer %}{% endblock footer %}
