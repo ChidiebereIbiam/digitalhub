@@ -85,11 +85,89 @@
                             <li class="nav-item px-3 px-lg-0 py-1 py-lg-2">
                                 <a class="nav-link fs-4 fw-bolder" href="#"><i class="bi bi-search"></i></a>
                             </li>
+                            {% if user.is_authenticated %}
+                            <div class="dropdown">
+
+                                <!-- Profile Avatar -->
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="{% static "images/noprofile.png" %}"
+                                        class="rounded-circle dropdown-toggle-icon" alt="User Avatar" width="40"
+                                        height="40">
+                                </a>
+
+                                <!-- Dropdown Menu -->
+                                <ul class="dropdown-menu dropdown-menu-custom">
+                                    <!-- User Info (Desktop View) -->
+                                    <li class="p-3 text-justify standalone text-white d-none d-lg-block">
+                                        <div class="profile-container d-flex align-items-center">
+                                            <img src="{% static 'images/noprofile.png' %}" class="rounded-circle" alt="User Avatar" width="50" height="50">
+                                            <div class="profile-details ms-0">
+                                              <h6 class="mb-0">Ebunoluwa Osifuye</h6>
+                                              <p class="small mb-1">osifuyeebunoluwaa@gmail.com</p>
+                                              <a href="#" class="edit-profile-btn">Edit Profile</a>
+                                            </div>
+                                          </div>
+                                    </li>
+                                    <li class="d-none d-lg-block">
+                                        <hr class="dropdown-divider">
+                                    </li>
+
+                                    <!-- User Info and Dropdown Items (Mobile View) -->
+                                    <li class="d-lg-none">
+                                        <a class="dropdown-item" href="#">
+                                            <strong>Ebunoluwa Osifuye</strong><br>
+                                            <small>osifuyeebunoluwaa@gmail.com</small>
+                                        </a>
+                                    </li>
+                                    <li class="d-lg-none">
+                                        <hr class="dropdown-divider">
+                                    </li>
+
+                                    <!-- Dropdown Items with Icons (Desktop View) -->
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="bi bi-gear-fill me-2"></i> <!-- Icon for Preferences -->
+                                            Preferences
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="bi bi-card-list me-2"></i> <!-- Icon for My Subscription -->
+                                            My Subscription
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="bi bi-file-earmark-text-fill me-2"></i> <!-- Icon for Invoices -->
+                                            Invoices
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="bi bi-credit-card-fill me-2"></i> <!-- Icon for Payment Method -->
+                                            Payment Method
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item text-danger" href="#"><i
+                                        class="bi bi-box-arrow-right me-2"></i> Log out</a></li>
+                                </ul>
+
+                            </div>
+
+
+
+                            {% else %}
                             <li class="nav-item px-3 px-lg-0 py-1 py-lg-1">
                                 <button class="button40">
                                     <a class="i-am-an1" href="{% url "account_signup" %}">Get Started</a>
                                 </button>
                             </li>
+                            {% endif %}
+
 
 
                         </ul>

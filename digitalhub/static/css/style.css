@@ -1298,3 +1298,58 @@ hr {
     margin-right: 0;
   }
 }
+/* General Dropdown Menu Styles */
+.dropdown-menu-custom {
+  position: absolute;
+  right: 0;
+  width: 300px; /* Wider width for better appearance */
+  max-width: calc(100vw - 20px); /* Ensures it stays within the page frame */
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adds a pop-out shadow */
+  border-radius: 8px; /* Rounded corners for a polished look */
+}
+
+/* Prevent Clicking on the Icon */
+.dropdown-toggle {
+  pointer-events: none; /* Disables clicking on the icon */
+}
+
+/* Hover Effect for Dropdown */
+.dropdown:hover .dropdown-menu-custom {
+  display: block; /* Shows dropdown on hover */
+}
+
+
+/* Desktop Icons */
+@media (min-width: 992px) {
+  .dropdown-item i {
+    display: inline-block; /* Show icons on desktop */
+  }
+}
+
+
+.edit-profile-btn {
+  text-decoration: None;
+  color: #fff;
+  font-weight: bold;
+}
+
+.profile-container {
+  display: flex; /* Enables flexbox layout */
+  align-items: center; /* Vertically centers items */
+}
+
+.profile-container img {
+  margin-right: 15px; /* Adds space between the image and text */
+}
+
+.profile-details {
+  /* Ensures text is justified and occupies available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-details h6, .profile-details p, .profile-details a {
+  text-align: justify; /* Justifies text within each element */
+}
