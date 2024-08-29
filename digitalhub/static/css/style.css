@@ -413,6 +413,7 @@ img {
 
 .text-custom-color {
   color: rgb(26, 165, 187);
+  font-weight: bold;
 }
 
 .privacy-policy {
@@ -1368,4 +1369,85 @@ hr {
 
 .form-check-input:focus {
   box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+}
+
+/* Background image wrapper */
+.background-image-wrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-start; /* Aligns card to the top */
+  justify-content: flex-end; /* Aligns card to the right */
+  background-image: url("../images/assets/submit-background@2x.png");
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  height: 100%; /* Full height for the container */
+  min-height: 300px; /* Ensures a minimum height for the container */
+  padding: 20px; /* Adds some padding around the content */
+}
+
+/* Contact info card */
+.contact-info {
+  background-color: #00aab2;
+  color: white;
+  max-width: 250px; /* Prevents the contact info from going out of frame */
+  text-align: center; /* Centers text */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%; /* Ensures full width on smaller screens */
+  box-sizing: border-box; /* Ensures padding doesn't increase width */
+  flex: 0 0 auto; /* Prevents the card from stretching */
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .background-image-wrapper {
+      min-height: 200px; /* Adjusts minimum height for smaller screens */
+      padding: 10px; /* Reduces padding for smaller screens */
+  }
+  .contact-info {
+      max-height: 110px;
+      max-width: 150px; /* Adjusts card size for smaller screens */
+       /* Reduces padding inside the card */
+      font-size: 10px;
+  }
+  .contact-form h6{
+    font-size: 14px;
+  }
+}
+
+
+.main-btn {
+  display: inline-block; /* Makes the element behave like a button */
+  padding: var(--padding-sm) 63px; /* Adds padding */
+  border-radius: var(--br-xl) 0 var(--br-xl) var(--br-xl); /* Rounded corners */
+  box-sizing: border-box; /* Ensures padding is included in width and height calculations */
+  border: none; /* Removes any default border */
+  font-size: var(--button-font-size); /* Keeps the font size variable */
+  line-height: 1.5; /* Maintains the line height */
+  font-weight: 700; /* Keeps the font weight bold */
+  font-family: var(--button-font); /* Uses the specified button font */
+  text-decoration: none; /* Removes underline from text */
+  text-align: center; /* Centers the text inside the button */
+  white-space: nowrap; /* Prevents text wrapping */
+  background: linear-gradient(112.41deg, #1aa5bb, #79e299); /* Gradient background for a stylish look */
+  color: white; /* Sets text color to white */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  transition: background 0.3s ease, transform 0.3s ease; /* Adds a transition effect on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+}
+
+.main-btn:hover {
+  transform: translateY(-2px); /* Adds a hover effect that lifts the button */
+  background: linear-gradient(112.41deg, #79e299, #1aa5bb); /* Changes gradient on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .main-btn {
+    padding: var(--padding-xs) 40px; /* Reduces padding on smaller screens */
+    font-size: calc(var(--button-font-size) - 2px); /* Slightly smaller font size */
+
+    
+  }
 }

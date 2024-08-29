@@ -1,18 +1,18 @@
 <!-- Sub Navigation -->
 <div class="subnav d-flex justify-content-between align-items-center">
     <a href="{% url 'edit_profile' %}" class="subnav-link {% if active_item == 'profile' %}active{% endif %}">
-        <i class="bi bi-person"></i> Profile
+        <i class="fas fa-user"></i> Profile
     </a>
     <a href="{% url "preference" %}" class="subnav-link {% if active_item == 'preferences' %}active{% endif %}">
-        <i class="bi bi-gear"></i> Preferences
+        <i class="fas fa-cog"></i> Preferences
     </a>
     <a href="{% url 'subscription' %}" class="subnav-link {% if active_item == 'subscription' %}active{% endif %}">
-        <i class="bi bi-star"></i> My Subscription
+        <i class="fas fa-star"></i> My Subscription
     </a>
     <a href="{% url "invoice" %}" class="subnav-link {% if active_item == 'invoices' %}active{% endif %}">
-        <i class="bi bi-file-text"></i> Invoices
+        <i class="fas fa-file-alt"></i> Invoices
     </a>
     <a href="{% url "payment_method" %}" class="subnav-link {% if active_item == 'payment_method' %}active{% endif %}">
-        <i class="bi bi-credit-card"></i> Payment Method
+        <i class="fas fa-credit-card"></i> Payment Method
     </a>
 </div>

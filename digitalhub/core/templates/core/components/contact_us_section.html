@@ -1,125 +1,64 @@
 {% load static %}
 <!-- Contact Form -->
-<section class="contact-content-wrapper container-fluid">
-    <div class="container-fluid ">
-        <div class="contact-content">
-            <div class="contact-form1">
-                <b class="contact-us1">Contact us</b>
-                <div class="contact-form-container">
-                    <div class="contact-form-fields">
-                        <div class="contact-form-fields-container">
-                            <div class="contact-form-field-wrapper">
-                                <h1 class="letss-help-you1">
-                                    Lets’s help you understand your business
-                                </h1>
-                                <form method="post" action="{% url "contact_us" %}">
-                                    {% csrf_token %}
-                                    <div class="contact-form-inputs">
-                                        <div class="component-81">
-                                            <div class="text46">Name</div>
-                                            <div class="contact-form-input-field-conta-parent">
-                                                <div class="contact-form-input-field-conta">
-                                                    <div class="contact-form-input-field-wrapp">
-                                                        <input class="enter-name2" placeholder="Enter name"
-                                                            type="text" name="name" required/>
-
-                                                        <div class="contact-form-field-icons">
-                                                            <img class="iconixtolinearuser1" alt=""
-                                                                src="{% static "images/assets/iconixtolinearuser.svg" %}" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="additional-text6">Additional text</div>
-                                            </div>
-                                        </div>
-                                        <div class="component-81">
-                                            <div class="text46">Email address</div>
-                                            <div class="contact-form-input-field-conta-parent">
-                                                <div class="contact-form-input-field-conta">
-                                                    <div class="contact-form-input-field-wrapp">
-                                                        <input class="email-address4" placeholder="Email address"
-                                                            type="email" name="email" required/>
-
-                                                        <div class="contact-form-field-icons">
-                                                            <img class="iconixtolinearuser1" alt=""
-                                                                src="{% static "images/assets/icon--mail.svg" %}" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="component-81">
-                                            <div class="text46">Subject</div>
-                                            <div class="contact-form-input-field-conta-parent">
-                                                <div class="contact-form-input-field-conta">
-                                                    <div class="contact-form-input-field-wrapp">
-                                                        <input class="enter-name2" placeholder="Enter name"
-                                                            type="text" name="subject" required/>
-
-                                                        <div class="contact-form-field-icons">
-                                                            <img class="iconixtolinearuser1" alt=""
-                                                                src="{% static "images/assets/iconixtolinearedit.svg" %}" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="additional-text6">Additional text</div>
-                                            </div>
-                                        </div>
-                                        <div class="component-81">
-                                            <div class="text46">Message</div>
-                                            <div class="frame-parent43">
-                                                <div class="frame-wrapper17">
-                                                    <div class="contact-form-input-field-wrapp">
-                                                        <textarea name="message" class="form-control" rows=3 required></textarea>
-                                                        <div class="contact-form-field-icons">
-                                                            <img class="iconixtolinearuser1" loading="lazy" alt=""
-                                                                src="{% static "images/assets/iconixtolinearedit.svg" %}" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="additional-text9">Additional text</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <button class="button52">
-                                        <b class="text84">Submit</b>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="submit-button-wrapper">
-                            <div class="submit-button-container">
-                                <img class="submit-button-background" alt=""
-                                    src="{% static "images/assets/submit-background@2x.png" %}" />
-
-                                <div class="submit-button-container-inner">
-                                    <div class="submit-button-icon-background-parent">
-                                        <div class="submit-button-icon-background"></div>
-                                        <div class="frame-parent44">
-                                            <img class="frame-child24" loading="lazy" alt=""
-                                                src="{% static "images/assets/group-5.svg" %}" />
-
-                                            <div class="frame-wrapper18">
-                                                <div class="author-details">
-                                                    <b class="text45">Call us on:</b>
-                                                </div>
-                                            </div>
-                                            <a class="contact-form-confirmation-container">
-                                                <p class="p2">+447 909736637494</p>
-                                                <p class="p2">+635548384799399</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+<div class="container my-5">
+    <div class="row">
+        <!-- Form Column -->
+        <div class="col-lg-5 col-12 mb-4">
+            <h5 class="text-custom-color">Contact us</h5>
+            <h3>Let's help you understand your business</h3>
+            <form class="contact-form">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light text-muted">
+                      <i class="bi bi-person"></i> <!-- Use Bootstrap Icons for the person icon -->
+                    </span>
+                    <input type="text" class="form-control bg-light" id="name" placeholder="Enter name">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light text-muted">
+                      <i class="bi bi-envelope"></i> <!-- Use Bootstrap Icons for the envelope icon -->
+                    </span>
+                    <input type="email" class="form-control bg-light" id="email" placeholder="Email address">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="subject" class="form-label">Subject</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light text-muted">
+                      <i class="bi bi-pencil"></i> <!-- Use Bootstrap Icons for the pencil icon -->
+                    </span>
+                    <input type="text" class="form-control bg-light" id="subject" placeholder="Enter subject">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Message</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light text-muted">
+                      <i class="bi bi-chat"></i> <!-- Use Bootstrap Icons for the chat icon -->
+                    </span>
+                    <textarea class="form-control bg-light" id="message" rows="3" placeholder="Enter message"></textarea>
+                  </div>
+                </div>
+                <button type="submit" class="main-btn">Submit</button>
+              </form>
+              
+        </div>
+        <!-- Image Background and Contact Info Column -->
+        <div class="col-lg-7 col-12 position-relative">
+            <!-- Background image wrapper -->
+            <div class="background-image-wrapper">
+                <!-- Contact Info Card -->
+                <div class="contact-info card p-3 shadow">
+                    <i class="bi bi-telephone"></i>
+                    <h6>Call us on:</h6>
+                    <p>+447 909736637494</p>
+                    <p>+635548384793999</p>
                 </div>
             </div>
-
         </div>
     </div>
-</section>
+</div>
