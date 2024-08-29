@@ -3,7 +3,7 @@
     <a href="{% url 'edit_profile' %}" class="subnav-link {% if active_item == 'profile' %}active{% endif %}">
         <i class="bi bi-person"></i> Profile
     </a>
-    <a href="" class="subnav-link {% if active_item == 'preferences' %}active{% endif %}">
+    <a href="{% url "preference" %}" class="subnav-link {% if active_item == 'preferences' %}active{% endif %}">
         <i class="bi bi-gear"></i> Preferences
     </a>
     <a href="{% url 'subscription' %}" class="subnav-link {% if active_item == 'subscription' %}active{% endif %}">

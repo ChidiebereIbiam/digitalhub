@@ -26,3 +26,12 @@ class Company(models.Model):
 
     def __str__(self) -> str:
         return self.company_name  
+    
+
+class Preference(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    email_notification = models.BooleanField(default=True)
+    browser_notification = models.BooleanField(default=True)
+
+    def __str__(self) -> str:
+        return self.user.email

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from digitalhub.authentication.forms import UserEditForm, ProfilePictureForm
 from .forms import CompanyForm
-from .models import Company
+from .models import Company, Preference
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from digitalhub.payment.models import Subscription, Invoice, PaymentMethod
@@ -124,3 +124,21 @@ def delete_payment_method(request, id):
     payment_method = get_object_or_404(PaymentMethod, id=id)
     payment_method.delete()
     return redirect("payment_method")
+
+@login_required
+def preference(request):
+    return render(request, "userbase/preference.html")
+
+
+@login_required
+def toggle_preference(request, preference):
+    if request.method == "POST":
+        user_preference, _ = Preference.objects.get_or_create(user=request.user)
+        if preference == 'email_notification':
+            user_preference.email_notification = not user_preference.email_notification
+        elif preference == 'browser_notification':
+            user_preference.browser_notification = not user_preference.browser_notification
+        
+        user_preference.save()
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False}, status=400)

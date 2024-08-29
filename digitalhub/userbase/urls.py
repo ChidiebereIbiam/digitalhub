@@ -6,6 +6,8 @@ from .views import (
     invoice,
     payment_method,
     delete_payment_method,
+    preference,
+    toggle_preference,
 )
 
 urlpatterns = [
@@ -22,5 +24,11 @@ urlpatterns = [
         "delete-payment-method/<str:id>",
         delete_payment_method,
         name="delete_payment_method",
+    ),
+    path("preferences/", preference, name="preference"),
+    path(
+        "preference/toggle/<str:preference>/",
+        toggle_preference,
+        name="toggle_preference",
     ),
 ]
