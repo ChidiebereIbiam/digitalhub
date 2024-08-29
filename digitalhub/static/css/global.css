@@ -6,7 +6,7 @@ body {
 :root {
   /* fonts */
   --body-medium: "DM Sans";
-  --button-font: "Square721 BT";
+  --button-font: 'Square721 BT', sans-serif;
   --caption-10: "Noto Sans";
   --text-md-regular: Inter;
 
