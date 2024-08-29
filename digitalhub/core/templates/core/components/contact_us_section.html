@@ -6,41 +6,46 @@
         <div class="col-lg-5 col-12 mb-4">
             <h5 class="text-custom-color">Contact us</h5>
             <h3>Let's help you understand your business</h3>
-            <form class="contact-form">
+            <form class="contact-form" method="post" action="{% url "contact_us" %}">
+              {% csrf_token %}
                 <div class="mb-3">
                   <label for="name" class="form-label">Name</label>
                   <div class="input-group">
+                    <input type="text" class="form-control bg-light" id="name" placeholder="Enter name" name="name" required>
                     <span class="input-group-text bg-light text-muted">
                       <i class="bi bi-person"></i> <!-- Use Bootstrap Icons for the person icon -->
                     </span>
-                    <input type="text" class="form-control bg-light" id="name" placeholder="Enter name">
+                    
                   </div>
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email address</label>
                   <div class="input-group">
+                    <input type="email" class="form-control bg-light" id="email" placeholder="Email address" name="email" required>
                     <span class="input-group-text bg-light text-muted">
                       <i class="bi bi-envelope"></i> <!-- Use Bootstrap Icons for the envelope icon -->
                     </span>
-                    <input type="email" class="form-control bg-light" id="email" placeholder="Email address">
+                    
                   </div>
                 </div>
                 <div class="mb-3">
                   <label for="subject" class="form-label">Subject</label>
                   <div class="input-group">
+                    <input type="text" class="form-control bg-light" id="subject" placeholder="Enter subject" name="subject" required>
                     <span class="input-group-text bg-light text-muted">
                       <i class="bi bi-pencil"></i> <!-- Use Bootstrap Icons for the pencil icon -->
                     </span>
-                    <input type="text" class="form-control bg-light" id="subject" placeholder="Enter subject">
+                    
                   </div>
                 </div>
                 <div class="mb-3">
                   <label for="message" class="form-label">Message</label>
                   <div class="input-group">
+                    <textarea class="form-control bg-light" id="message" rows="3" placeholder="Enter message" name="message" required></textarea>
                     <span class="input-group-text bg-light text-muted">
                       <i class="bi bi-chat"></i> <!-- Use Bootstrap Icons for the chat icon -->
                     </span>
-                    <textarea class="form-control bg-light" id="message" rows="3" placeholder="Enter message"></textarea>
+                    
                   </div>
                 </div>
                 <button type="submit" class="main-btn">Submit</button>
