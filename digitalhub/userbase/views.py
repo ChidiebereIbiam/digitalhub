@@ -72,8 +72,21 @@ def subscription(request):
     return render(request, 'userbase/subscription.html', {"subscriptions": subscriptions, "paginator": paginator})
 
 
-def invoices(request):
-    pass
+def invoice(request):
+    invoice_list = Invoice.objects.filter(user=request.user)
+    
+    paginator = Paginator(invoice_list, 10)
+    page = request.GET.get('page')
+    
+    try:
+        invoices = paginator.page(page)
+    except PageNotAnInteger:
+        invoices = paginator.page(1)
+    except EmptyPage:
+        invoices = paginator.page(paginator.num_pages)
+    
+    return render(request, 'userbase/invoice.html', {"invoices": invoices, "paginator": paginator})
+
 
 
 def payment_method(request):

@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}My Subscription - {% endblock title %}
+{% block title %}My invoice - {% endblock title %}
 
 {% block stylesheet %}
 <link rel="stylesheet" href="{% static "css/auth-style.css" %}" />
@@ -14,10 +14,10 @@
 
 {% block main %}
 <div class="container mt-4">
-    {% include 'userbase/components/sub-nav.html' with active_item='subscription' %}
+    {% include 'userbase/components/sub-nav.html' with active_item='invoices' %}
 
     <div class="row mt-4 mb-4">
-        <h4 class="mt-4 mb-4"> My Subscription </h4>
+        <h4 class="mt-4 mb-4"> Invoices </h4>
 
         <!-- DataTable for Desktop -->
         <div class="col-md-12 d-none d-md-block">
@@ -25,44 +25,41 @@
                 <table class="table datatables" id="dataTable-1">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Plan</th>
-                            <th>ID</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
+                            <th>Invoice Number</th>
+                            <th>Item</th>
+                            <th>Issue Date</th>
+                            <th>Expire Date</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for subscription in subscriptions %}
+                        {% for invoice in invoices %}
                             <tr>
-                                <td>{{ forloop.counter }}</td>
                                 <td>
-                                    {% if subscription.plan %}
-                                        {{ subscription.plan.title }}
+                                    {{ invoice.invoice_id}}
+                                </td>
+                                <td>
+                                    {% if invoice.plan %}
+                                        {{ invoice.plan.title }}
                                     {% else %}
-                                        {{ subscription.standalone_plan.title }}
+                                        {{ invoice.standalone_plan.title }}
                                     {% endif %}
                                 </td>
+                                
                                 <td>
-                                    {{ subscription.id | truncatechars:5 }}
+                                    {{ invoice.issue_date }}
                                 </td>
                                 <td>
-                                    {{ subscription.start_date }}
+                                    {{ invoice.expire_date }}
                                 </td>
                                 <td>
-                                    {{ subscription.end_date }}
+                                    {{ invoice.status }}
                                 </td>
                                 <td>
-                                    {% if subscription.is_active %}
-                                        Active
-                                    {% else %}
-                                        Expired
-                                    {% endif %}
-                                </td>
-                                <td>
-                                    <a href="" class="text-primary gradient-text">Cancel Plan</a>
+                                    <!-- Trigger Button -->
+                                    <a href="#" class="text-primary gradient-text" data-bs-toggle="modal" data-bs-target="#exampleModal">View Details</a>
+
                                 </td>
                             </tr>
                         {% endfor %}
@@ -74,21 +71,23 @@
         <!-- Cards for Mobile -->
         <div class="col-md-12 d-block d-md-none">
             <div class="card-columns">
-                {% for subscription in subscriptions %}
+                {% for invoice in invoices %}
                     <div class="edit-form-card  mb-4 shadow rounded">
                         <div class="card-body">
                             <h5 class="card-title">
-                                {% if subscription.plan %}
-                                <i class="fa fa-star" aria-hidden="true"></i>  {{ subscription.plan.title }}
+                                {% if invoice.plan %}
+                                 {{ invoice.plan.title }}
                                 {% else %}
-                                <i class="fa fa-star" aria-hidden="true"></i>  {{ subscription.standalone_plan.title }}
+                                 {{ invoice.standalone_plan.title }}
                                 {% endif %}
+                                
                             </h5>
-                            <p class="card-text"><strong>ID:</strong> {{ subscription.id | truncatechars:5 }}</p>
-                            <p class="card-text"><strong>Start Date:</strong> {{ subscription.start_date }}</p>
-                            <p class="card-text"><strong>End Date:</strong> {{ subscription.end_date }}</p>
-                            <p class="card-text"><strong>Status:</strong> {% if subscription.is_active %} Active {% else %} Expired {% endif %}</p>
-                            <a href="" class="text-primary gradient-text">Cancel Plan</a>
+                            <p class="card-text">ID: {{ invoice.invoice_id | truncatechars:5 }}</p>
+                            
+                            <p class="card-text">Issue Date: {{ invoice.issue_date }}</p>
+                            <p class="card-text">Expiry Date: {{ invoice.expire_date }}</p>
+                            <p class="card-text">Status: {{invoice.status}}</p>
+                            <a href="#" class="text-primary gradient-text" data-bs-toggle="modal" data-bs-target="#exampleModal">View Details</a>
                         </div>
                     </div>
                 {% endfor %}
@@ -96,9 +95,9 @@
             <!-- Pagination for Mobile -->
             <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-center">
-                    {% if subscriptions.has_previous %}
+                    {% if invoices.has_previous %}
                         <li class="page-item">
-                            <a class="page-link" href="?page={{ subscriptions.previous_page_number }}">Previous</a>
+                            <a class="page-link" href="?page={{ invoices.previous_page_number }}">Previous</a>
                         </li>
                     {% else %}
                         <li class="page-item disabled">
@@ -107,16 +106,16 @@
                     {% endif %}
 
                     {% for num in paginator.page_range %}
-                        {% if subscriptions.number == num %}
+                        {% if invoices.number == num %}
                             <li class="page-item active"><span class="page-link">{{ num }}</span></li>
                         {% else %}
                             <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
                         {% endif %}
                     {% endfor %}
 
-                    {% if subscriptions.has_next %}
+                    {% if invoices.has_next %}
                         <li class="page-item">
-                            <a class="page-link" href="?page={{ subscriptions.next_page_number }}">Next</a>
+                            <a class="page-link" href="?page={{ invoices.next_page_number }}">Next</a>
                         </li>
                     {% else %}
                         <li class="page-item disabled">
@@ -127,7 +126,27 @@
             </nav>
         </div>
     </div>
+
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade modal-sm" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <div class="modal-body text-center">
+                <h5 class="mb-4 mt-4"> Find details of invoice in your email </h5>
+                <p>The receipt has been sent to your email</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
 {% endblock %}
 {% block script %}
 <script src="{% static "js/jquery.min.js" %}"></script>
