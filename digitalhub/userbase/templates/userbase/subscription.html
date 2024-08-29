@@ -88,7 +88,9 @@
                             <p class="card-text"><strong>Start Date:</strong> {{ subscription.start_date }}</p>
                             <p class="card-text"><strong>End Date:</strong> {{ subscription.end_date }}</p>
                             <p class="card-text"><strong>Status:</strong> {% if subscription.is_active %} Active {% else %} Expired {% endif %}</p>
-                            <a href="" class="text-primary gradient-text">Cancel Plan</a>
+                            <div class="text-center">
+                                <a href="" class="text-primary gradient-text">Cancel Plan</a>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}

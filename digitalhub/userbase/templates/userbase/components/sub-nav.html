@@ -12,7 +12,7 @@
     <a href="{% url "invoice" %}" class="subnav-link {% if active_item == 'invoices' %}active{% endif %}">
         <i class="bi bi-file-text"></i> Invoices
     </a>
-    <a href="" class="subnav-link {% if active_item == 'payment_method' %}active{% endif %}">
+    <a href="{% url "payment_method" %}" class="subnav-link {% if active_item == 'payment_method' %}active{% endif %}">
         <i class="bi bi-credit-card"></i> Payment Method
     </a>
 </div>

@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}My invoice - {% endblock title %}
+{% block title %}Payment Method - {% endblock title %}
 
 {% block stylesheet %}
 <link rel="stylesheet" href="{% static "css/auth-style.css" %}" />
@@ -14,10 +14,10 @@
 
 {% block main %}
 <div class="container mt-4">
-    {% include 'userbase/components/sub-nav.html' with active_item='invoices' %}
+    {% include 'userbase/components/sub-nav.html' with active_item='payment_method' %}
 
     <div class="row mt-4 mb-4">
-        <h4 class="mt-4 mb-4"> Invoices </h4>
+        <h4 class="mt-4 mb-4"> Payment Method </h4>
 
         <!-- DataTable for Desktop -->
         <div class="col-md-12 d-none d-md-block">
@@ -25,40 +25,36 @@
                 <table class="table datatables" id="dataTable-1">
                     <thead>
                         <tr>
-                            <th>Invoice Number</th>
-                            <th>Item</th>
-                            <th>Issue Date</th>
+                            <th>Method</th>
+                            <th>Card Name</th>
+                            <th>Card Number</th>
                             <th>Expire Date</th>
-                            <th>Status</th>
+                            <th>CVV</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for invoice in invoices %}
+                        {% for method in payment_methods %}
                             <tr>
                                 <td>
-                                    {{ invoice.invoice_id}}
+                                    {{ method.method}}
                                 </td>
                                 <td>
-                                    {% if invoice.plan %}
-                                        {{ invoice.plan.title }}
-                                    {% else %}
-                                        {{ invoice.standalone_plan.title }}
-                                    {% endif %}
+                                    {{method.card_name}}
                                 </td>
                                 
                                 <td>
-                                    {{ invoice.issue_date }}
+                                    {{ method.card_number }}
                                 </td>
                                 <td>
-                                    {{ invoice.expire_date }}
+                                    {{ method.card_expiration_date }}
                                 </td>
                                 <td>
-                                    {{ invoice.status }}
+                                    ***
                                 </td>
                                 <td>
                                     <!-- Trigger Button -->
-                                    <a href="#" class="text-primary gradient-text" data-bs-toggle="modal" data-bs-target="#exampleModal">View Details</a>
+                                    <a href="{% url "delete_payment_method" method.pk %}" class="text-primary gradient-text" >Delete</a>
 
                                 </td>
                             </tr>
@@ -71,24 +67,19 @@
         <!-- Cards for Mobile -->
         <div class="col-md-12 d-block d-md-none">
             <div class="card-columns">
-                {% for invoice in invoices %}
+                {% for method in payment_methods %}
                     <div class="edit-form-card  mb-4 shadow rounded">
                         <div class="card-body">
-                            <h5 class="card-title">
-                                {% if invoice.plan %}
-                                 {{ invoice.plan.title }}
-                                {% else %}
-                                 {{ invoice.standalone_plan.title }}
-                                {% endif %}
-                                
-                            </h5>
-                            <p class="card-text">ID: {{ invoice.invoice_id | truncatechars:5 }}</p>
+                            <h6 class="card-title">
+                               {{method.card_name}}                                
+                            </h6>
+                            <p class="card-text">{{ method.card_number | truncatechars:20 }}</p>
                             
-                            <p class="card-text">Issue Date: {{ invoice.issue_date }}</p>
-                            <p class="card-text">Expiry Date: {{ invoice.expire_date }}</p>
-                            <p class="card-text">Status: {{invoice.status}}</p>
+                            <p class="card-text">Card Type: {{ method.method }}</p>
+                            <p class="card-text">Expiry Date: {{ method.card_expiration_date }}</p>
+                            <p class="card-text">CVV: ***</p>
                             <div class="text-center">
-                                <a href="#" class="text-primary gradient-text" data-bs-toggle="modal" data-bs-target="#exampleModal">View Details</a>
+                                <a href="{% url "delete_payment_method" method.pk %}" class="text-primary gradient-text" >Delete</a>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from digitalhub.authentication.forms import UserEditForm, ProfilePictureForm
 from .forms import CompanyForm
 from .models import Company
@@ -13,7 +13,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 @login_required
 def edit_profile(request):
     user = request.user
-    
+
     try:
         company = user.company
     except Company.DoesNotExist:
@@ -42,52 +42,85 @@ def edit_profile(request):
 
 @login_required
 def user_change_profile_picture(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ProfilePictureForm(request.POST, request.FILES)
         if form.is_valid():
-            profile_image = form.cleaned_data['profile_image']
+            profile_image = form.cleaned_data["profile_image"]
             user_profile = request.user
             user_profile.profile_image = profile_image
             user_profile.save()
 
-            return JsonResponse({'status': 'success', 'message': 'Profile picture updated successfully.'})
+            return JsonResponse(
+                {
+                    "status": "success",
+                    "message": "Profile picture updated successfully.",
+                }
+            )
         else:
-            return JsonResponse({'status': 'error', 'message': 'Invalid form data.'})
-    return JsonResponse({'status': 'error', 'message': 'Invalid request.'})
+            return JsonResponse({"status": "error", "message": "Invalid form data."})
+    return JsonResponse({"status": "error", "message": "Invalid request."})
 
-
+@login_required
 def subscription(request):
     subscription_list = Subscription.objects.filter(user=request.user)
-    
+
     paginator = Paginator(subscription_list, 10)
-    page = request.GET.get('page')
-    
+    page = request.GET.get("page")
+
     try:
         subscriptions = paginator.page(page)
     except PageNotAnInteger:
         subscriptions = paginator.page(1)
     except EmptyPage:
         subscriptions = paginator.page(paginator.num_pages)
-    
-    return render(request, 'userbase/subscription.html', {"subscriptions": subscriptions, "paginator": paginator})
 
+    return render(
+        request,
+        "userbase/subscription.html",
+        {"subscriptions": subscriptions, "paginator": paginator},
+    )
 
+@login_required
 def invoice(request):
     invoice_list = Invoice.objects.filter(user=request.user)
-    
+
     paginator = Paginator(invoice_list, 10)
-    page = request.GET.get('page')
-    
+    page = request.GET.get("page")
+
     try:
         invoices = paginator.page(page)
     except PageNotAnInteger:
         invoices = paginator.page(1)
     except EmptyPage:
         invoices = paginator.page(paginator.num_pages)
-    
-    return render(request, 'userbase/invoice.html', {"invoices": invoices, "paginator": paginator})
+
+    return render(
+        request, "userbase/invoice.html", {"invoices": invoices, "paginator": paginator}
+    )
 
 
 
+@login_required
 def payment_method(request):
-    pass
+    payment_method_list = PaymentMethod.objects.filter(user=request.user)
+
+    paginator = Paginator(payment_method_list, 10)
+    page = request.GET.get("page")
+
+    try:
+        payment_methods = paginator.page(page)
+    except PageNotAnInteger:
+        payment_methods = paginator.page(1)
+    except EmptyPage:
+        payment_methods = paginator.page(paginator.num_pages)
+
+    return render(
+        request, "userbase/payment-method.html", {"payment_methods": payment_methods, "paginator": paginator}
+    )
+
+
+@login_required
+def delete_payment_method(request, id):
+    payment_method = get_object_or_404(PaymentMethod, id=id)
+    payment_method.delete()
+    return redirect("payment_method")
