@@ -84,3 +84,72 @@ form .form-check-label {
     position: relative; /* Keeps position relative for box shadow */
     box-shadow: 0 4px 20px rgba(26, 165, 187, 0.5), 0 6px 20px rgba(121, 226, 153, 0.3); /* Box shadow with gradient-like effect */
 }
+
+/* Sub Navigation */
+.subnav {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.subnav-link {
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.subnav-link.active {
+    color: rgb(26, 165, 187);
+}
+
+/* Profile Card and Edit Form */
+.profile-card, .edit-form-card {
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-image: linear-gradient(112.41deg, #1aa5bb, #1aa5bb 54.9%, #79e299);
+    padding: 5px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 767.98px) {
+    .subnav {
+        flex-direction: row;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+
+    .subnav-link {
+        display: inline-block;
+        width: auto;
+        text-align: center;
+    }
+
+    .edit-form-card {
+        padding: 1rem;
+    }
+}
+
+.btn-gradient-border {
+    border: 1px solid !important; /* Set the border width */
+    border-image-slice: 1 !important; /* Ensures the gradient is stretched over the entire border */
+    border-image-source: linear-gradient(112.41deg, #1aa5bb, #1aa5bb 54.9%, #79e299) !important; /* Gradient for border */
+    color: #1aa5bb !important; /* Set text color */
+}
+
+.btn-gradient-border:hover {
+    
+    color: red; /* White text color on hover */
+}

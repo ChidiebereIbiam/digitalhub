@@ -60,9 +60,26 @@ class UserSignupForm(SignupForm):
     )
     
 
-# class UserSocialSignupForm(SocialSignupForm):
-#     """
-#     Renders the form when user has signed up using social accounts.
-#     Default fields will be added automatically.
-#     See UserSignupForm otherwise.
-#     """
+
+
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'username', 'phone_number')
+
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Enter First Name'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Enter Last Name'}),
+            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Enter Username'}),
+            'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'+234'}),
+        }
+
+
+class PasswordChangingForm(PasswordChangeForm):
+    old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', 'type':'password'}))
+    new_password1=forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'class':'form-control', 'type':'password'}))
+    new_password2=forms.CharField(max_length=100, widget= forms.PasswordInput(attrs={'class':'form-control', 'type':'password'}))
+
+    class Meta:
+        model = User
+        fields = ('old_password', 'new_password1', 'new_password2')
