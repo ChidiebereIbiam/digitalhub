@@ -1311,7 +1311,7 @@ hr {
 }
 
 /* Prevent Clicking on the Icon */
-.dropdown-toggle {
+.custom-dropdown-toggle {
   pointer-events: none; /* Disables clicking on the icon */
 }
 
@@ -1449,5 +1449,16 @@ hr {
     font-size: calc(var(--button-font-size) - 2px); /* Slightly smaller font size */
 
     
+  }
+}
+
+
+@media (max-width: 768px) {
+  .supporting-text{
+   font-size: smaller;
+  }
+
+  .main-header-text{
+    font-size: x-large !important;
   }
 }
