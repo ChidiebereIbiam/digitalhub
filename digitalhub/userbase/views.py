@@ -4,6 +4,8 @@ from .forms import CompanyForm
 from .models import Company
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from digitalhub.payment.models import Subscription, Invoice, PaymentMethod
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
@@ -55,7 +57,19 @@ def user_change_profile_picture(request):
 
 
 def subscription(request):
-    pass
+    subscription_list = Subscription.objects.filter(user=request.user)
+    
+    paginator = Paginator(subscription_list, 10)
+    page = request.GET.get('page')
+    
+    try:
+        subscriptions = paginator.page(page)
+    except PageNotAnInteger:
+        subscriptions = paginator.page(1)
+    except EmptyPage:
+        subscriptions = paginator.page(paginator.num_pages)
+    
+    return render(request, 'userbase/subscription.html', {"subscriptions": subscriptions, "paginator": paginator})
 
 
 def invoices(request):

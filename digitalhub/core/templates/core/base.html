@@ -130,8 +130,8 @@
                                     <!-- User Info and Dropdown Items (Mobile View) -->
                                     <li class="d-lg-none">
                                         <a class="dropdown-item" href="#">
-                                            <strong>Ebunoluwa Osifuye</strong><br>
-                                            <small>osifuyeebunoluwaa@gmail.com</small>
+                                            <strong>{{user.first_name}} {{user.last_name}}</strong><br>
+                                            <small>{{user.email | truncatechars:20}}</small>
                                         </a>
                                     </li>
                                     <li class="d-lg-none">
@@ -146,7 +146,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{% url "subscription" %}">
                                             <i class="bi bi-card-list me-2"></i> <!-- Icon for My Subscription -->
                                             My Subscription
                                         </a>
