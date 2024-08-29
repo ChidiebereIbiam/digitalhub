@@ -91,9 +91,15 @@
                                 <!-- Profile Avatar -->
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
+                                    {% if user.profile_image %}
+                                    <img src="{{user.profile_image.url}}"
+                                        class="rounded-circle dropdown-toggle-icon dropdown-profile-image" alt="User Avatar">
+                                    {% else %}
                                     <img src="{% static "images/noprofile.png" %}"
-                                        class="rounded-circle dropdown-toggle-icon" alt="User Avatar" width="40"
+                                        class="rounded-circle dropdown-toggle-icondropdown-profile-image" alt="User Avatar" width="40"
                                         height="40">
+                                    {% endif %}
+                                    
                                 </a>
 
                                 <!-- Dropdown Menu -->
@@ -101,11 +107,19 @@
                                     <!-- User Info (Desktop View) -->
                                     <li class="p-3 text-justify standalone text-white d-none d-lg-block">
                                         <div class="profile-container d-flex align-items-center">
-                                            <img src="{% static 'images/noprofile.png' %}" class="rounded-circle" alt="User Avatar" width="50" height="50">
+                                            {% if user.profile_image %}
+                                            <img src="{{user.profile_image.url}}"
+                                        class="rounded-circle dropdown-toggle-icon dropdown-profile-image" alt="User Avatar">
+                                            {% else %}
+                                            <img src="{% static "images/noprofile.png" %}"
+                                            class="rounded-circle dropdown-toggle-icondropdown-profile-image" alt="User Avatar" width="40"
+                                            height="40">
+                                            {% endif %}
+                                            
                                             <div class="profile-details ms-0">
-                                              <h6 class="mb-0">Ebunoluwa Osifuye</h6>
-                                              <p class="small mb-1">osifuyeebunoluwaa@gmail.com</p>
-                                              <a href="#" class="edit-profile-btn">Edit Profile</a>
+                                              <h6 class="mb-0">{{user.first_name}} {{user.last_name}}</h6>
+                                              <p class="small mb-1">{{user.email | truncatechars:20}}</p>
+                                              <a href="{% url "edit_profile" %}" class="edit-profile-btn">Edit Profile</a>
                                             </div>
                                           </div>
                                     </li>
@@ -253,6 +267,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+    {% block script %}{% endblock script %}
 </body>
 
 </html>

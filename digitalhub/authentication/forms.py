@@ -75,6 +75,9 @@ class UserEditForm(forms.ModelForm):
         }
 
 
+class ProfilePictureForm(forms.Form):
+    profile_image = forms.ImageField()
+    
 class PasswordChangingForm(PasswordChangeForm):
     old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', 'type':'password'}))
     new_password1=forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'class':'form-control', 'type':'password'}))

@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from digitalhub.authentication.forms import UserEditForm
+from digitalhub.authentication.forms import UserEditForm, ProfilePictureForm
 from .forms import CompanyForm
 from .models import Company
+from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -35,6 +36,22 @@ def edit_profile(request):
         "userbase/edit_profile.html",
         {"user_edit_form": user_edit_form, "company_form": company_form},
     )
+
+
+@login_required
+def user_change_profile_picture(request):
+    if request.method == 'POST':
+        form = ProfilePictureForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile_image = form.cleaned_data['profile_image']
+            user_profile = request.user
+            user_profile.profile_image = profile_image
+            user_profile.save()
+
+            return JsonResponse({'status': 'success', 'message': 'Profile picture updated successfully.'})
+        else:
+            return JsonResponse({'status': 'error', 'message': 'Invalid form data.'})
+    return JsonResponse({'status': 'error', 'message': 'Invalid request.'})
 
 
 def subscription(request):
