@@ -29,12 +29,12 @@ def blog(request):
 
 
 def blog_details(request, slug):
-    # post = get_object_or_404(Post, slug=slug)
+    post = get_object_or_404(Post, slug=slug)
 
-    # recent_articles = Post.objects.filter(draft=False).order_by('-id')[0:3]
-    # context = {
-    #     'post': post,
-    #     'recent_articles': recent_articles,
+    recent_articles = Post.objects.filter().order_by('-id')[0:3]
+    context = {
+        'post': post,
+        'recent_articles': recent_articles,
 
-    # }
-    return render(request, 'blog/blog-details.html')
+    }
+    return render(request, 'blog/blog-details.html', context)

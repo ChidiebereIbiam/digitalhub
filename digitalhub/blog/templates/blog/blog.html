@@ -47,39 +47,37 @@ Blog -
         <div class="col-md-6">
             <div class="recent">
                 <!-- Image tag instead of background image in CSS -->
-                <img src="{% static 'images/assets/rectangle-14@2x.png' %}" class="recent-img img-fluid" alt="Blog Post">
+                <a href="{% url "blog_details" most_recent.slug %}">
+                    <img src="{{most_recent.header_image.url}}" class="recent-img img-fluid" alt="Blog Post">
+                </a>
                 <!-- Overlay content -->
                 <div class="overlay">
-                    <h2>Blog Title</h2>
-                    <p>We use data-driven insights to optimize campaigns and maximize ROI.</p>
-                    <a href="#" class="read-more-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    <h2>{{most_recent.title}}</h2>
+                    <p>{{most_recent.subtitle}}</p>
+                    <a href="{% url "blog_details" most_recent.slug %}" class="read-more-link">Read More <i
+                            class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
 
         <div class="col-md-6">
+            {% for post in other_recent %}
             <!-- First d-flex block -->
             <div class="d-flex justify-content-between blog-card">
                 <div class="blog-card-img-container">
-                    <img src="{% static 'images/assets/rectangle-15@2x.png' %}" class="blog-card-img" alt="...">
+                    <a href="{% url "blog_details" post.slug %}">
+                        <img src="{{post.header_image.url}}" class="blog-card-img" alt="...">
+                    </a>
                 </div>
                 <div class="blog-card-content">
-                    <h6 class="card-title">Result Driven</h6>
-                    <p class="card-text">We use data-driven insights to optimize campaigns and maximize ROI.</p>
-                    <a href="#" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
+                    <h6 class="card-title">{{post.title}}</h6>
+                    <p class="card-text">{{post.subtitle}}</p>
+                    <a href="{% url "blog_details" post.slug %}" class="read-more-link">Read more <i
+                            class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <!-- Second d-flex block -->
-            <div class="d-flex justify-content-between blog-card mt-3">
-                <div class="blog-card-img-container">
-                    <img src="{% static 'images/assets/rectangle-15@2x.png' %}" class="blog-card-img" alt="...">
-                </div>
-                <div class="blog-card-content">
-                    <h6 class="card-title">Result Driven</h6>
-                    <p class="card-text">We use data-driven insights to optimize campaigns and maximize ROI.</p>
-                    <a href="#" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+            {% endfor %}
+
         </div>
     </div>
 </section>
@@ -92,74 +90,22 @@ Blog -
     <h4 class="text-center text-custom-color  mb-3">All Blog Posts</h4>
     <div class="all-blog-post container">
         <div class="row">
-            <!-- Card 1 -->
+            {% for post in page_obj %}
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="{% static 'images/assets/rectangle-15@2x.png' %}"
-                        class="post-card-image img-fluid card-img-top" alt="...">
+                    <a href="{% url "blog_details" post.slug %}">
+                        <img src="{{post.header_image.url}}" class="post-card-image img-fluid card-img-top" alt="...">
+                    </a>
                     <div class="card-body">
-                        <h5 class="card-title">Result Driven</h5>
-                        <p class="card-text">We use data-driven insights to optimize campaigns and maximize ROI.</p>
-                        <a href="#" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <p class="card-text">{{post.subtitle | truncatechars:50}}</p>
+                        <a href="{% url "blog_details" post.slug %}" class="read-more-link">Read more <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-            <!-- Repeat Card for a total of 6 cards -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{% static 'images/assets/rectangle-16@2x.png' %}"
-                        class="post-card-image img-fluid card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Innovative Strategies</h5>
-                        <p class="card-text">We use data-driven insights to optimize campaigns and maximize ROI.</p>
-                        <a href="#" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{% static 'images/assets/blackbusinesswomansmiling-11@2x.png' %}"
-                        class="post-card-image img-fluid card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Customer Focused</h5>
-                        <p class="card-text">We use data-driven insights to optimize campaigns and maximize ROI.</p>
-                        <a href="#" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{% static 'images/assets/rectangle-15@2x.png' %}"
-                        class="post-card-image img-fluid card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Creative Solutions</h5>
-                        <p class="card-text">We use data-driven insights to optimize campaigns and maximize ROI.</p>
-                        <a href="#" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{% static 'images/assets/rectangle-15@2x.png' %}"
-                        class="post-card-image img-fluid card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Data Driven</h5>
-                        <p class="card-text">We use data-driven insights to optimize campaigns and maximize ROI.</p>
-                        <a href="#" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{% static 'images/assets/rectangle-15@2x.png' %}"
-                        class="post-card-image img-fluid card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Continuous Improvement</h5>
-                        <p class="card-text">We use data-driven insights to optimize campaigns and maximize ROI.</p>
-                        <a href="#" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
+
         </div>
     </div>
 </section>
