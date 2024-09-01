@@ -19,10 +19,21 @@ from .utils import handle_checkout_session_completed, handle_invoice_payment_suc
 def pricing(request):
     services = Service.objects.all()
     basic_plan = BundlePlan.objects.get(title__iexact="basic plan")
-    print(basic_plan)
+
+    
+    try:
+        social_media_service = Service.objects.get(title__iexact="Social Media Management")
+        standalone_plans = social_media_service.stand_alone_plans.all()
+    except Service.DoesNotExist:
+        standalone_plans = None
+
 
     return render(
-        request, "payment/pricing.html", {"services": services, "basic_plan": basic_plan}
+        request, "payment/pricing.html", 
+        {
+            "services": services, 
+            "basic_plan": basic_plan,
+            "standalone_plans":standalone_plans}
     )
 
 

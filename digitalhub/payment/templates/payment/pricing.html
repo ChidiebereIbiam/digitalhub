@@ -303,67 +303,25 @@ Pricing -
     recusandae.</p>
 
   <div class="row">
+    {% for plan in standalone_plans %}
     <div class="col-sm-6 mt-3 ">
       <div class="card shadow-sm border-0 rounded">
         <div class="card-body d-flex flex-column justify-content-between">
           <div>
-            <h5 class="card-title">Social Media Management (Basic)</h5>
-            <p>1 post and 1 video text</p>
+            <h5 class="card-title">{{plan.title}}</h5>
+            <p>{{plan.description}}</p>
           </div>
           <div class="">
-            <h5 class="amount mb-0">$250 <small>/ month</small></h5>
-            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+            <h5 class="amount mb-0">${{plan.price}} <small>/ month</small></h5>
+            <a href="{% url 'create_checkout_session' %}?id={{plan.id}}&plan_type=standalone" class="i-am-an1 btn btn-sm">Choose Plan</a>
           </div>
         </div>
       </div>
     </div>
+    {% endfor %}
 
-    <div class="col-sm-6 mt-3 ">
-      <div class="card shadow-sm border-0 rounded">
-        <div class="card-body d-flex flex-column justify-content-between">
-          <div>
-            <h5 class="card-title">Social Media Management (Standard)</h5>
-            <p>2 posts and 2 videos per week</p>
-          </div>
-          <div class="">
-            <h5 class="amount mb-0">$400 <small>/ month</small></h5>
-            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-6 mt-3 ">
-      <div class="card shadow-sm border-0 rounded">
-        <div class="card-body d-flex flex-column justify-content-between">
-          <div>
-            <h5 class="card-title">Social Media Management (Premium)</h5>
-            <p>3 post and 1 video text</p>
-          </div>
-          <div class="">
-            <h5 class="amount mb-0">$550 <small>/ month</small></h5>
-            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 mt-3 ">
-      <div class="card shadow-sm border-0 rounded">
-        <div class="card-body d-flex flex-column justify-content-between">
-          <div>
-            <h5 class="card-title">Reputation Management</h5>
-            <p>Monitor and manage your online reviews and reputations</p>
-          </div>
-          <div class="">
-            <h5 class="amount mb-0">$400 <small>/ month</small></h5>
-            <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
-          </div>
-        </div>
-      </div>
-    </div>
+   
+   
   </div>
 </div>
 

@@ -17,8 +17,8 @@ def handle_checkout_session_completed(session):
     plan_type = session.get("metadata", {}).get("plan_type")
     if plan_type == "bundle":
         plan_id = session.get("metadata", {}).get("plan_id")
-    else:
-        standalone_plan_id = session.get("metadata", {}).get("standalone_plan_id")
+    elif plan_type =="standalone":
+        standalone_plan_id = session.get("metadata", {}).get("plan_id")
 
     plan = BundlePlan.objects.filter(id=plan_id).first() if plan_id else None
     standalone_plan = (
@@ -88,7 +88,7 @@ def handle_invoice_payment_succeeded(invoice):
     if plan_type == "bundle":
         plan_id = invoice.get("metadata", {}).get("plan_id")
     else:
-        standalone_plan_id = invoice.get("metadata", {}).get("standalone_plan_id")
+        standalone_plan_id = invoice.get("metadata", {}).get("plan_id")
     plan = BundlePlan.objects.filter(id=plan_id).first() if plan_id else None
     standalone_plan = (
         StandAlonePlan.objects.filter(id=standalone_plan_id).first()
