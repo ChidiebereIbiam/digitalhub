@@ -62,7 +62,9 @@
                                     {% endif %}
                                 </td>
                                 <td>
-                                    <a href="" class="text-primary gradient-text">Cancel Plan</a>
+                                    {% if subscription.is_active %}
+                                    <a href="{% url "cancel_subscription" subscription.id %}" class="text-primary gradient-text">Cancel Plan</a>
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}
@@ -88,9 +90,11 @@
                             <p class="card-text"><strong>Start Date:</strong> {{ subscription.start_date }}</p>
                             <p class="card-text"><strong>End Date:</strong> {{ subscription.end_date }}</p>
                             <p class="card-text"><strong>Status:</strong> {% if subscription.is_active %} Active {% else %} Expired {% endif %}</p>
+                            {% if subscription.is_active %}
                             <div class="text-center">
-                                <a href="" class="text-primary gradient-text">Cancel Plan</a>
+                                <a href="{% url "cancel_subscription" subscription.id %}" class="text-primary gradient-text">Cancel Plan</a>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}

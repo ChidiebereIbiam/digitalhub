@@ -132,27 +132,20 @@ def stripe_webhook(request):
 
 
 #TODO ENSURE TO MAKE THIS WORK WHEN WORKING WITH TEMPLATE
-@csrf_exempt
-def cancel_subscription(request, subscription_id):
+def cancel_subscription(request, id):
     stripe.api_key = settings.STRIPE_SECRET_KEY
-    if request.method == "POST":
-        try:
-            # Retrieve the subscription from Stripe
-            subscription = stripe.Subscription.retrieve(subscription_id)
-            
-            # Cancel the subscription
-            canceled_subscription = stripe.Subscription.modify(
-                subscription_id,
-                cancel_at_period_end=True 
-            )
+    # Retrieve the subscription from Stripe
+    # subscription = stripe.Subscription.retrieve(id)
+    
+    # # Cancel the subscription
+    # canceled_subscription = stripe.Subscription.modify(
+    #     id,
+    #     cancel_at_period_end=True 
+    # )
 
-            # Update your database record if needed
-            db_subscription = get_object_or_404(Subscription, id=subscription_id)
-            db_subscription.status = 'canceled'
-            db_subscription.save()
+    # Update your database record if needed
+    db_subscription = get_object_or_404(Subscription, id=id)
+    db_subscription.is_active = False
+    db_subscription.save()
 
-            return JsonResponse({"status": "Subscription canceled", "subscription": canceled_subscription})
-        except stripe.error.StripeError as e:
-            return JsonResponse({"error": str(e)}, status=400)
-    else:
-        return JsonResponse({"error": "Invalid request method"}, status=405)
+    return redirect("subscription")

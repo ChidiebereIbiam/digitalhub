@@ -8,4 +8,5 @@ urlpatterns = [
     path('success/', views.SuccessView.as_view(), name="payment_success"),
     path('cancelled/', views.CancelledView.as_view(), name="payment_cancel"),
     path('webhook/', views.stripe_webhook),
+    path('cancel-subscription/<str:id>', views.cancel_subscription, name="cancel_subscription")
 ]
