@@ -4,6 +4,10 @@
 Pricing -
 {% endblock title %}
 
+{% block stylesheet %}
+
+{% endblock stylesheet %}
+
 {% block herosection %}
 
 <section class="herosection">
@@ -38,7 +42,7 @@ Pricing -
           <div class="header1">
             <div class="heading-and-price">
               <div class="heading-and-badge">
-                <div class="heading6">Basic plan</div>
+                <div class="heading6">{{basic_plan.title}}</div>
                 <div class="badge2">
                   <a class="text43">Popular</a>
                 </div>
@@ -48,11 +52,13 @@ Pricing -
                 <span class="fs-6 text-muted">per month</span>
               </div>
             </div>
-            <button class="actions">
-              <div class="button48">
+            <button class="actions" onclick="window.location.href='{% url 'create_checkout_session' %}?id={{ basic_plan.id }}&plan_type=bundle'">
+              <div class="button48" >
                 <b class="text44">Get Started</b>
               </div>
             </button>
+                
+            
           </div>
           <div class="content9">
             <div class="expertise-group">
@@ -121,7 +127,7 @@ Pricing -
               </div>
             </div>
             <div class="expertise-group">
-              <button class="button49">
+              <button class="button49" onclick="window.location.href='{% url 'create_checkout_session' %}?id={{ advanced_plan.id }}&plan_type=bundle'">
                 <b class="text56">Get started</b>
               </button>
             </div>
@@ -189,7 +195,7 @@ Pricing -
 
               </div>
             </div>
-            <button class="actions">
+            <button class="actions" onclick="window.location.href='{% url 'create_checkout_session' %}?id={{ premium_plan.id }}&plan_type=bundle'">
               <div class="button48">
                 <b class="text44">Get Started</b>
               </div>

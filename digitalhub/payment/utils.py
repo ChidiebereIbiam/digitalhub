@@ -10,9 +10,15 @@ def handle_checkout_session_completed(session):
     customer_email = session.get("customer_email")
     user = get_user_model().objects.filter(email=customer_email).first()
 
+    plan_id = None
+    standalone_plan_id = None
+
     # Create a subscription entry
-    plan_id = session.get("metadata", {}).get("plan_id")
-    standalone_plan_id = session.get("metadata", {}).get("standalone_plan_id")
+    plan_type = session.get("metadata", {}).get("plan_type")
+    if plan_type == "bundle":
+        plan_id = session.get("metadata", {}).get("plan_id")
+    else:
+        standalone_plan_id = session.get("metadata", {}).get("standalone_plan_id")
 
     plan = BundlePlan.objects.filter(id=plan_id).first() if plan_id else None
     standalone_plan = (
@@ -74,8 +80,15 @@ def handle_invoice_payment_succeeded(invoice):
     )
 
     # Determine the plan/standalone plan from metadata
-    plan_id = invoice.get("metadata", {}).get("plan_id")
-    standalone_plan_id = invoice.get("metadata", {}).get("standalone_plan_id")
+    plan_id = None
+    standalone_plan_id = None
+
+    # Create a subscription entry
+    plan_type = invoice.get("metadata", {}).get("plan_type")
+    if plan_type == "bundle":
+        plan_id = invoice.get("metadata", {}).get("plan_id")
+    else:
+        standalone_plan_id = invoice.get("metadata", {}).get("standalone_plan_id")
     plan = BundlePlan.objects.filter(id=plan_id).first() if plan_id else None
     standalone_plan = (
         StandAlonePlan.objects.filter(id=standalone_plan_id).first()

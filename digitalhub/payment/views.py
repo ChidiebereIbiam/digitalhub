@@ -1,4 +1,5 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
+from django.urls import reverse
 from digitalhub.core.models import Service
 from .models import BundlePlan, StandAlonePlan, PaymentMethod, Subscription
 from django.conf import settings
@@ -9,6 +10,7 @@ from django.views.generic.base import TemplateView
 from django.contrib.auth import get_user_model
 from django.utils import timezone
 from datetime import timedelta
+from django.http import JsonResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .utils import handle_checkout_session_completed, handle_invoice_payment_succeeded
 
@@ -16,9 +18,11 @@ from .utils import handle_checkout_session_completed, handle_invoice_payment_suc
 # Create your views here.
 def pricing(request):
     services = Service.objects.all()
-    plans = BundlePlan.objects.all()
+    basic_plan = BundlePlan.objects.get(title__iexact="basic plan")
+    print(basic_plan)
+
     return render(
-        request, "payment/pricing.html", {"services": services, "plans": plans}
+        request, "payment/pricing.html", {"services": services, "basic_plan": basic_plan}
     )
 
 
@@ -29,35 +33,53 @@ def stripe_config(request):
         return JsonResponse(stripe_config, safe=False)
 
 
-@csrf_exempt
+@login_required
 def create_checkout_session(request):
+    # Check if user is authenticated
+    if not request.user.is_authenticated:
+        return redirect(reverse("account_login"))
+
     if request.method == "GET":
-        plan_id = 1
-        standalone_plan_id = None
-        domain_url = "http://127.0.0.1:8000/"
+        # Retrieve plan_id and plan_type from GET request parameters
+        plan_id = request.GET.get('id')
+        plan_type = request.GET.get('plan_type')
+
+        if plan_type == "bundle":
+            plan = BundlePlan.objects.get(id=plan_id)
+        elif plan_type=="standalone":
+            plan = StandAlonePlan.objects.get(id=plan_id)
+
+        if not plan_id or not plan_type:
+            return JsonResponse({"error": "Missing plan_id or plan_type"}, status=400)
+
+        domain_url = settings.DOMAIN_URL.rstrip('/') + '/'
         stripe.api_key = settings.STRIPE_SECRET_KEY
+
         try:
+            # Create the checkout session
             checkout_session = stripe.checkout.Session.create(
-                success_url=domain_url + "success?session_id={CHECKOUT_SESSION_ID}",
-                cancel_url=domain_url + "cancelled/",
+                success_url=request.build_absolute_uri(reverse("payment_success")),
+                cancel_url=request.build_absolute_uri(reverse("payment_cancel")),
                 payment_method_types=["card"],
-                mode="subscription",
+                mode=plan.payment_mode,
                 line_items=[
                     {
                         "quantity": 1,
-                        "price": "price_1PqxDbEDrn38YdUQ5pxEPmME",
+                        "price": plan.price_id,
                     }
                 ],
                 customer_email=request.user.email,
                 metadata={
-                    "plan_id": plan_id,
-                    "standalone_plan_id": standalone_plan_id,
+                    "plan_id": plan.id,
+                    "plan_type": plan_type,
                 },
             )
-            return JsonResponse({"sessionId": checkout_session["id"]})
+            # Redirect the user to the Stripe checkout page
+            return redirect(checkout_session.url, code=303)
         except Exception as e:
-            return JsonResponse({"error": str(e)})
+            return JsonResponse({"error": str(e)}, status=500)
 
+    return JsonResponse({"error": "Invalid request method"}, status=400)
 
 class SuccessView(TemplateView):
     template_name = "payment/payment_success.html"

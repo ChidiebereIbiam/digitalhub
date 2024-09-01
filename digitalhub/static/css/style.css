@@ -1462,3 +1462,43 @@ hr {
     font-size: x-large !important;
   }
 }
+
+
+.pricing-btn {
+  display: inline-block; /* Makes the element behave like a button */
+  padding: var(--padding-sm) 63px; /* Adds padding */
+  border-radius: var(--br-xl) 0 var(--br-xl) var(--br-xl); /* Rounded corners */
+  box-sizing: border-box; /* Ensures padding is included in width and height calculations */
+  border: None; /* Adds a border */
+  font-size: var(--button-font-size); /* Keeps the font size variable */
+  line-height: 1.5; /* Maintains the line height */
+  font-weight: 700; /* Keeps the font weight bold */
+  font-family: var(--button-font); /* Uses the specified button font */
+  text-decoration: none; /* Removes underline from text */
+  text-align: center; /* Centers the text inside the button */
+  white-space: nowrap; /* Prevents text wrapping */
+  background-color: transparent; /* Makes the background transparent */
+  color: transparent; /* Sets text color to transparent */
+  background-image: linear-gradient(112.41deg, #1aa5bb, #79e299); /* Gradient for text and border */
+  background-clip: text; /* Clips the background to the text */
+  -webkit-background-clip: text; /* Clips the background to the text for WebKit browsers */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; /* Adds transition effects */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  border-image: linear-gradient(112.41deg, #1aa5bb, #79e299); /* Gradient for the border */
+  border-image-slice: 1; /* Ensures the gradient is applied correctly to the border */
+}
+
+.pricing-btn:hover {
+  transform: translateY(-2px); /* Adds a hover effect that lifts the button */
+  background-image: linear-gradient(112.41deg, #79e299, #1aa5bb); /* Changes gradient on hover for text */
+  border-image: linear-gradient(112.41deg, #79e299, #1aa5bb); /* Changes gradient on hover for border */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .pricing-btn {
+    padding: var(--padding-xs) 40px; /* Reduces padding on smaller screens */
+    font-size: calc(var(--button-font-size) - 2px); /* Slightly smaller font size */
+  }
+}
