@@ -15,7 +15,6 @@ from digitalhub.payment.models import BundlePlan, StandAlonePlan
 def home(request):
     posts = Post.objects.all()[0:3]
     plans = BundlePlan.objects.all()
-    services = Service.objects.all()
     reviews = Review.objects.all()
 
     context = {"posts": posts, "plans": plans, "reviews": reviews}
@@ -23,15 +22,12 @@ def home(request):
 
 
 def about(request):
-    services = Service.objects.all()
     teams = Team.objects.all()
-    context = {"services": services, "teams": teams}
+    context = {"teams": teams}
     return render(request, "core/about.html", context)
 
 
 def contact_us(request):
-    services = Service.objects.all()
-
     if request.method == "POST":
         name = request.POST["name"]
         email_from = request.POST["email"]
@@ -68,17 +64,15 @@ def contact_us(request):
             messages.error(request, "An error occured, try again")
 
         redirect("contact_us")
-    return render(request, "core/contact_us.html", {"services": services})
+    return render(request, "core/contact_us.html",)
 
 
 def faq(request):
-    services = Service.objects.all()
-    return render(request, "core/faq.html", {"services": services})
+    return render(request, "core/faq.html")
 
 
 def privacy_policy(request):
-    services = Service.objects.all()
-    return render(request, "core/privacy_policy.html", {"services": services})
+    return render(request, "core/privacy_policy.html")
 
 
 
