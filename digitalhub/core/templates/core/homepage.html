@@ -66,11 +66,11 @@
                                 <span class="fs-6 text-muted">per month</span>
                             </div>
                         </div>
-                        <button class="actions">
-                            <div class="button48">
-                                <b class="text44">Get Started</b>
+                        <button class="actions" onclick="window.location.href='{% url 'pricing' %}'">
+                            <div class="button48" >
+                              <b class="text44">Get Started</b>
                             </div>
-                        </button>
+                          </button>
                     </div>
                     <div class="content9">
                         <div class="expertise-group">
@@ -143,7 +143,7 @@
                             </div>
                         </div>
                         <div class="expertise-group">
-                            <button class="button49">
+                            <button class="button49" onclick="window.location.href='{% url 'pricing' %}'">
                                 <b class="text56">Get started</b>
                             </button>
                         </div>
@@ -215,7 +215,7 @@
 
                             </div>
                         </div>
-                        <button class="actions">
+                        <button class="actions" onclick="window.location.href='{% url 'pricing' %}'">
                             <div class="button48">
                                 <b class="text44">Get Started</b>
                             </div>
@@ -274,149 +274,103 @@
 </section>
 
 <!-- Testimonials -->
-<section class="reviews-header-parent">
-    <div class="reviews-header">
-        <div class="review-title">
-            <div class="reviews-background"></div>
-            <b class="our-services">Reviews</b>
-            <h1 class="what-our-clients">What our clients say about us</h1>
-            <button class="button51">
-                <b class="text42">Contact us now</b>
-            </button>
+<div class="container my-5">
+    <div class="row">
+        <!-- Left Section: "What our clients say about us" -->
+        <div class="col-sm-3 review-left_section p-4 d-flex flex-column justify-content-between text-center text-md-start">
+            <div>
+                <p class="fw-bold">Reviews</p>
+                <h2 class="fw-bold">What our clients say about us</h2>
+            </div>
+            <a href="{% url "contact_us" %}" class="main-btn"> Contact us Now </a>
+        </div>
+
+        <!-- Right Section: Reviews -->
+        <div class="col-sm-9">
+            <div class="row align-items-end justify-content-center">
+                <!-- First Review Card -->
+                <div class="col-md-4 mb-4 d-flex align-items-end">
+                    <div class="review-card d-flex flex-column justify-content-end">
+                        <div class="card-body text-center">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <i class="fas fa-quote-left text-secondary"></i>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="text-justify">Lorem ipsum dolor sit amet consectetur. Quis dolor odio ultricies ac nulla. Sed non enim.</p>
+                            <div class="d-flex align-items-justify justify-content mt-3">
+                                <img src="{% static "images/assets/ellipse-18-1@2x.png" %}" class="review-card-img rounded-circle me-2" alt="Reviewer">
+                                <div>
+                                    <p class="mb-0 fw-bold">Rosemary John</p>
+                                    <p class="mb-0">CEO MMMM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Review Card -->
+                <div class="col-md-4 mb-4 d-flex align-items-start">
+                    <div class="review-card d-flex flex-column justify-content-start">
+                        <div class="card-body text-center">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <i class="fas fa-quote-left text-secondary"></i>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="text-justify">Lorem ipsum dolor sit amet consectetur. Quis dolor odio ultricies ac nulla. Sed non enim.</p>
+                            <div class="d-flex align-items-justify justify-content mt-3">
+                                <img src="{% static "images/assets/ellipse-18-1@2x.png" %}" class="review-card-img rounded-circle me-2" alt="Reviewer">
+                                <div>
+                                    <p class="mb-0 fw-bold">Rosemary John</p>
+                                    <p class="mb-0">CEO MMMM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Third Review Card -->
+                <div class="col-md-4 mb-4 d-flex align-items-end">
+                    <div class="review-card d-flex flex-column justify-content-end">
+                        <div class="card-body text-center">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <i class="fas fa-quote-left text-secondary"></i>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="text-justify">Lorem ipsum dolor sit amet consectetur. Quis dolor odio ultricies ac nulla. Sed non enim.</p>
+                            <div class="d-flex align-items-justify mt-3">
+                                <img src="{% static "images/assets/ellipse-18-1@2x.png" %}" class="review-card-img rounded-circle me-2" alt="Reviewer">
+                                <div>
+                                    <p class="mb-0 fw-bold">Rosemary John</p>
+                                    <p class="mb-0">CEO MMMM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="testimonial-slider">
-        <div class="frame-parent40">
-            <div class="rectangle-parent10">
-                <div class="frame-child21"></div>
-                <div class="testimonial-content">
-                    <div class="testimonial-quote-parent">
-                        <h1 class="testimonial-quote">“</h1>
-                        <div class="rating-stars">
-                            <img class="rating-stars-child" alt=""
-                                src="{% static "images/assets/group-37310.svg" %}" />
+</div>
 
-                            <img class="rating-stars-child" alt=""
-                                src="{% static "images/assets/group-37310.svg" %}" />
 
-                            <img class="rating-stars-child" alt=""
-                                src="{% static "images/assets/group-37310.svg" %}" />
-
-                            <img class="rating-stars-child" alt=""
-                                src="{% static "images/assets/group-37310.svg" %}" />
-
-                            <img class="rating-stars-child" alt=""
-                                src="{% static "images/assets/group-37310.svg" %}" />
-                        </div>
-                    </div>
-                    <div class="testimonial-author">
-                        Lorem ipsum dolor sit amet consectetur. Quis dolor odio
-                        ultricies ac nulla. Sed non enim.
-                    </div>
-                    <div class="author-image">
-                        <img class="author-avatar-icon" loading="lazy" alt=""
-                            src="{% static "images/assets/ellipse-18@2x.png" %}" />
-
-                        <div class="author-details">
-                            <b class="author-name">Rosemary John</b>
-                            <div class="author-position">CEO MMMM</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="rectangle-parent11">
-                    <div class="frame-child21"></div>
-                    <div class="testimonial-content">
-                        <div class="testimonial-quote-parent">
-                            <h1 class="testimonial-quote">“</h1>
-                            <div class="rating-stars">
-                                <img class="rating-stars-child" alt=""
-                                    src="{% static "images/assets/group-37310.svg" %}" />
-
-                                <img class="rating-stars-child" alt=""
-                                    src="{% static "images/assets/group-37310.svg" %}" />
-
-                                <img class="rating-stars-child" alt=""
-                                    src="{% static "images/assets/group-37310.svg" %}" />
-
-                                <img class="rating-stars-child" alt=""
-                                    src="{% static "images/assets/group-37310.svg" %}" />
-
-                                <img class="rating-stars-child" alt=""
-                                    src="{% static "images/assets/group-37310.svg" %}" />
-                            </div>
-                        </div>
-                        <div class="testimonial-author">
-                            Lorem ipsum dolor sit amet consectetur. Quis dolor odio
-                            ultricies ac nulla. Sed non enim.
-                        </div>
-                        <div class="author-image">
-                            <img class="author-avatar-icon" loading="lazy" alt=""
-                                src="{% static "images/assets/ellipse-18-1@2x.png" %}" />
-
-                            <div class="author-details">
-                                <b class="author-name">Rosemary John</b>
-                                <div class="author-position">CEO MMMM</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="review-slider">
-                <div class="empty-review-slide-wrapper">
-                    <div class="empty-review-slide">
-                        <div class="empty-review-slide1">1</div>
-                        <div class="empty-review-slide1">1</div>
-                        <div class="empty-review-slide1">1</div>
-                        <div class="empty-review-slide1">1</div>
-                    </div>
-                </div>
-                <div class="rectangle-parent12">
-                    <div class="frame-child21"></div>
-                    <div class="testimonial-content">
-                        <div class="testimonial-quote-parent">
-                            <h1 class="testimonial-quote">“</h1>
-                            <div class="rating-stars">
-                                <img class="rating-stars-child" alt=""
-                                    src="{% static "images/assets/group-37310.svg" %}" />
-
-                                <img class="rating-stars-child" alt=""
-                                    src="{% static "images/assets/group-37310.svg" %}" />
-
-                                <img class="rating-stars-child" alt=""
-                                    src="{% static "images/assets/group-37310.svg" %}" />
-
-                                <img class="rating-stars-child" alt=""
-                                    src="{% static "images/assets/group-37310.svg" %}" />
-
-                                <img class="rating-stars-child" alt=""
-                                    src="{% static "images/assets/group-37310.svg" %}" />
-                            </div>
-                        </div>
-                        <div class="testimonial-author">
-                            Lorem ipsum dolor sit amet consectetur. Quis dolor odio
-                            ultricies ac nulla. Sed non enim.
-                        </div>
-                        <div class="author-image">
-                            <img class="author-avatar-icon" loading="lazy" alt=""
-                                src="{% static "images/assets/ellipse-18-1@2x.png" %}" />
-
-                            <div class="author-details">
-                                <b class="author-name">Rosemary John</b>
-                                <div class="author-position">CEO MMMM</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <img class="iconixtosolidarrow-square-le" loading="lazy" alt=""
-                src="{% static "images/assets/iconixtosolidarrowsquareleft1.svg" %}" />
-            <img class="iconixtosolidarrow-square-le1" loading="lazy" alt=""
-                src="{% static "images/assets/iconixtosolidarrowsquareleft1-1.svg" %}" />
-        </div>
-    </div>
-</section>
 
 
 <!-- FAQ Section -->

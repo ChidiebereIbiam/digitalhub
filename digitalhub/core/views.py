@@ -10,6 +10,7 @@ from digitalhub.payment.models import BundlePlan, StandAlonePlan
 
 # Create your views here.
 
+#TODO: ADD CONTEXT PROCESSOR FOR SERVICES AND CONTACT
 
 def home(request):
     posts = Post.objects.all()[0:3]
@@ -17,7 +18,7 @@ def home(request):
     services = Service.objects.all()
     reviews = Review.objects.all()
 
-    context = {"posts": posts, "plans": plans, "services": services, "reviews": reviews}
+    context = {"posts": posts, "plans": plans, "reviews": reviews}
     return render(request, "core/homepage.html", context)
 
 

@@ -1502,3 +1502,35 @@ hr {
     font-size: calc(var(--button-font-size) - 2px); /* Slightly smaller font size */
   }
 }
+
+/* Set review card style */
+.review-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px #0000001a;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+/* Set image size via CSS */
+.review-card-img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Make the text justified */
+.text-justify {
+  text-align: justify;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .review-card {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+}
+
+.review-left_section{
+  background-color: var(--color-azure-100);
+}

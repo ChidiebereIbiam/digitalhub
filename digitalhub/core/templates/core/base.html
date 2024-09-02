@@ -59,13 +59,10 @@
                                     Services
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{% url "service_details"  "test" %}">Search
-                                            Engine Optimisation</a></li>
-                                    <li><a class="dropdown-item" href="#">Social Media management</a></li>
-                                    <li><a class="dropdown-item" href="#">Content Creation and management</a></li>
-                                    <li><a class="dropdown-item" href="#">Advertising services</a></li>
-                                    <li><a class="dropdown-item" href="#">Web design and management</a></li>
-                                    <li><a class="dropdown-item" href="#">Support Services</a></li>
+                                    {% for service in services %}
+                                    <li><a class="dropdown-item" href="{% url "service_details"  "test" %}">{{service.title}}</a></li>
+                                    {% endfor %}
+                                    
                                 </ul>
                             </li>
                             <li class="nav-item px-3 px-lg-3 py-1 py-lg-3">
