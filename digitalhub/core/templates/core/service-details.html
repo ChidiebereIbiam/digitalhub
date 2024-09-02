@@ -1,7 +1,8 @@
 {% extends "core/base.html" %}
 {% load static %}
+{% load my_filters %}
 {% block title %}
-Services Details -
+{{service.title}}-
 {% endblock title %}
 
 {% block herosection %}
@@ -13,11 +14,10 @@ Services Details -
                 <div class="">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" aria-current="page">Home / Services / Search Engine
-                                Optimization</li>
+                            <li class="breadcrumb-item active" aria-current="page">Home / Services / {{service.title}}</li>
                         </ol>
                     </nav>
-                    <h1 class="py-lg-3 fw-bolder main-header-text" id="big">Search Engine <br> Optimization</h1>
+                    <h1 class="py-lg-3 fw-bolder main-header-text" id="big">{{service.title}}</h1>
 
                 </div>
                 <div class="py-lg-4">
@@ -27,7 +27,7 @@ Services Details -
             <div class="col-md-6">
 
 
-                <img src="{% static 'images/assets/rafiki.png' %}" class="img-fluid" alt="...">
+                <img src="{{service.header_image.url}}" class="img-fluid" alt="{{service.title}}">
 
 
             </div>
@@ -42,45 +42,28 @@ Services Details -
 {% include "core/components/social_proof_section.html" %}
 
 <div class="container mt-5 standalone-prices">
-    <h5 class="text-center text-custom-color">Search Engine Optimization</h5>
-    <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem harum eius earum
-        obcaecati
-        recusandae.</p>
+    <h5 class="text-center text-custom-color">{{service.title}}</h5>
+    <p class="text-center">{{service.subtext}}</p>
 
     <div class="row">
+        {% for plan in standalone_plans %}
         <div class="col-sm-6 mt-3 ">
             <div class="card shadow-sm border-0 rounded">
                 <div class="card-body d-flex flex-column justify-content-between">
                     <div>
-                        <h5 class="card-title">SEO Stand-alone</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptate ipsum saepe
-                            officiis
-                            laborum odit molestiae in?</p>
+                        <h5 class="card-title">{{plan.title}}</h5>
+                        <p>{{plan.description}}</p>
                     </div>
                     <div class="">
-                        <h5 class="amount mb-0">$562.50 <small>/ month</small></h5>
-                        <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
+                        <h5 class="amount mb-0">${{plan.price}} <small>/ month</small></h5>
+                        <a href="{% url 'create_checkout_session' %}?id={{plan.id}}&plan_type=standalone" class="i-am-an1 btn btn-sm">Choose Plan</a>
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
 
-        <div class="col-sm-6 mt-3 ">
-            <div class="card shadow-sm border-0 rounded">
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <h5 class="card-title">SEO One-Time Setup</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptate ipsum saepe
-                            officiis
-                            laborum odit molestiae in?</p>
-                    </div>
-                    <div class="">
-                        <h5 class="amount mb-0">$562.50 <small>/ month</small></h5>
-                        <a href="#" class="i-am-an1 btn btn-sm">Choose Plan</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
 
@@ -97,28 +80,19 @@ Services Details -
 
 <section class="benefits container mt-4">
     <div class="row">
-        <div class="col-sm-4">
-            <img src="{% static 'images/assets/01.png' %}" class="benefit-image mb-4" alt="" >
-            <h5>Improved Search Engine Rankings</h5>
-            <p>Our team of seasoned professionals is committed to your success</p>
-        </div>
-        <div class="col-sm-4">
-            <img src="{% static 'images/assets/02.png' %}" class="benefit-image mb-4" alt="" >
-            <h5>Increased Organic Traffic</h5>
-            <p>We stay ahead of the curve with the latest digital marketing trends and technologies</p>
-        </div>
-        <div class="col-sm-4">
-            <img src="{% static 'images/assets/03.png' %}" class="benefit-image mb-4" alt="" >
-            <h5>Enhanced Online Visibility and Brand Awareness</h5>
-            <p>We stay ahead of the curve with the latest digital marketing trends and technologies</p>
-        </div>
+        {% for benefit in benefits %}
+            <div class="col-sm-4">
+                <img src="{% static forloop.counter|format_image_url %}" class="benefit-image mb-4" alt="">
+                <h5>{{benefit.name}}</h5>
+                <p>{{benefit.description}}</p>
+            </div>
+        {% endfor %}
     </div>
-
     <div class="mt-5 mb-5">
-        <h5>Search Engine Optimization</h5>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam maiores, autem hic beatae voluptates, reprehenderit ex voluptatum doloremque sequi, iure facere commodi exercitationem non deleniti ipsum. Eum magnam non sequi?</p>
+        <h5>{{service.title}}</h5>
+    <p>{{service.description | safe}}</p>
     </div>
-    <img src="{% static 'images/assets/service-image.png' %}" class="img-fluid mb-5" alt="" srcset="">
+    <img src="{{service.bottom_image.url}}" class="img-fluid mb-5" alt="" srcset="">
 
     
 

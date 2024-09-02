@@ -10,7 +10,8 @@ from digitalhub.payment.models import BundlePlan, StandAlonePlan
 
 # Create your views here.
 
-#TODO: ADD CONTEXT PROCESSOR FOR SERVICES AND CONTACT
+# TODO: ADD CONTEXT PROCESSOR FOR SERVICES AND CONTACT
+
 
 def home(request):
     posts = Post.objects.all()[0:3]
@@ -64,7 +65,10 @@ def contact_us(request):
             messages.error(request, "An error occured, try again")
 
         redirect("contact_us")
-    return render(request, "core/contact_us.html",)
+    return render(
+        request,
+        "core/contact_us.html",
+    )
 
 
 def faq(request):
@@ -75,7 +79,6 @@ def privacy_policy(request):
     return render(request, "core/privacy_policy.html")
 
 
-
 def services(request):
     services = Service.objects.all()
     context = {"services": services}
@@ -83,7 +86,8 @@ def services(request):
 
 
 def service_details(request, slug):
-    # services = Service.objects.all()
-    # service = get_object_or_404(Service, slug=slug)
-    # context = {"services": services, "service": service}
-    return render(request, "core/service-details.html")
+    service = get_object_or_404(Service, slug=slug)
+    standalone_plans = service.stand_alone_plans.all()
+    benefits = service.benefits.all()
+    context = {"service": service, "standalone_plans":standalone_plans, "benefits":benefits}
+    return render(request, "core/service-details.html", context)

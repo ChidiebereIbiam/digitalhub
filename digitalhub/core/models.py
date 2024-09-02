@@ -5,8 +5,12 @@ from digitalhub.payment.models import StandAlonePlan
 
 # Create your models here.
 
+class Benefit(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
 
-
+    def __str__ (self):
+        return self.name
 class Service(models.Model):
     title = models.CharField(max_length=250)
     subtext = models.TextField(null=True, blank=True)
@@ -16,6 +20,7 @@ class Service(models.Model):
     description = RichTextField()
     bottom_image = models.ImageField(upload_to="service_images/")
     stand_alone_plans = models.ManyToManyField(StandAlonePlan, related_name="services")
+    benefits = models.ManyToManyField(Benefit, related_name="services")
     
     def __str__(self):
         return self.title

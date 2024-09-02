@@ -54,13 +54,13 @@
                                 <a class="nav-link" href="{% url "home" %}">Home</a>
                             </li>
                             <li class="nav-item px-3 px-lg-3 py-1 py-lg-3 dropdown">
-                                <a class="nav-link dropdown-toggle" href="{% url "services" %}" role="button"
+                                <a class="nav-link dropdown-toggle" href="{% url "services" %}"0 role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Services
                                 </a>
                                 <ul class="dropdown-menu">
                                     {% for service in services %}
-                                    <li><a class="dropdown-item" href="{% url "service_details"  "test" %}">{{service.title}}</a></li>
+                                    <li><a class="dropdown-item" href="{% url "service_details"  service.slug %}">{{service.title}}</a></li>
                                     {% endfor %}
                                     
                                 </ul>
