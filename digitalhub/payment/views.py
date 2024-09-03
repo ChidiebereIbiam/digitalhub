@@ -18,14 +18,16 @@ from .utils import handle_checkout_session_completed, handle_invoice_payment_suc
 # Create your views here.
 def pricing(request):
     services = Service.objects.all()
-    basic_plan = BundlePlan.objects.get(title__iexact="basic plan")
+    
 
     
     try:
+        basic_plan = BundlePlan.objects.get(title__iexact="basic plan")
         social_media_service = Service.objects.get(title__iexact="Social Media Management")
         standalone_plans = social_media_service.stand_alone_plans.all()
-    except Service.DoesNotExist:
+    except:
         standalone_plans = None
+        basic_plan= None
 
 
     return render(

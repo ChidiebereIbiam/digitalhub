@@ -7,174 +7,67 @@
         <div class="container5"></div>
         <div class="services-header">
             <b class="our-services">Our Services</b>
-            <h1 class="transform-your-online2">
+            <h2 class="transform-your-online2">
                 Transform Your Online Presence
-            </h1>
-            <button class="button42">
+            </h2>
+            <button class="button42" onclick="window.location.href='{% url 'contact_us' %}'">
                 <b class="text42">Contact us Now</b>
             </button>
         </div>
         <div class="service-cards">
-            <div class="service-card">
-                <div class="card-containers">
-                    <div class="card-content">
-                        <div class="card-icons-parent">
-                            <img class="card-icons" loading="lazy" alt=""
-                                src="{% static "images/assets/rectangle-4@2x.png" %}" />
+            {% if services %}
+                {% for service in services %}
+                    {% if forloop.counter0 <= 4  %}
+                    <div class="service-card">
+                        <div class="card-containers">
+                            <div class="card-content">
+                                <div class="card-icons-parent">
+                                    <img class="card-icons" loading="lazy" alt=""
+                                        src="{{service.icon.url}}" />
+                                </div>
+                            </div>
+                            <div class="card-titles">
+                                <h3 class="search-engine-optimization40">
+                                    {{service.title}}
+                                </h3>
+                                <div class="our-team-of3">
+                                    {{service.subtext}}
+                                </div>
+                            </div>
+                            <button class="button42" onclick="window.location.href='{% url 'service_details' service.slug %}'">
+                                <b class="i-am-a">Read More</b>
+                                <img class="iconixtosolidarrow-right" alt=""
+                                    src="{% static "images/assets/iconixtosolidarrowright.svg" %}" />
+                            </button>
+                        </div>
+                    </div>
+                    {% elif forloop.counter0 == 5  %}
+                    <div class="component-51">
+                        <div class="card-containers">
+                            <div class="card-content">
+                                <div class="card-icons-parent">
+                                    <img class="card-icons" loading="lazy" alt=""
+                                        src="{{service.icon.url}}" />
+                                </div>
+                            </div>
+                            <div class="card-titles">
+                                <h3 class="search-engine-optimization40">{{service.title}}</h3>
+                                <div class="our-team-of9">
+                                    {{service.subtext}}
+                                </div>
+                            </div>
+                            <button class="button47" onclick="window.location.href='{% url 'service_details' service.slug %}'">
+                                <b class="i-am-a5">Read More</b>
+                                <img class="iconixtosolidarrow-right" alt=""
+                                    src="{% static "images/assets/iconixtosolidarrowright-5.svg" %}" />
+                            </button>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
 
-                            <img class="icons8-advanced-search-100-1" alt=""
-                                src="{% static "images/assets/icons8advancedsearch100-1@2x.png" %}" />
-                        </div>
-                    </div>
-                    <div class="card-titles">
-                        <h3 class="search-engine-optimization40">
-                            Search Engine Optimization
-                        </h3>
-                        <div class="our-team-of3">
-                            Enhance your website's visibility on search engines with our
-                            expert SEO services
-                        </div>
-                    </div>
-                    <button class="button42">
-                        <b class="i-am-a">Read More</b>
-                        <img class="iconixtosolidarrow-right" alt=""
-                            src="{% static "images/assets/iconixtosolidarrowright.svg" %}" />
-                    </button>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="card-containers">
-                    <div class="card-content">
-                        <div class="card-icons-parent">
-                            <img class="card-icons" loading="lazy" alt=""
-                                src="{% static "images/assets/rectangle-4-1@2x.png" %}" />
-
-                            <img class="icons8-advanced-search-100-1" alt=""
-                                src="{% static "images/assets/icons8advancedsearch100-1@2x.png" %}" />
-                        </div>
-                    </div>
-                    <div class="card-titles">
-                        <h3 class="search-engine-optimization40">
-                            Social Media Management
-                        </h3>
-                        <div class="our-team-of3">
-                            Manage and grow your social media presence with tailored
-                            plans and reputation management.
-                        </div>
-                    </div>
-                    <button class="button42">
-                        <b class="i-am-a">Read More</b>
-                        <img class="iconixtosolidarrow-right" alt=""
-                            src="{% static "images/assets/iconixtosolidarrowright.svg" %}" />
-                    </button>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="card-containers">
-                    <div class="card-content">
-                        <div class="card-icons-parent">
-                            <img class="card-icons" loading="lazy" alt=""
-                                src="{% static "images/assets/rectangle-4-2@2x.png" %}" />
-
-                            <img class="icons8-advanced-search-100-1" alt=""
-                                src="{% static "images/assets/icons8advancedsearch100-1@2x.png" %}" />
-                        </div>
-                    </div>
-                    <div class="card-titles">
-                        <h3 class="search-engine-optimization40">
-                            Content creation and Management
-                        </h3>
-                        <div class="our-team-of3">
-                            Create engaging content, including explainer videos and
-                            comprehensive content marketing strategies.
-                        </div>
-                    </div>
-                    <button class="button42">
-                        <b class="i-am-a">Read More</b>
-                        <img class="iconixtosolidarrow-right" alt=""
-                            src="{% static "images/assets/iconixtosolidarrowright.svg" %}" />
-                    </button>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="card-containers">
-                    <div class="card-content">
-                        <div class="card-icons-parent">
-                            <img class="card-icons" loading="lazy" alt=""
-                                src="{% static "images/assets/rectangle-4-3@2x.png" %}" />
-
-                            <img class="icons8-advanced-search-100-1" alt=""
-                                src="{% static "images/assets/icons8advancedsearch100-11@2x.png" %}" />
-                        </div>
-                    </div>
-                    <div class="card-titles">
-                        <h3 class="search-engine-optimization40">
-                            Advertising services (PPC)
-                        </h3>
-                        <div class="our-team-of3">
-                            Optimize and manage your pay-per-click advertising campaigns
-                            on Google and Microsoft.
-                        </div>
-                    </div>
-                    <button class="button42">
-                        <b class="i-am-a">Read More</b>
-                        <img class="iconixtosolidarrow-right" alt=""
-                            src="{% static "images/assets/iconixtosolidarrowright.svg" %}" />
-                    </button>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="card-containers">
-                    <div class="card-content">
-                        <div class="card-icons-parent">
-                            <img class="card-icons" loading="lazy" alt=""
-                                src="{% static "images/assets/rectangle-4-4@2x.png" %}" />
-
-                            <img class="icons8-advanced-search-100-1" alt=""
-                                src="{% static "images/assets/icons8advancedsearch100-11@2x.png" %}" />
-                        </div>
-                    </div>
-                    <div class="card-titles">
-                        <h3 class="search-engine-optimization40">
-                            Web design and Management
-                        </h3>
-                        <div class="our-team-of3">
-                            Design, develop, and maintain custom websites, e-commerce
-                            platforms, and web applications.
-                        </div>
-                    </div>
-                    <button class="button42">
-                        <b class="i-am-a">Read More</b>
-                        <img class="iconixtosolidarrow-right" alt=""
-                            src="{% static "images/assets/iconixtosolidarrowright.svg" %}" />
-                    </button>
-                </div>
-            </div>
-            <div class="component-51">
-                <div class="card-containers">
-                    <div class="card-content">
-                        <div class="card-icons-parent">
-                            <img class="card-icons" loading="lazy" alt=""
-                                src="{% static "images/assets/rectangle-4@2x.png" %}" />
-
-                            <img class="icons8-advanced-search-100-1" alt=""
-                                src="{% static "images/assets/icons8advancedsearch100-1@2x.png" %}" />
-                        </div>
-                    </div>
-                    <div class="card-titles">
-                        <h3 class="search-engine-optimization40">Support Services</h3>
-                        <div class="our-team-of9">
-                            Access various support services including cold calls,
-                            virtual assistants, graphic design, and chatbot development.
-                        </div>
-                    </div>
-                    <button class="button47">
-                        <b class="i-am-a5">Read More</b>
-                        <img class="iconixtosolidarrow-right" alt=""
-                            src="{% static "images/assets/iconixtosolidarrowright-5.svg" %}" />
-                    </button>
-                </div>
-            </div>
+           
         </div>
     </div>
 </section>
