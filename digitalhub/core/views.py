@@ -10,8 +10,6 @@ from digitalhub.payment.models import BundlePlan, StandAlonePlan
 
 # Create your views here.
 
-# TODO: ADD CONTEXT PROCESSOR FOR SERVICES AND CONTACT
-
 
 def home(request):
     posts = Post.objects.all()[0:3]

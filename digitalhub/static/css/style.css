@@ -1534,3 +1534,39 @@ hr {
 .review-left_section{
   background-color: var(--color-azure-100);
 }
+
+.home-post-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.home-post-card img {
+  width: 100%;
+  height: 200px; /* Default height for the images */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.home-post-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 20px;
+  text-align: left;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.home-post-content {
+  text-align: left;
+  padding: 10px 10px;
+}
+
+.home-post-card.overlay-card img {
+  height: 350px; /* Increase height for the middle image */
+}
+
