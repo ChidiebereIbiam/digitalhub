@@ -1139,11 +1139,10 @@
   gap: var(--gap-2xs-9);
 }
 .logos1 {
-  width: 1216px;
   justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
-  gap: var(--gap-8xl-2);
+  gap: var(--gap-8l-2);
   max-width: 100%;
 }
 .social-proof-section1 {

@@ -1570,3 +1570,47 @@ hr {
   height: 350px; /* Increase height for the middle image */
 }
 
+.social-proof{
+  background-color: var(--color-azure-100);
+  align-items: center;
+  padding: var(--padding-21xl) var(--padding-xl);
+  box-sizing: border-box;
+  gap: var(--gap-13xl);
+  max-width: 100%;
+  z-index: 2;
+  text-align: center;
+  font-size: var(--subheading-small-size);
+  font-family: var(--button-font);
+}
+
+.social-proof-image {
+  width: 100px;  /* Set your desired width */
+  height: auto;  /* Adjust height proportionally */
+  object-fit: cover; /* Ensure the entire image fits within the defined width */
+}
+
+@media (max-width: 768px) {
+  .social-logos {
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+  .social-logos .col-4 {
+      width: 33.3333%;
+      max-width: 33.3333%;
+      flex: 0 0 33.3333%;
+  }
+}
+
+@media (min-width: 768px) {
+  .social-logos {
+      display: flex;
+      justify-content: space-between;  /* Spread logos across the entire row */
+      flex-wrap: wrap;
+  }
+
+  .social-logos .col-md-2 {
+      flex: 0 0 16.6667%;  /* Ensures that 6 logos fit in one line */
+      max-width: 16.6667%;
+  }
+}
