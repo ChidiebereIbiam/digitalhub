@@ -15,7 +15,7 @@ class Service(models.Model):
     title = models.CharField(max_length=250)
     subtext = models.TextField(null=True, blank=True)
     slug = models.SlugField(null=True, blank=True, unique=True, max_length=255)
-    icon = models.ImageField(upload_to="service_icons/", null=True, blank=True)
+    icon = models.ImageField(upload_to="service_icons/")
     header_image = models.ImageField(upload_to="service_images/")
     description = RichTextField()
     bottom_image = models.ImageField(upload_to="service_images/")
@@ -55,9 +55,9 @@ class Team(models.Model):
     name = models.CharField(max_length=250)
     role = models.CharField(max_length=250)
     image = models.ImageField(upload_to="review_images/")
-    facebook = models.URLField(max_length=200, null=True, blank=True)
-    instagram = models.URLField(max_length=200, null=True, blank=True)
-    linkedin = models.URLField(max_length=200, null=True, blank=True)
+    facebook = models.URLField(max_length=200)
+    instagram = models.URLField(max_length=200)
+    linkedin = models.URLField(max_length=200)
     
 
     def __str__(self) -> str:

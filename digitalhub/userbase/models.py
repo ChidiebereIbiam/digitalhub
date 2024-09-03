@@ -15,9 +15,8 @@ class Company_Category(models.Model):
 class Company(models.Model):
     company_name = models.CharField(max_length=250, unique=True)
     address = models.TextField()
-    #TODO: Remove the null from the fields
-    company_website = models.URLField(max_length=200, null=True, blank=True)
-    category = models.ForeignKey(Company_Category, on_delete=models.CASCADE, null=True, blank=True)
+    company_website = models.URLField(max_length=200)
+    category = models.ForeignKey(Company_Category, on_delete=models.CASCADE)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     class Meta:

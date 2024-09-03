@@ -33,7 +33,7 @@ class Post(models.Model):
     conclusion = models.TextField()
     post_date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    tags = models.ManyToManyField(Tag, null=True, blank=True)
+    tags = models.ManyToManyField(Tag)
 
     class Meta:
         ordering = ['-post_date']

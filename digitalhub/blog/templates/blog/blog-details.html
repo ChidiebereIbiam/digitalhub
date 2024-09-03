@@ -27,7 +27,11 @@
                     <div class="author-container d-flex align-items-start">
                         <!-- Author Image Container -->
                         <div class="author-image-container">
+                            {% if post.author.profile_image %}
                             <img src="{{post.author.profile_image.url}}" class="author-image" alt="Author Image">
+                            {% else %}
+                            <img src="{% static "images/noprofile.png" %}" class="author-image" alt="Author Image">
+                            {% endif %}
                         </div>
 
                         <!-- Author Details -->

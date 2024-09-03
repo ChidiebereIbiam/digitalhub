@@ -15,7 +15,7 @@ class BundlePlan(models.Model):
     title = models.CharField(max_length=250)
     features = RichTextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    price_id = models.CharField(max_length=250, null=True, blank=True)
+    price_id = models.CharField(max_length=250)
     payment_mode = models.CharField(max_length=50, choices=PAYMENT_MODES, default="subscription") 
 
     def __str__(self):
@@ -26,7 +26,7 @@ class StandAlonePlan(models.Model):
     title = models.CharField(max_length=250)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    price_id = models.CharField(max_length=250, null=True, blank=True)
+    price_id = models.CharField(max_length=250)
     payment_mode = models.CharField(max_length=50, choices=PAYMENT_MODES, default="subscription") 
 
     def __str__(self):
