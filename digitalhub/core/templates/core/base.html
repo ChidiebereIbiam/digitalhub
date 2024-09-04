@@ -226,12 +226,9 @@
                 <!-- Services take a new row on mobile -->
                 <div class="col-md-3 col-12 services">
                     <h4 class="font-weight-bold mb-3">Services</h4>
-                    <p>Search Engine Optimisation</p>
-                    <p>Social Media management</p>
-                    <p>Content Creation and management</p>
-                    <p>Advertising services</p>
-                    <p>Web design and management</p>
-                    <p>Support Services</p>
+                    {% for service in services %}
+                    <p><a href="{% url 'service_details' service.slug %}" class="footer-link">{{service.title}}</a></p>
+                    {% endfor %}
                 </div>
 
                 <!-- Legal and Resources on the same row in mobile -->
