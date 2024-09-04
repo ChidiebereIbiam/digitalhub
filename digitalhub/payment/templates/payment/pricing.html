@@ -1,5 +1,6 @@
 {% extends "core/base.html" %}
 {% load static %}
+{% load humanize %}
 {% block title %}
 Pricing -
 {% endblock title %}
@@ -38,216 +39,225 @@ Pricing -
         <h1 class="bundle-offers">Bundle offers</h1>
       </div>
       <div class="content8">
-        <div class="pricing-tier-card">
-          <div class="header1">
-            <div class="heading-and-price">
-              <div class="heading-and-badge">
-                <div class="heading6">{{basic_plan.title}}</div>
-                <div class="badge2">
-                  <a class="text43">Popular</a>
+        {% for bundle in bundleplan %}
+          {% if bundle.title == "Basic Plan" %}
+            <div class="pricing-tier-card">
+              <div class="header1">
+                <div class="heading-and-price">
+                  <div class="heading-and-badge">
+                    <div class="heading6">{{bundle.title}}</div>
+                    <div class="badge2">
+                      <a class="text43">Popular</a>
+                    </div>
+                  </div>
+                  <div class="price">
+                    <b class="price1">${{bundle.price|floatformat:"0"|intcomma}}</b>
+                    <span class="fs-6 text-muted">per month</span>
+                  </div>
                 </div>
-              </div>
-              <div class="price">
-                <b class="price1">$750</b>
-                <span class="fs-6 text-muted">per month</span>
-              </div>
-            </div>
-            <button class="actions" onclick="window.location.href='{% url 'create_checkout_session' %}?id={{ basic_plan.id }}&plan_type=bundle'">
-              <div class="button48" >
-                <b class="text44">Get Started</b>
-              </div>
-            </button>
+                <button class="actions" onclick="window.location.href='{% url 'create_checkout_session' %}?id={{ bundle.id }}&plan_type=bundle'">
+                  <div class="button48" >
+                    <b class="text44">Get Started</b>
+                  </div>
+                </button>
+                    
                 
-            
+              </div>
+              <div class="content9">
+                <div class="expertise-group">
+                  <b class="text45">FEATURES</b>
+                </div>
+                <div class="check-items">
+                  <div class="check-item-text">
+                    <img class="check-icon" loading="lazy" alt="" src="{% static "images/assets/check-icon.svg" %}" />
+
+                    <div class="text-wrap">
+                      <div class="text46">
+                        Social Media Posting: Engage your audience with 2
+                        posts per week plus 2 videos per week.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="check-item-text">
+                    <img class="check-icon" loading="lazy" alt="" src="{% static "images/assets/check-icon.svg" %}" />
+
+                    <div class="text-wrap">
+                      <div class="text46">
+                        SEO: Enhance your visibility with basic SEO
+                        strategies.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="check-item-text">
+                    <img class="check-icon" loading="lazy" alt="" src="{% static "images/assets/check-icon-2.svg" %}" />
+
+                    <div class="text-wrap">
+                      <div class="text46">
+                        SEO: Enhance your visibility with basic SEO
+                        strategies.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="check-item-text">
+                    <img class="check-icon" loading="lazy" alt="" src="{% static "images/assets/check-icon-2.svg" %}" />
+
+                    <div class="text-wrap">
+                      <div class="text46">
+                        SEO: Enhance your visibility with basic SEO
+                        strategies.
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+          {% elif bundle.title == "Advanced Bundle" %}
+          <div class="pricing-tier-card1">
+            <div class="header1">
+              <div class="heading-and-price">
+                <div class="heading-and-badge1">
+                  <div class="heading7">{{bundle.title}}</div>
+                  <div class="badge3">
+                    <div class="text55">Popular</div>
+                  </div>
+                </div>
+                <div class="price2">
+                  <b class="price3">${{bundle.price|floatformat:"0"|intcomma}}</b>
+                  <span class="fs-6">per month</span>
+                </div>
+              </div>
+              <div class="expertise-group">
+                <button class="button49" onclick="window.location.href='{% url 'create_checkout_session' %}?id={{ bundle.id }}&plan_type=bundle'">
+                  <b class="text56">Get started</b>
+                </button>
+              </div>
+            </div>
+            <div class="content9">
+              <div class="expertise-group">
+                <b class="text45">FEATURES</b>
+              </div>
+              <div class="check-items">
+                <div class="check-item-text9">
+                  <img class="check-icon" alt="" src="{% static "images/assets/check-icon-8.svg" %}" />
+
+                  <div class="text-wrap">
+                    <div class="text46">
+                      Social Media: Capture attention with 3 posts and 3
+                      videos per week.
+                    </div>
+                  </div>
+                </div>
+                <div class="check-item-text9">
+                  <img class="check-icon" alt="" src="{% static "images/assets/check-icon-8.svg" %}" />
+
+                  <div class="text-wrap">
+                    <div class="text46">
+                      SEO: Improve your rankings with intermediate SEO
+                      techniques.
+                    </div>
+                  </div>
+                </div>
+                <div class="check-item-text9">
+                  <img class="check-icon" alt="" src="{% static "images/assets/check-icon-8.svg" %}" />
+
+                  <div class="text-wrap">
+                    <div class="text46">
+                      PPC: Boost your reach with standard level
+                      pay-per-click advertising.
+                    </div>
+                  </div>
+                </div>
+                <div class="check-item-text9">
+                  <img class="check-icon" alt="" src="{% static "images/assets/check-icon-8.svg" %}" />
+
+                  <div class="text-wrap">
+                    <div class="text46">
+                      Reporting: Informed with monthly performance reports.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
-          <div class="content9">
-            <div class="expertise-group">
-              <b class="text45">FEATURES</b>
-            </div>
-            <div class="check-items">
-              <div class="check-item-text">
-                <img class="check-icon" loading="lazy" alt="" src="{% static "images/assets/check-icon.svg" %}" />
-
-                <div class="text-wrap">
-                  <div class="text46">
-                    Social Media Posting: Engage your audience with 2
-                    posts per week plus 2 videos per week.
+          {% elif bundle.title == "Premium Bundle" %}
+          <div class="pricing-tier-card2">
+            <div class="header1">
+              <div class="heading-and-price">
+                <div class="heading-and-badge1">
+                  <div class="heading7">{{bundle.title}}</div>
+                  <div class="badge3">
+                    <div class="text55">Popular</div>
                   </div>
                 </div>
-              </div>
-              <div class="check-item-text">
-                <img class="check-icon" loading="lazy" alt="" src="{% static "images/assets/check-icon.svg" %}" />
+                <div class="price2">
+                  <b class="price3">${{bundle.price|floatformat:"0"|intcomma}}</b>
+                  <span class="fs-6 light">per month</span>
 
-                <div class="text-wrap">
-                  <div class="text46">
-                    SEO: Enhance your visibility with basic SEO
-                    strategies.
-                  </div>
                 </div>
               </div>
-
-              <div class="check-item-text">
-                <img class="check-icon" loading="lazy" alt="" src="{% static "images/assets/check-icon-2.svg" %}" />
-
-                <div class="text-wrap">
-                  <div class="text46">
-                    SEO: Enhance your visibility with basic SEO
-                    strategies.
-                  </div>
+              <button class="actions" onclick="window.location.href='{% url 'create_checkout_session' %}?id={{ bundle.id }}&plan_type=bundle'">
+                <div class="button48">
+                  <b class="text44">Get Started</b>
                 </div>
-              </div>
-              <div class="check-item-text">
-                <img class="check-icon" loading="lazy" alt="" src="{% static "images/assets/check-icon-2.svg" %}" />
-
-                <div class="text-wrap">
-                  <div class="text46">
-                    SEO: Enhance your visibility with basic SEO
-                    strategies.
-                  </div>
-                </div>
-              </div>
-
-
-
-            </div>
-          </div>
-        </div>
-        <div class="pricing-tier-card1">
-          <div class="header1">
-            <div class="heading-and-price">
-              <div class="heading-and-badge1">
-                <div class="heading7">Advanced Bundle</div>
-                <div class="badge3">
-                  <div class="text55">Popular</div>
-                </div>
-              </div>
-              <div class="price2">
-                <b class="price3">$1,875</b>
-                <span class="fs-6">per month</span>
-              </div>
-            </div>
-            <div class="expertise-group">
-              <button class="button49" onclick="window.location.href='{% url 'create_checkout_session' %}?id={{ advanced_plan.id }}&plan_type=bundle'">
-                <b class="text56">Get started</b>
               </button>
             </div>
-          </div>
-          <div class="content9">
-            <div class="expertise-group">
-              <b class="text45">FEATURES</b>
-            </div>
-            <div class="check-items">
-              <div class="check-item-text9">
-                <img class="check-icon" alt="" src="{% static "images/assets/check-icon-8.svg" %}" />
+            <div class="content9">
+              <div class="expertise-group">
+                <b class="text45">FEATURES</b>
+              </div>
+              <div class="check-items">
+                <div class="check-item-text">
+                  <img class="check-icon" alt="" src="{% static "images/assets/check-icon.svg" %}" />
 
-                <div class="text-wrap">
-                  <div class="text46">
-                    Social Media: Capture attention with 3 posts and 3
-                    videos per week.
+                  <div class="text-wrap">
+                    <div class="text46">
+                      Social Media: Unlimited posts and videos to maximize
+                      your impact.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="check-item-text9">
-                <img class="check-icon" alt="" src="{% static "images/assets/check-icon-8.svg" %}" />
+                <div class="check-item-text">
+                  <img class="check-icon" alt="" src="{% static "images/assets/check-icon.svg" %}" />
 
-                <div class="text-wrap">
-                  <div class="text46">
-                    SEO: Improve your rankings with intermediate SEO
-                    techniques.
+                  <div class="text-wrap">
+                    <div class="text46">
+                      SEO: Dominate search results with expert-level SEO.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="check-item-text9">
-                <img class="check-icon" alt="" src="{% static "images/assets/check-icon-8.svg" %}" />
+                <div class="check-item-text">
+                  <img class="check-icon" alt="" src="{% static "images/assets/check-icon.svg" %}" />
 
-                <div class="text-wrap">
-                  <div class="text46">
-                    PPC: Boost your reach with standard level
-                    pay-per-click advertising.
+                  <div class="text-wrap">
+                    <div class="text46">
+                      PPC: Achieve premium visibility with advanced PPC
+                      management.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="check-item-text9">
-                <img class="check-icon" alt="" src="{% static "images/assets/check-icon-8.svg" %}" />
+                <div class="check-item-text">
+                  <img class="check-icon" alt="" src="{% static "images/assets/check-icon.svg" %}" />
 
-                <div class="text-wrap">
-                  <div class="text46">
-                    Reporting: Informed with monthly performance reports.
+                  <div class="text-wrap">
+                    <div class="text46">
+                      Reporting: Receive detailed monthly insights.
+                    </div>
                   </div>
                 </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div class="pricing-tier-card2">
-          <div class="header1">
-            <div class="heading-and-price">
-              <div class="heading-and-badge1">
-                <div class="heading7">Premium Bundle</div>
-                <div class="badge3">
-                  <div class="text55">Popular</div>
-                </div>
-              </div>
-              <div class="price2">
-                <b class="price3">$3,750</b>
-                <span class="fs-6 light">per month</span>
 
               </div>
-            </div>
-            <button class="actions" onclick="window.location.href='{% url 'create_checkout_session' %}?id={{ premium_plan.id }}&plan_type=bundle'">
-              <div class="button48">
-                <b class="text44">Get Started</b>
-              </div>
-            </button>
-          </div>
-          <div class="content9">
-            <div class="expertise-group">
-              <b class="text45">FEATURES</b>
-            </div>
-            <div class="check-items">
-              <div class="check-item-text">
-                <img class="check-icon" alt="" src="{% static "images/assets/check-icon.svg" %}" />
-
-                <div class="text-wrap">
-                  <div class="text46">
-                    Social Media: Unlimited posts and videos to maximize
-                    your impact.
-                  </div>
-                </div>
-              </div>
-              <div class="check-item-text">
-                <img class="check-icon" alt="" src="{% static "images/assets/check-icon.svg" %}" />
-
-                <div class="text-wrap">
-                  <div class="text46">
-                    SEO: Dominate search results with expert-level SEO.
-                  </div>
-                </div>
-              </div>
-              <div class="check-item-text">
-                <img class="check-icon" alt="" src="{% static "images/assets/check-icon.svg" %}" />
-
-                <div class="text-wrap">
-                  <div class="text46">
-                    PPC: Achieve premium visibility with advanced PPC
-                    management.
-                  </div>
-                </div>
-              </div>
-              <div class="check-item-text">
-                <img class="check-icon" alt="" src="{% static "images/assets/check-icon.svg" %}" />
-
-                <div class="text-wrap">
-                  <div class="text46">
-                    Reporting: Receive detailed monthly insights.
-                  </div>
-                </div>
-              </div>
-
             </div>
           </div>
-        </div>
+          {% endif %}
+
+          
+          
+        {% endfor %}
       </div>
     </div>
   </div>

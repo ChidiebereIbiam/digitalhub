@@ -18,24 +18,23 @@ from .utils import handle_checkout_session_completed, handle_invoice_payment_suc
 # Create your views here.
 def pricing(request):
     services = Service.objects.all()
-    
+    bundleplan = BundlePlan.objects.all()
 
-    
     try:
-        basic_plan = BundlePlan.objects.get(title__iexact="basic plan")
-        social_media_service = Service.objects.get(title__iexact="Social Media Management")
+        social_media_service = Service.objects.get(id=2)
         standalone_plans = social_media_service.stand_alone_plans.all()
     except:
         standalone_plans = None
-        basic_plan= None
 
-
+    print(standalone_plans)
     return render(
-        request, "payment/pricing.html", 
+        request,
+        "payment/pricing.html",
         {
-            "services": services, 
-            "basic_plan": basic_plan,
-            "standalone_plans":standalone_plans}
+            "services": services,
+            "bundleplan": bundleplan,
+            "standalone_plans": standalone_plans,
+        },
     )
 
 
@@ -54,18 +53,18 @@ def create_checkout_session(request):
 
     if request.method == "GET":
         # Retrieve plan_id and plan_type from GET request parameters
-        plan_id = request.GET.get('id')
-        plan_type = request.GET.get('plan_type')
+        plan_id = request.GET.get("id")
+        plan_type = request.GET.get("plan_type")
 
         if plan_type == "bundle":
             plan = BundlePlan.objects.get(id=plan_id)
-        elif plan_type=="standalone":
+        elif plan_type == "standalone":
             plan = StandAlonePlan.objects.get(id=plan_id)
 
         if not plan_id or not plan_type:
             return JsonResponse({"error": "Missing plan_id or plan_type"}, status=400)
 
-        domain_url = settings.DOMAIN_URL.rstrip('/') + '/'
+        domain_url = settings.DOMAIN_URL.rstrip("/") + "/"
         stripe.api_key = settings.STRIPE_SECRET_KEY
 
         try:
@@ -93,6 +92,7 @@ def create_checkout_session(request):
             return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Invalid request method"}, status=400)
+
 
 class SuccessView(TemplateView):
     template_name = "payment/payment_success.html"
@@ -125,7 +125,7 @@ def stripe_webhook(request):
         print(event)
         session = event["data"]["object"]
         handle_checkout_session_completed(session)
-    #TODO TEST THIS WEBHOOK
+    # TODO TEST THIS WEBHOOK
     elif event["type"] == "invoice.payment_succeeded":
         # Handle invoice.payment_succeeded for subscription payments
         invoice = event["data"]["object"]
@@ -133,16 +133,16 @@ def stripe_webhook(request):
     return HttpResponse(status=200)
 
 
-#TODO ENSURE TO MAKE THIS WORK WHEN WORKING WITH TEMPLATE
+# TODO ENSURE TO MAKE THIS WORK WHEN WORKING WITH TEMPLATE
 def cancel_subscription(request, id):
     stripe.api_key = settings.STRIPE_SECRET_KEY
     # Retrieve the subscription from Stripe
     # subscription = stripe.Subscription.retrieve(id)
-    
+
     # # Cancel the subscription
     # canceled_subscription = stripe.Subscription.modify(
     #     id,
-    #     cancel_at_period_end=True 
+    #     cancel_at_period_end=True
     # )
 
     # Update your database record if needed
