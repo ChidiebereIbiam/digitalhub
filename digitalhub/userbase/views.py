@@ -5,7 +5,11 @@ from .models import Company, Preference
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from digitalhub.payment.models import Subscription, Invoice, PaymentMethod
+from digitalhub.authentication.forms import PasswordChangingForm
+from django.contrib.auth.views import PasswordChangeView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -142,3 +146,14 @@ def toggle_preference(request, preference):
         user_preference.save()
         return JsonResponse({'success': True})
     return JsonResponse({'success': False}, status=400)
+
+
+
+class PasswordsChangeView(PasswordChangeView, LoginRequiredMixin):
+    form_class = PasswordChangingForm
+    success_url = reverse_lazy('password_success')
+
+
+@login_required
+def Password_Success(request):
+    return render(request, 'userbase/password_success.html', {})

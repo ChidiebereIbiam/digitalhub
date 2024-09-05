@@ -8,6 +8,8 @@ from .views import (
     delete_payment_method,
     preference,
     toggle_preference,
+    PasswordsChangeView,
+    Password_Success
 )
 
 urlpatterns = [
@@ -31,4 +33,6 @@ urlpatterns = [
         toggle_preference,
         name="toggle_preference",
     ),
+    path('password/', PasswordsChangeView.as_view(template_name='userbase/change-password.html'), name="change_password"),
+    path('password_success/', Password_Success, name='password_success'),
 ]
