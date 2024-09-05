@@ -1,17 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Django + Stripe Checkout</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
-  </head>
-  <body>
-  <section class="section">
-    <div class="container">
-      <p>Your payment was cancelled.</p>
+{% extends "core/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}Payment Cancelled- {% endblock title %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static "css/auth-style.css" %}" />
+{% endblock stylesheet %}
+
+{% block header-hero-container %}{% endblock header-hero-container %}
+{% block main %}
+<div class="container d-flex justify-content-center align-items-start" style="min-height: 100vh; margin-top: 10px;">
+    <div class="auth-card card text-center">
+     
+       <h4> Payment Cancelled </h4>
+       <p> Your payment was not Successful </p>
+       <a href="{% url "pricing" %}" class="main-btn"> Retry </a>
     </div>
-  </section>
-  </body>
-</html>
+</div>
+{% endblock main %}
+
+{% block footer %}{% endblock footer %}
