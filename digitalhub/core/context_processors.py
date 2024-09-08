@@ -2,10 +2,10 @@ from .models import Service
 
 def persistent_settings(request):
     context = {
-        "phone1": "+447 909736637494",
-        "phone2":"+635548384793999",
-        "address": "Test location Enugu",
-        "email": "support@digitalhub247.com"
+        "phone1": "210.845.9990",
+        "phone2":"",
+        "address": "18756 Stone Oak Parkway, suite 200 San Antonio Texas 78358",
+        "email": "contact@247digitalhub.com"
     }
     try:
         services = Service.objects.all()
