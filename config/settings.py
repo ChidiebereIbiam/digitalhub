@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.apple',
     'allauth.socialaccount.providers.google',
+    "anymail",
 ]
 
 MIDDLEWARE = [
@@ -247,9 +248,12 @@ SOCIALACCOUNT_PROVIDERS = {
 
 # Email Settings
 # ------------------------------------------------------------------------------
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = "no_reply@localhost.com"
-DEFAULT_EMAIL = "info@locahost.com"
+ANYMAIL = {
+    "SENDGRID_API_KEY": os.environ.get('SENDGRID_API_KEY'),
+}
+EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+DEFAULT_EMAIL = os.environ.get('DEFAULT_EMAIL')
 
 
 LOGIN_URL = "account_login"
