@@ -51,6 +51,8 @@ class Subscription(models.Model):
     start_date = models.DateField(auto_now_add=True)
     end_date = models.DateField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
+    stripeCustomerId = models.CharField(max_length=255, null=True, blank=True)
+    stripeSubscriptionId = models.CharField(max_length=255, null=True, blank=True)
 
 
     def __str__(self):
