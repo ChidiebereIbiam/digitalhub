@@ -97,7 +97,7 @@ Blog -
                         <img src="{{post.header_image.url}}" class="post-card-image img-fluid card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title">{{post.title | truncatechars:30}}</h5>
+                        <h5 class="card-title">{{post.title | truncatechars:25}}</h5>
                         <p class="card-text">{{post.subtitle | truncatechars:50}}</p>
                         <a href="{% url "blog_details" post.slug %}" class="read-more-link">Read more <i
                                 class="fas fa-arrow-right"></i></a>
