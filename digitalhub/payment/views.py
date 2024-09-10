@@ -20,23 +20,27 @@ def pricing(request):
     services = Service.objects.all()
     bundleplan = BundlePlan.objects.all()
 
-    try:
-        social_media_service = Service.objects.get(id=2)
-        standalone_plans = social_media_service.stand_alone_plans.all()
-    except:
-        standalone_plans = None
+    service_slugs = {
+        "social-media-management": "social_standalone_plans",
+        "search-engine-optimization": "seo_standalone_plans",
+        "advertising-services-ppc": "ppc_standalone_plans",
+        "web-design-and-management": "web_design_standalone_plans",
+        "support-services":"support_standalone_plans"
+    }
 
-    print(standalone_plans)
-    return render(
-        request,
-        "payment/pricing.html",
-        {
-            "services": services,
-            "bundleplan": bundleplan,
-            "standalone_plans": standalone_plans,
-        },
-    )
+    context = {
+        "services": services,
+        "bundleplan": bundleplan,
+    }
 
+    for slug, context_key in service_slugs.items():
+        try:
+            service = Service.objects.get(slug=slug)
+            context[context_key] = service.stand_alone_plans.all()
+        except Service.DoesNotExist:
+            context[context_key] = None
+
+    return render(request, "payment/pricing.html", context)
 
 @csrf_exempt
 def stripe_config(request):

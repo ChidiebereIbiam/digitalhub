@@ -6,7 +6,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from .models import Review, Service, Team
 from digitalhub.blog.models import Post
-from digitalhub.payment.models import BundlePlan, StandAlonePlan
+from digitalhub.payment.models import BundlePlan
 
 # Create your views here.
 
