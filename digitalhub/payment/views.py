@@ -138,19 +138,19 @@ def stripe_webhook(request):
 
 
 # TODO ENSURE TO MAKE THIS WORK WHEN WORKING WITH TEMPLATE
-def cancel_subscription(request, id):
+def cancel_subscription(request, stripeSubscriptionId):
     stripe.api_key = settings.STRIPE_SECRET_KEY
     # Retrieve the subscription from Stripe
-    # subscription = stripe.Subscription.retrieve(id)
+    subscription = stripe.Subscription.retrieve(stripeSubscriptionId)
 
-    # # Cancel the subscription
-    # canceled_subscription = stripe.Subscription.modify(
-    #     id,
-    #     cancel_at_period_end=True
-    # )
+    # Cancel the subscription
+    canceled_subscription = stripe.Subscription.modify(
+        stripeSubscriptionId,
+        cancel_at_period_end=True
+    )
 
     # Update your database record if needed
-    db_subscription = get_object_or_404(Subscription, id=id)
+    db_subscription = get_object_or_404(Subscription, stripeSubscriptionId=stripeSubscriptionId)
     db_subscription.is_active = False
     db_subscription.save()
 

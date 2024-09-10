@@ -6,9 +6,12 @@ import stripe
 
 
 def handle_checkout_session_completed(session):
+    print(session)
     payment_intent_id = session.get("payment_intent")
     customer_email = session.get("customer_email")
     user = get_user_model().objects.filter(email=customer_email).first()
+    stripe_customer_id = session.get('customer')
+    stripe_subscription_id = session.get('subscription')
 
     plan_id = None
     standalone_plan_id = None
@@ -32,6 +35,8 @@ def handle_checkout_session_completed(session):
         plan=plan,
         standalone_plan=standalone_plan,
         end_date=timezone.now() + timedelta(days=30),
+        stripeCustomerId=stripe_customer_id,
+        stripeSubscriptionId=stripe_subscription_id,
     )
 
     # Check and create a payment method if it doesn't exist
