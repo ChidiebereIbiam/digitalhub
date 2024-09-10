@@ -23,11 +23,21 @@ class BundlePlan(models.Model):
 
 
 class StandAlonePlan(models.Model):
+    DURATION_TYPES = [
+        ("month", "month"),
+        ("per video", "per video"),
+        ("per page", "per page"),
+        ("per strategy", "per strategy"),
+        ("per hour", "per hour"),
+        ("per setup", "per setup"),
+        ("starting price", "starting price"),
+    ]
     title = models.CharField(max_length=250)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     price_id = models.CharField(max_length=250)
     payment_mode = models.CharField(max_length=50, choices=PAYMENT_MODES, default="subscription") 
+    duration_type = models.CharField(max_length=50, choices=DURATION_TYPES, default="month")
 
     def __str__(self):
         return self.title

@@ -55,7 +55,7 @@
                         <p>{{plan.description}}</p>
                     </div>
                     <div class="">
-                        <h5 class="amount mb-0">${{plan.price}} <small>/ month</small></h5>
+                        <h5 class="amount mb-0">${{plan.price}} <small>/ {{plan.duration_type}}</small></h5>
                         <a href="{% url "pricing" %}" class="i-am-an1 btn btn-sm">Choose Plan</a>
                     </div>
                 </div>
