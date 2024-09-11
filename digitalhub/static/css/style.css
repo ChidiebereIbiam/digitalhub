@@ -1660,3 +1660,26 @@ Blog pagination
   color: #fff;
   border-color: #1aa5bb;
 }
+
+.fixed-btm-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+}
+
+.fixed-btm-top .scroll-to-top {
+  display: inline-block;
+  text-align: center;
+  height: 50px;
+  background: #1aa5bb;
+  color: #fff;
+  width: 50px;
+  border-radius: 100%;
+  padding-top: 10px;
+  opacity: 0;
+}
+
+.scroll-to-top.reveal {
+  opacity: 1;
+  visibility: visible;
+}
