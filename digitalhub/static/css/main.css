@@ -1703,6 +1703,20 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
+@media (max-width: 767px) {
+  .actions {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: var(--gradient);
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
 .header1,
 .text45 {
   align-self: stretch;
@@ -1897,6 +1911,24 @@
   box-sizing: border-box;
   white-space: nowrap;
 }
+
+@media (max-width: 767px) {
+  .button49 {
+    cursor: pointer;
+    border: 0;
+    padding: 15.5px var(--padding-xl);
+    background-color: var(--white);
+    width: 100%;
+    border-radius: var(--br-xl) 0 var(--br-xl) var(--br-xl);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+}
+
 .button47:hover,
 .button49:hover {
   background-color: var(--color-gainsboro-200);

@@ -18,11 +18,11 @@
                         </ol>
                     </nav>
                     <h1 class="py-lg-3 fw-bolder main-header-text" id="big">{{service.title}}</h1>
-
+                    <div class="supporting-text">
+                        {{service.subtext}}
+                    </div>
                 </div>
-                <div class="py-lg-4">
-                    <a href="{% url "contact_us" %}" class="main-btn"> Contact us Now </a>
-                </div>
+ 
             </div>
             <div class="col-md-6">
 
@@ -55,8 +55,8 @@
                         <p>{{plan.description}}</p>
                     </div>
                     <div class="">
-                        <h5 class="amount mb-0">${{plan.price}} <small>/ {{plan.duration_type}}</small></h5>
-                        <a href="{% url "pricing" %}" class="i-am-an1 btn btn-sm">Choose Plan</a>
+                        <h4 class="amount mb-0">${{plan.price}} <small>/ {{plan.duration_type}}</small></h4>
+                        <a href="{% url "pricing" %}" class="i-am-an1 btn btn-sm w-100 text-center mt-3">Choose Plan</a>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
 <section class="benefits container mt-4">
     <div class="row">
         {% for benefit in benefits %}
-            <div class="col-sm-4">
+            <div class="col-sm-4 text-center text-md-start">
                 <img src="{% static forloop.counter|format_image_url %}" class="benefit-image mb-4" alt="">
                 <h5>{{benefit.name}}</h5>
                 <p>{{benefit.description}}</p>
