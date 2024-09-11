@@ -1615,3 +1615,48 @@ hr {
       max-width: 16.6667%;
   }
 }
+
+/*=====================
+Blog pagination
+===================*/
+.blog-pagination {
+  margin-top: 60px;
+}
+
+.blog-pagination ul {
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 0px;
+  clear: both;
+  display: block;
+}
+
+.blog-pagination ul li {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.blog-pagination ul li.active a {
+  color: #fff;
+  background: #1aa5bb !important;
+  border-color: #1aa5bb !important;
+}
+
+.blog-pagination ul li a {
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  color: #1aa5bb;
+  border: 1px solid #eee;
+  text-align: center;
+  padding-top: 10px;
+  display: inline-block;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.blog-pagination ul li a:hover {
+  background: #1aa5bb;
+  color: #fff;
+  border-color: #1aa5bb;
+}

@@ -82,6 +82,7 @@ Blog -
 
         </div>
     </div>
+    
 </section>
 
 
@@ -109,6 +110,32 @@ Blog -
             {% endfor %}
 
         </div>
+    </div>
+
+    <div class="text-center">
+        <nav class="blog-pagination">
+            <ul>
+                {% if page_obj.has_previous %}
+                    <li><a class="nav-link" href="?page={{ page_obj.previous_page_number }}"><<</a></li>
+                {% endif %}
+        
+                <li><a class="nav-link" href="?page=1">1</a></li>
+        
+                {% if page_obj.paginator.num_pages > 1 %}
+                    <li><a  class="nav-link" href="?page=2">2</a></li>
+                {% endif %}
+        
+                {% if page_obj.paginator.num_pages > 2 %}
+                    <span>...</span>
+                    <li><a  class="nav-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
+                {% endif %}
+        
+                {% if page_obj.has_next %}
+                    <li><a class="nav-link" href="?page={{ page_obj.next_page_number }}">>></a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        
     </div>
 </section>
 
