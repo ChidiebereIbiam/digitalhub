@@ -201,11 +201,9 @@ img {
   .team-member-one-social-icons,
   .team-member-one-socials {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  .team-member-one-socials {
-    align-self: stretch;
+    align-items: center; /* Vertically centers the items */
+    justify-content: center; /* Horizontally centers the items */
+    align-self: stretch; /* This stretches the element if its container is taller */
     flex-direction: row;
     padding: 0 var(--padding-sm);
     gap: var(--gap-base);
@@ -1460,7 +1458,7 @@ hr {
   }
 
   .main-header-text{
-    font-size: x-large !important;
+    font-size: 40px !important;
   }
 }
 
@@ -1682,4 +1680,15 @@ Blog pagination
 .scroll-to-top.reveal {
   opacity: 1;
   visibility: visible;
+}
+
+
+.custom-hero-mobile-btn {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .custom-hero-mobile-btn {
+    width: auto;
+  }
 }
