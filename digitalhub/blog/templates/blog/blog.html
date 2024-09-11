@@ -13,15 +13,17 @@ Blog -
                 <div class="">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" aria-current="page">Home / Blog</li>
+                            <li class="breadcrumb-item"><a class="nav-link" href="{% url "home" %}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Blog</li>
                         </ol>
                     </nav>
                     <h1 class="py-lg-3 fw-bolder" id="big">Digital Marketing <br> Trends</h1>
-
+                    <div class="supporting-text">
+                        Explore insights, tips, and the latest trends to help you stay ahead in the digital world. Dive
+                        into expert advice and strategies designed to boost your online presence and grow your business.
+                    </div>
                 </div>
-                <div class="py-lg-4">
-                    <a href="{% url "contact_us" %}" class="main-btn"> Contact us Now </a>
-                </div>
+               
             </div>
             <div class="col-md-6">
 

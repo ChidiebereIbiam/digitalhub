@@ -153,3 +153,22 @@ form .form-check-label {
     
     color: red; /* White text color on hover */
 }
+
+
+.auth-div-full {
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .auth-div-full > * {
+    flex-grow: 1;
+    display: flex;
+    align-items: stretch; 
+  }
+  
+  .auth-div-full img {
+    object-fit: cover;
+    width: 100%; 
+    height: 565px; 
+  }

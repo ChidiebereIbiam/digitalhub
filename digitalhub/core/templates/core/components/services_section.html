@@ -17,7 +17,7 @@
         <div class="service-cards">
             {% if services %}
                 {% for service in services %}
-                    {% if forloop.counter0 <= 4  %}
+                   
                     <div class="service-card">
                         <div class="card-containers">
                             <div class="card-content">
@@ -41,29 +41,8 @@
                             </button>
                         </div>
                     </div>
-                    {% elif forloop.counter0 == 5  %}
-                    <div class="component-51">
-                        <div class="card-containers">
-                            <div class="card-content">
-                                <div class="card-icons-parent">
-                                    <img class="card-icons" loading="lazy" alt=""
-                                        src="{{service.icon.url}}" />
-                                </div>
-                            </div>
-                            <div class="card-titles">
-                                <h3 class="search-engine-optimization40">{{service.title}}</h3>
-                                <div class="our-team-of9">
-                                    {{service.subtext}}
-                                </div>
-                            </div>
-                            <button class="button47" onclick="window.location.href='{% url 'service_details' service.slug %}'">
-                                <b class="i-am-a5">Read More</b>
-                                <img class="iconixtosolidarrow-right" alt=""
-                                    src="{% static "images/assets/iconixtosolidarrowright-5.svg" %}" />
-                            </button>
-                        </div>
-                    </div>
-                    {% endif %}
+                   
+                    
                 {% endfor %}
             {% endif %}
 

@@ -13,13 +13,13 @@
 {% block main %}
 <div class="container my-2">
   <div class="row justify-content-center align-items-center">
-    <div class="col-md-7 d-none d-md-block">
+    <div class="col-md-7 d-none d-md-block auth-div-full ">
       <!-- Image and Text -->
       <div class="image-container">
-        <img src="{% static "images/auth-image.jpg" %}" class="img-fluid auth-img" alt="Promotional Image">
+        <img src="{% static "images/signup.jpg" %}" class="img-fluid auth-img" alt="Promotional Image">
         <div class="overlay-text">
-          <p>“Untitled has saved us thousands of hours of work. We’re able to spin up projects faster and take on more
-            clients.”</p>
+          <p>“Join 247digital Hub and unlock the full potential of your business with our powerful digital marketing
+            solutions”</p>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@
           <input type="text" name="last_name" class="form-control" placeholder="Last name" aria-label="Last name">
           <span class="input-group-text"><i class="fas fa-user"></i></span>
         </div>
-        
+
         <div class="mb-3 input-group">
           <input type="email" name="email" class="form-control" placeholder="Email address" aria-label="Email address">
           <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -79,9 +79,9 @@
               I agree to <span class="gradient-character">Terms and Conditions</span>
             </label>
           </div>
-          
+
         </div>
-        <button type="submit" class="btn btn-primary w-100 ">Sign In</button>
+        <button type="submit" class="btn btn-primary w-100 ">Sign Up</button>
       </form>
       <div class="mt-4">
         <a type="button" class="btn btn-light w-100 mb-2" href="{% provider_login_url 'google' process="connect" %}">
@@ -95,7 +95,7 @@
         <p>Have an account already? <a href="{{ login_url }}" class="text-primary gradient-text">Login</a></p>
       </div>
     </div>
-   
+
   </div>
 </div>
 

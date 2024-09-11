@@ -1469,6 +1469,10 @@
   padding: var(--padding-5xl) var(--padding-2xl);
   box-sizing: border-box;
 }
+
+.service-card:hover {
+  background: linear-gradient(112.41deg, #1aa5bb, #1aa5bb 54.9%, #79e299);
+}
 .our-team-of9 {
   align-self: stretch;
   height: 115px;
@@ -1530,7 +1534,7 @@
   margin-left: -25px;
   font-size: var(--body-xl-size);
   font-family: var(--body-medium);
-}
+} 
 .container-parent,
 .service-cards,
 .services-background-parent {

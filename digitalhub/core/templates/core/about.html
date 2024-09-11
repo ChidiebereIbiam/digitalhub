@@ -14,7 +14,8 @@ About us -
                 <div class="">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" aria-current="page">Home / About us</li>
+                            <li class="breadcrumb-item"><a class="nav-link" href="{% url "home" %}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">About Us</li>
                         </ol>
                     </nav>
                     <h1 class="py-lg-3 fw-bolder main-header-text" id="big">About us</h1>
@@ -27,7 +28,7 @@ About us -
                     </div>
                 </div>
                 <div class="py-lg-4 mt-3 mt-md-0">
-                    <a href="{% url "contact_us" %}" class="main-btn"> Contact us Now </a>
+                    <a href="{% url "contact_us" %}" class="main-btn w-80 w-md-auto"> Contact us Now </a>
                 </div>
             </div>
             <div class="col-md-6">
