@@ -1437,8 +1437,22 @@ hr {
 }
 
 .main-btn:hover {
-  transform: translateY(-2px); /* Adds a hover effect that lifts the button */
-  background: linear-gradient(112.41deg, #79e299, #1aa5bb); /* Changes gradient on hover */
+  display: inline-block; /* Makes the element behave like a button */
+  padding: var(--padding-sm) 63px; /* Adds padding */
+  border-radius: var(--br-xl) 0 var(--br-xl) var(--br-xl); /* Rounded corners */
+  box-sizing: border-box; /* Ensures padding is included in width and height calculations */
+  border: none; /* Removes any default border */
+  font-size: var(--button-font-size); /* Keeps the font size variable */
+  line-height: 1.5; /* Maintains the line height */
+  font-weight: 700; /* Keeps the font weight bold */
+  font-family: var(--button-font); /* Uses the specified button font */
+  text-decoration: none; /* Removes underline from text */
+  text-align: center; /* Centers the text inside the button */
+  white-space: nowrap; /* Prevents text wrapping */
+  background: linear-gradient(112.41deg, #1aa5bb, #1aa5bb 54.9%, #79e299);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 /* Responsive adjustments for smaller screens */
@@ -1715,4 +1729,15 @@ Blog pagination
     margin-left: 20px;  /* Space on the left */
     margin-right: 20px; /* Space on the right */
   }
+}
+
+
+.pricing-card:hover {
+  background: #fff; /* Keep the inside background color */
+  border: 2px solid transparent !important;
+  border-radius: 20px !important;
+  background-image: linear-gradient(#fff, #fff), 
+                    linear-gradient(112.41deg, #1aa5bb, #79e299);
+  background-origin: border-box;
+  background-clip: content-box, border-box; /* Clip the background to border */
 }

@@ -473,6 +473,22 @@
   text-align: left;
   white-space: nowrap;
 }
+
+.i-am-an1:hover {
+  position: relative;
+  font-size: var(--button-font-size);
+  line-height: 24px;
+  font-weight: 700;
+  font-family: var(--button-font);
+  text-decoration: none; /* Removes underline from text */
+  text-align: center; /* Centers the text inside the button */
+  white-space: nowrap; /* Prevents text wrapping */
+  background: linear-gradient(112.41deg, #1aa5bb, #79e299); 
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  transition: background 0.3s ease, transform 0.3s ease; /* Adds a transition effect on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  -webkit-background-clip: text;
+}
 .button40,
 .notification-components {
   display: flex;
@@ -1683,6 +1699,8 @@
   text-align: left;
   white-space: nowrap;
 }
+
+
 .button48 {
   display: inline-flex; /* Use inline-flex to keep the button inline and flexible */
   align-items: center; /* Aligns items vertically centered */
@@ -1695,6 +1713,12 @@
   overflow: hidden; /* Ensures no overflow issues */
   text-overflow: ellipsis; /* Adds ellipsis if text overflows the container */
   min-width: fit-content; /* Ensures the button is at least wide enough for the content */
+}
+
+.button48:hover{
+  background-image: linear-gradient(#fff, #fff), 
+                    linear-gradient(112.41deg, #1aa5bb, #79e299);
+  border: 2px solid transparent !important;
 }
 .actions {
   cursor: pointer;
@@ -1914,6 +1938,7 @@
   box-sizing: border-box;
   white-space: nowrap;
 }
+
 
 @media (max-width: 767px) {
   .button49 {
