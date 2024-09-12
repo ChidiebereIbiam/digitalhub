@@ -1663,6 +1663,7 @@ Blog pagination
   position: fixed;
   bottom: 40px;
   right: 40px;
+  z-index: 9999;
 }
 
 .fixed-btm-top .scroll-to-top {
@@ -1675,6 +1676,7 @@ Blog pagination
   border-radius: 100%;
   padding-top: 10px;
   opacity: 0;
+  z-index: 9999;
 }
 
 .scroll-to-top.reveal {
@@ -1690,5 +1692,27 @@ Blog pagination
 @media (min-width: 768px) {
   .custom-hero-mobile-btn {
     width: auto;
+  }
+}
+
+.swiper {
+  width: auto;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media (max-width: 768px) {
+  .swiper {
+    width: calc(100% - 20px); /* Full width minus 20px for margin on both sides */
+    margin-left: 20px;  /* Space on the left */
+    margin-right: 20px; /* Space on the right */
   }
 }
