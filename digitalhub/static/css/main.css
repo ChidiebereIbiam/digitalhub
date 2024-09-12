@@ -1818,7 +1818,6 @@
   box-sizing: border-box;
   overflow: hidden;
   padding: 0 0 var(--padding-lg);
-  min-width: 286px;
   max-width: 100%;
 }
 .heading7,
@@ -3825,9 +3824,7 @@
   .transform-your-online2 {
     font-size: var(--font-size-19xl);
   }
-  .service-cards {
-    gap: var(--gap-mid);
-  }
+  
   .bundle-offers {
     font-size: var(--font-size-7xl);
   }
@@ -3849,8 +3846,15 @@
     flex-wrap: wrap;
   }
   .pricing-tier-card2 {
+    min-width: 320px !important;
     padding-bottom: var(--padding-9xl);
     box-sizing: border-box;
+  }
+  .pricing-tier-card {
+    min-width: 320px !important;
+  }
+  .pricing-tier-card1 {
+    min-width: 320px !important;
   }
   .content8 {
     gap: var(--gap-base);
@@ -4048,6 +4052,7 @@
   }
   .component-51,
   .service-card {
+    width: auto;
     padding-top: var(--padding-26xl);
     padding-bottom: var(--padding-xl);
     box-sizing: border-box;
