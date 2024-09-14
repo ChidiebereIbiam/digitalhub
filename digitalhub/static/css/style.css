@@ -1741,3 +1741,9 @@ Blog pagination
   background-origin: border-box;
   background-clip: content-box, border-box; /* Clip the background to border */
 }
+
+
+.call-us-btn {
+  text-decoration: none;
+  color: white;
+}
