@@ -163,4 +163,4 @@ cython_debug/
 
 
 /static_files
-/temp
+/tmp
