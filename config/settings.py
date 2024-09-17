@@ -42,7 +42,7 @@ DEBUG = env('DEBUG')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -118,20 +118,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 #LOCAL
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': os.environ.get('MYSQL_DATABASE'),
-#         'USER': os.environ.get('MYSQL_USER'),
-#         'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
-#         'HOST':os.environ.get('MYSQL_HOST'),
-#         'PORT':os.environ.get('MYSQL_PORT'),
-#         'OPTIONS': {
-#             'unix_socket': '/opt/lampp/var/mysql/mysql.sock',
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         },
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -141,10 +127,24 @@ DATABASES = {
         'HOST':os.environ.get('MYSQL_HOST'),
         'PORT':os.environ.get('MYSQL_PORT'),
         'OPTIONS': {
+            'unix_socket': '/opt/lampp/var/mysql/mysql.sock',
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': os.environ.get('MYSQL_DATABASE'),
+#         'USER': os.environ.get('MYSQL_USER'),
+#         'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
+#         'HOST':os.environ.get('MYSQL_HOST'),
+#         'PORT':os.environ.get('MYSQL_PORT'),
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         },
+#     }
+# }
 
 AUTH_USER_MODEL = 'authentication.User'
 # Password validation
