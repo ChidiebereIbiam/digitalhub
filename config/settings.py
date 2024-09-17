@@ -187,8 +187,8 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [str(APPS_DIR / "static")]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = 'https://media.247digitalhub.com/'
+MEDIA_ROOT = '/home/qs29flp56hco/media.247digitalhub.com'
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
