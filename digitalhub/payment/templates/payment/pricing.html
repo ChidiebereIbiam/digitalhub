@@ -281,7 +281,7 @@ Pricing -
               <p>{{plan.description}}</p>
             </div>
             <div class="">
-              <h4 class="amount mb-0">${{plan.price}} <small>/ month</small></h4>
+              <h4 class="amount mb-0">${{plan.price}} <small>/{{plan.duration_type}}</small></h4>
               <a href="{% url 'contact_us' %}" class="i-am-an1 btn btn-sm w-100 text-center mt-3">Choose Plan</a>
             </div>
           </div>
@@ -305,7 +305,7 @@ Pricing -
             <p>{{plan.description}}</p>
           </div>
           <div class="">
-            <h4 class="amount mb-0">${{plan.price}} <small>/ month</small></h4>
+            <h4 class="amount mb-0">${{plan.price}} <small>/ {{plan.duration_type}}</small></h4>
             <a href="{% url 'create_checkout_session' %}?id={{plan.id}}&plan_type=standalone" class="i-am-an1 btn btn-sm w-100 text-center mt-3">Choose Plan</a>
           </div>
         </div>
@@ -444,7 +444,7 @@ Pricing -
               <p>{{plan.description}}</p>
             </div>
             <div class="">
-              <h4 class="amount mb-0">${{plan.price}} <small>/ month</small></h4>
+              <h4 class="amount mb-0">${{plan.price}} <small>/ {{plan.duration_type}}</small></h4>
               <a href="{% url 'contact_us' %}" class="i-am-an1 btn btn-sm w-100 text-center mt-3">Choose Plan</a>
             </div>
           </div>
@@ -469,7 +469,7 @@ Pricing -
             <p>{{plan.description}}</p>
           </div>
           <div class="">
-            <h4 class="amount mb-0">${{plan.price}} <small>/ month</small></h4>
+            <h4 class="amount mb-0">${{plan.price}} <small>/ {{plan.duration_type}}</small></h4>
             <a href="{% url 'contact_us' %}" class="i-am-an1 btn btn-sm w-100 text-center mt-3">Choose Plan</a>
           </div>
         </div>
@@ -493,7 +493,7 @@ Pricing -
             <p>{{plan.description}}</p>
           </div>
           <div class="">
-            <h4 class="amount mb-0">${{plan.price}} <small>/ month</small></h4>
+            <h4 class="amount mb-0">${{plan.price}} <small>/ {{plan.duration_type}}</small></h4>
             <a href="{% url 'contact_us' %}" class="i-am-an1 btn btn-sm w-100 text-center mt-3">Choose Plan</a>
           </div>
         </div>
