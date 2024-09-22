@@ -42,7 +42,7 @@ DEBUG = env('DEBUG')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["247digitalhub.com", "localhost"]
 CSRF_TRUSTED_ORIGINS = ['https://247digitalhub.com/', 'https://247digitalhub.com']
@@ -142,6 +142,7 @@ DATABASES = {
         'HOST':os.environ.get('MYSQL_HOST'),
         'PORT':os.environ.get('MYSQL_PORT'),
         'OPTIONS': {
+            'unix_socket': '/opt/lampp/var/mysql/mysql.sock',
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },
     }
@@ -187,8 +188,11 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [str(APPS_DIR / "static")]
 
-MEDIA_URL = 'https://media.247digitalhub.com/'
-MEDIA_ROOT = '/home/qs29flp56hco/media.247digitalhub.com'
+# MEDIA_URL = 'https://media.247digitalhub.com/'
+# MEDIA_ROOT = '/home/qs29flp56hco/media.247digitalhub.com'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
