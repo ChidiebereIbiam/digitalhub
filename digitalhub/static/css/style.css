@@ -157,7 +157,8 @@ img {
     max-width: 100%;
     overflow: hidden;
     max-height: 100%;
-    object-fit: top;
+    object-fit: cover;
+    object-position: top;
     z-index: 1;
   }
   .john-queens {
