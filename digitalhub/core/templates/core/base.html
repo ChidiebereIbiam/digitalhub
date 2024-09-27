@@ -329,6 +329,14 @@
     <script src="{% static 'js/toastr.min.js' %}"></script>
 
     <script>
+        
+        function callNumber(phone) {
+            window.location.href = `tel:${phone}`;
+        }
+
+        function sendEmail(email) {
+            window.location.href = `mailto:${email}`;
+        } 
         // Function to display Toastr notification for success message
         function showSuccessNotification(message) {
           toastr.success(message);
