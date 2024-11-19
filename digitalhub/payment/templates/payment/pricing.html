@@ -32,13 +32,14 @@ Pricing -
 <!-- Social Proof Section -->
 {% include "core/components/social_proof_section.html" %}
 
+<div class="container mb-4 standalone">
+  <h3> Bundle offers <small class="text-small">(Requires a 12-month contract)</small></h3>
+</div>
+
 <section class="container-wrapper mt-5 ">
   <div class="container6">
     <div class="pricing-header">
-      <div class="pricing-titles">
-
-        <h1 class="bundle-offers">Bundle offers</h1>
-      </div>
+      
       <div class="content8">
         {% for bundle in bundleplan %}
           {% if bundle.title == "Basic Plan" %}
@@ -264,7 +265,15 @@ Pricing -
 </section>
 
 <div class="container mb-4 standalone">
-  <h3> Stand-alone offers</h3>
+  <h3> Stand-alone offers <small class="text-small">(No Contract Required)</small></h3>
+</div>
+
+<div class="container mt-5 mb-5 standalone">
+  <h5> Note:</h5>
+  <ul>
+    <li>12-month Commitment for all Bundles</li>
+    <li>Third Party Budgets are not included in the price list</li>
+  </ul>
 </div>
 
 <div class="container mt-5 standalone-prices">
@@ -503,13 +512,13 @@ Pricing -
   </div>
 </div>
 
-<div class="container mt-5 mb-5 standalone">
+{% comment %} <div class="container mt-5 mb-5 standalone">
   <h5> Note:</h5>
   <ul>
     <li>12-month Commitment for all Bundles</li>
     <li>Third Party Budgets are not included in the price list</li>
   </ul>
-</div>
+</div> {% endcomment %}
 
 <!-- Contact Form -->
 {% include "core/components/contact_us_section.html" %}
