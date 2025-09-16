@@ -25,3 +25,4 @@ stripe==10.8.0
 typing_extensions==4.12.2
 urllib3==2.2.2
 whitenoise==6.4.0
+django-environ==0.12.0
