@@ -1584,10 +1584,10 @@ hr {
   height: 350px; /* Increase height for the middle image */
 }
 
-.social-proof{
+.social-proof {
   background-color: var(--color-azure-100);
   align-items: center;
-  padding: var(--padding-21xl) var(--padding-xl);
+  padding: var(--padding-xl) var(--padding-xl);
   box-sizing: border-box;
   gap: var(--gap-13xl);
   max-width: 100%;
@@ -1598,34 +1598,65 @@ hr {
 }
 
 .social-proof-image {
-  width: 100px;  /* Set your desired width */
-  height: auto;  /* Adjust height proportionally */
-  object-fit: cover; /* Ensure the entire image fits within the defined width */
+  width: 100px;
+  height: auto;  
+  object-fit: cover;
 }
 
-@media (max-width: 768px) {
-  .social-logos {
-      display: flex;
-      flex-wrap: wrap;
-  }
+/* Infinite scrolling container */
+.social-logos-scroll {
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: var(--gap-5xl, 2rem);
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
 
-  .social-logos .col-4 {
-      width: 33.3333%;
-      max-width: 33.3333%;
-      flex: 0 0 33.3333%;
+.social-logos-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 4rem;
+  animation: scroll-left 50s linear infinite;
+}
+
+.social-logo-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* The key to smooth infinite scroll: move by exactly 50% */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-@media (min-width: 768px) {
-  .social-logos {
-      display: flex;
-      justify-content: space-between;  /* Spread logos across the entire row */
-      flex-wrap: wrap;
-  }
+/* Optional: Pause on hover */
+.social-logos-scroll:hover .social-logos-content {
+  animation-play-state: paused;
+}
 
-  .social-logos .col-md-2 {
-      flex: 0 0 16.6667%;  /* Ensures that 6 logos fit in one line */
-      max-width: 16.6667%;
+/* Fallback for older browsers or if animation is disabled */
+@media (prefers-reduced-motion: reduce) {
+  .social-logos-content {
+    animation: none;
+  }
+  
+  .social-logos-scroll {
+    overflow-x: auto;
+  }
+  
+  .social-logos-content {
+    justify-content: space-between;
+    width: 100%;
+    min-width: 100%;
   }
 }
 
