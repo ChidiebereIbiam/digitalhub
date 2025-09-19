@@ -1,0 +1,153 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load my_filters %}
+{% block title %}
+Virtual assistant services -
+{% endblock title %}
+
+{% block herosection %}
+<section class="herosection">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a class="nav-link" href="{% url "home" %}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Virtual assistant services</li>
+                        </ol>
+                    </nav>
+                    <h1 class="py-lg-3 fw-bolder main-header-text" id="big">Professional Virtual Assistants for $10/hr</h1>
+                
+                </div>
+                <div class="py-lg-4 mt-3 mt-md-0 ">
+                    <a href="{% url "contact_us" %}" class="main-btn custom-hero-mobile-btn"> Contact us Now </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+
+                <img src="{% static "images/va-hero.png" %}" class="img-fluid mt-0" alt="Virtual assistant services">
+
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock herosection %}
+
+
+{% block main %}
+<!-- Social Proof Section -->
+{% include "core/components/social_proof_section.html" %}
+
+<section>
+    <div class="container mt-5 mb-4">
+        <div class="row">
+            <div class="col-sm-6">
+                <h5 class="text-custom-color">Hire Virtual Assistants</h5>
+                <p class="section-subtitle mt-2">Grow Smarter with Dedicated Virtual Assistants</p>
+
+                <p class="text-secondary">Managing a business is demanding, and repetitive tasks can slow you down. <br>
+                    Our Virtual Assistant Services provide affordable, professional help for administrative, marketing, 
+                    and customer support tasks — without the overhead of full-time hiring </p>
+
+                <h5 class="text-secondary"> With just $10/hr, you get: </h5>
+                
+                <p class="text-secondary"> <i class="bi bi-check-circle-fill check-item"></i>A dedicated, trained assistant</p>
+                <p class="text-secondary"> <i class="bi bi-check-circle-fill check-item"></i> On-demand support tailored to your workflow</p>
+                <p class="text-secondary"> <i class="bi bi-check-circle-fill check-item"></i> Flexibility to scale up or down as needed</p>
+                
+
+                <div class="py-lg-4 mt-3 mt-md-0 mb-4">
+                    <a href="{% url "contact_us" %}" class="main-btn custom-hero-mobile-btn"> Get started Now  </a>
+                </div>
+            </div>
+            
+            <div class="col-sm-6">
+                <img src="{% static 'images/va-woman.png' %}" class="img-fluid" alt="Virtual assistant image">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<h2 class="what-youll-get text-center mt-5">What Our VAs Can Do</h2>
+
+<section class="benefits container mt-4">
+    <div class="row">
+        
+        <div class="col-sm-4 text-md-start mb-2">
+            <img src="{% static 'images/assets/bold-1.png' %}" class="benefit-image mb-4" alt="">
+            <h5 class="text-secondary">Administrative & Business Support</h5>
+            <ul>
+                <li class="text-secondary"> Calendar scheduling & appointment booking </li>
+                <li class="text-secondary">Data entry & record organization </li>
+                <li class="text-secondary"> Travel planning & coordination </li>
+                <li class="text-secondary">Vendor communication & basic project coordination </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-4  text-md-start mb-2">
+            <img src="{% static 'images/assets/bold-2.png' %}" class="benefit-image mb-4" alt="">
+            <h5 class="text-secondary">Customer & Operations Support</h5>
+            <ul>
+                <li class="text-secondary"> Respond to inquiries via chat, email, or phone</li>
+                <li class="text-secondary"> Order tracking & issue resolution </li>
+                <li class="text-secondary"> Feedback collection & reporting </li>
+                <li class="text-secondary"> Basic client communication management</li>
+            </ul>
+        </div>
+        
+
+        <div class="col-sm-4  text-md-start mb-2">
+            <img src="{% static 'images/assets/bold-3.png' %}" class="benefit-image mb-4" alt="">
+            <h5 class="text-secondary">Marketing & Research Support</h5>
+            <ul>
+                <li class="text-secondary"> Social media scheduling & basic engagement </li>
+                <li class="text-secondary">Simple graphics for posts or content formatting</li>
+                <li class="text-secondary"> Market and competitor research</li>
+                <li class="text-secondary">Report preparation and summaries</li>
+            </ul>
+        </div>
+        
+        
+    </div>
+</section>
+
+<section>
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-sm-6 mb-3">
+                <img src="{% static 'images/va-male.png' %}" class="img-fluid" alt="Virtual assistant image">
+            </div>
+            <div class="col-sm-6">
+                <p class="section-subtitle">Industries We Serve</p>
+
+                <p class="text-secondary mt-3">Our Virtual Assistants are trained to support a variety of industries. 
+                    Whether you're a startup or a growing enterprise, we provide specialized assistance that
+                     understands your sector's unique challenges.</p>
+
+                
+                <p class="text-secondary"> <i class="bi bi-check-circle-fill check-item"></i>E-commerce</p>
+                <p class="text-secondary"> <i class="bi bi-check-circle-fill check-item"></i> Real Estate</p>
+                <p class="text-secondary"> <i class="bi bi-check-circle-fill check-item"></i> Healthcare</p>
+                <p class="text-secondary"> <i class="bi bi-check-circle-fill check-item"></i> IT & Software </p>
+                <p class="text-secondary"> <i class="bi bi-check-circle-fill check-item"></i> Accounting & Finance </p>
+                <p class="text-secondary"> <i class="bi bi-check-circle-fill check-item"></i> Law Firms</p>
+                
+            </div>
+            
+           
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form -->
+{% include "core/components/contact_us_section.html" %}
+
+<!-- Newsletter Sign-Up -->
+{% include "core/components/newsletter_section.html" %}
+{% endblock %}

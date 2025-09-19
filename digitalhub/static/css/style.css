@@ -735,8 +735,6 @@ hr {
 
 
 @media (max-width:500px) {
-
-    .bi,
     .search_wrap {
         visibility: hidden;
         opacity: 0;
@@ -1461,8 +1459,10 @@ hr {
   .main-btn {
     padding: var(--padding-xs) 40px; /* Reduces padding on smaller screens */
     font-size: calc(var(--button-font-size) - 2px); /* Slightly smaller font size */
+  }
+  .main-btn .full-size{
+    width: 100vw !important;
 
-    
   }
 }
 
@@ -1747,4 +1747,26 @@ Blog pagination
 .call-us-btn {
   text-decoration: none;
   color: white;
+}
+
+/* 
+=====================
+VA ASSISTANT SECTION 
+=====================
+*/
+.section-subtitle{
+  color: #545454;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: "DM Sans";
+}
+.check-item{
+  color: rgb(26, 165, 187);
+  margin-right: 0.5rem;
+}
+.va-price{
+  color: rgb(26, 165, 187);
+  font-size: 16px;
+  font-weight: normal;
+
 }

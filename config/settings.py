@@ -41,8 +41,7 @@ DEBUG = env('DEBUG')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+
 
 ALLOWED_HOSTS = ["247digitalhub.com", "localhost", 'www.247digitalhub.com']
 CSRF_TRUSTED_ORIGINS = ['https://247digitalhub.com/', 'https://247digitalhub.com', 'https://www.247digitalhub.com', 'https://www.247digitalhub.com/']

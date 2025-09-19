@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', views.home, name="home"),
@@ -9,4 +10,5 @@ urlpatterns = [
     path('privacy-policy/', views.privacy_policy, name="privacy_policy"),
     path("services", views.services, name="services"),
     path('service/<slug:slug>', views.service_details, name="service_details"),
+    path('virtual-assistant-services/', TemplateView.as_view(template_name="core/va.html"), name="virtual_assistant_services"),
 ]
