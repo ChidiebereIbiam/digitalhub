@@ -6,8 +6,9 @@
         <div class="col-lg-5 col-12 mb-4">
             <h5 class="text-custom-color">Contact us</h5>
             <h3>Let's help you understand your business</h3>
-            <form class="contact-form" method="post" action="{% url "contact_us" %}">
+            <form class="contact-form" method="post" action="{% url "contact_us" %}" id="contact-form">
               {% csrf_token %}
+              <input type="hidden" name="contact-input" autocomplete="off">
                 <div class="mb-3">
                   <label for="name" class="form-label">Name</label>
                   <div class="input-group">
@@ -48,7 +49,11 @@
                     
                   </div>
                 </div>
-                <button type="submit" class="main-btn w-100 mb-3">Submit</button>
+                <button type="submit" class="main-btn w-100 mb-3 g-recaptcha"
+                data-sitekey="{{reCAPTCHA_site_key}}" 
+                data-callback='onSubmit' 
+                data-action='submit'
+                >Submit</button>
               </form>
               
         </div>
@@ -68,3 +73,10 @@
         </div>
     </div>
 </div>
+
+<script src="https://www.google.com/recaptcha/api.js"></script>
+ <script>
+   function onSubmit(token) {
+     document.getElementById("contact-form").submit();
+   }
+ </script>

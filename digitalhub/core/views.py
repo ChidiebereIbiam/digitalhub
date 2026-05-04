@@ -4,6 +4,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
+import requests
 from .models import Review, Service, Team
 from digitalhub.blog.models import Post
 from digitalhub.payment.models import BundlePlan
@@ -28,6 +29,44 @@ def about(request):
 
 def contact_us(request):
     if request.method == "POST":
+        #Honey pot validation
+        if request.POST.get('contact-input'):
+            return redirect('contact_us')
+
+        recaptcha_token = request.POST.get("g-recaptcha-response")
+        if not recaptcha_token or not settings.RECAPTCHA_PRIVATE_KEY:
+            messages.error(request, "Captcha validation failed, please try again.")
+            return redirect("contact_us")
+
+        try:
+            recaptcha_response = requests.post(
+                "https://www.google.com/recaptcha/api/siteverify",
+                data={
+                    "secret": settings.RECAPTCHA_PRIVATE_KEY,
+                    "response": recaptcha_token,
+                    "remoteip": request.META.get("REMOTE_ADDR"),
+                },
+                timeout=5,
+            )
+            recaptcha_result = recaptcha_response.json()
+        except requests.RequestException:
+            messages.error(request, "Captcha validation failed, please try again.")
+            return redirect("contact_us")
+
+        if not recaptcha_result.get("success"):
+            messages.error(request, "Captcha validation failed, please try again.")
+            return redirect("contact_us")
+
+        recaptcha_action = recaptcha_result.get("action")
+        recaptcha_score = recaptcha_result.get("score")
+        if recaptcha_action and recaptcha_action != "submit":
+            messages.error(request, "Captcha validation failed, please try again.")
+            return redirect("contact_us")
+
+        if recaptcha_score is not None and recaptcha_score < 0.5:
+            messages.error(request, "Captcha validation failed, please try again.")
+            return redirect("contact_us")
+        
         name = request.POST["name"]
         email_from = request.POST["email"]
         subject = request.POST["subject"]
@@ -62,7 +101,7 @@ def contact_us(request):
         except:
             messages.error(request, "An error occured, try again")
 
-        redirect("contact_us")
+        return redirect("contact_us")
     return render(
         request,
         "core/contact_us.html",

@@ -1,4 +1,5 @@
 from .models import Service
+from django.conf import settings
 
 def persistent_settings(request):
     context = {
@@ -14,4 +15,6 @@ def persistent_settings(request):
         services = None
     if services:
         context["services"]=services
+
+    context["reCAPTCHA_site_key"] = settings.RECAPTCHA_PUBLIC_KEY
     return context
