@@ -22,8 +22,7 @@ def home(request):
 
 
 def about(request):
-    teams = Team.objects.all()
-    context = {"teams": teams}
+    context = {}
     return render(request, "core/about.html", context)
 
 
